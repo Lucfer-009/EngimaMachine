@@ -8,5 +8,11 @@ namespace Brad_s_Engima_Machine
 {
     class Reverser
     {
+
+    }
+
+    class ReverserArray : LookupArray
+    {
+
     }
 }

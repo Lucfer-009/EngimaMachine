@@ -8,5 +8,11 @@ namespace Brad_s_Engima_Machine
 {
     class Cog
     {
+
+    }
+
+    class CogArray : LookupArray
+    { 
+
     }
 }
