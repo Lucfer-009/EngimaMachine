@@ -9,4 +9,9 @@ namespace Brad_s_Engima_Machine
     class SwitchBoard
     {
     }
+
+    class SwitchArray : LookupArray
+    {
+
+    }
 }
