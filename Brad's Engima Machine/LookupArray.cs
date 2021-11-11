@@ -8,5 +8,12 @@ namespace Brad_s_Engima_Machine
 {
     class LookupArray
     {
+        private int[] shiftArray;
+
+        public LookupArray(int size)
+        {
+            shiftArray = new int[size];
+        }
+
     }
 }

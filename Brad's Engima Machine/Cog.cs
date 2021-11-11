@@ -12,7 +12,7 @@ namespace Brad_s_Engima_Machine
     }
 
     class CogArray : LookupArray
-    { 
+    {
 
     }
 }
