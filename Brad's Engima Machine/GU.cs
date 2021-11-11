@@ -14,7 +14,7 @@ namespace Brad_s_Engima_Machine
         // --
         // Names of procedures should be explination enough as to their purpose. Although, further annotaion is given if needed.
 
-        static readonly int version = 1;
+        public static readonly double version = 1.1;
 
         public static void DisplayErrorState(Exception e, string error, string section, string note = "N/A")
         {
