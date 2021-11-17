@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <Folder Include="log files\" />
+    <Folder Include="cogs\" />
     <Folder Include="settings files\" />
   </ItemGroup>
 
