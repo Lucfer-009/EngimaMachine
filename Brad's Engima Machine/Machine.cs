@@ -37,13 +37,51 @@ namespace Brad_s_Engima_Machine
             log = new LogFile(ID);  // File name here is the short date + the ID of the Machine
         }
 
-        public void powerOn()
+        public void PowerOn()
         {
             log.Write("Machine.powerOn()", "First boot of engima machine");
+            log.Close();
+
+            for(int x = 0; x < 3; x++)
+            {
+                GU.Print("Enter your cogs from right to left from the options below: ");
+                int C = GetCogChoice($"{x+1}");
+                int S = GU.GetIntWithinBound($"Enter start position for cog {C}", 0, 26);
+                int R = GU.GetIntWithinBound($"Enter ring position for cog {C}", 0, 26);
+
+                machineCogs[x] = new Cog(26, C, S, R);
+            }
             
         }
 
-        private bool checkIfTraditionalCompatible(string input)
+        private void KeyByKeyEntry()
+        {
+
+        }
+
+        private void LiveRead()
+        {
+
+        }
+
+        private void FileRead()
+        {
+
+        }
+
+        private int GetCogChoice(string position)
+        {
+            Console.WriteLine("-- -- -- -- -- -- -- --");
+            Console.WriteLine("Cog I   :   Cog IV");
+            Console.WriteLine("Cog II  :   Cog V");
+            Console.WriteLine("Cog III :");
+            Console.WriteLine("-- -- -- -- -- -- -- --");
+            int x = GU.GetIntWithinBound($"Enter cog {position} ", 1, 5);
+
+            return x;
+        }
+
+        private bool CheckIfTraditionalCompatible(string input)
         { // Ensures that a user only enters letters or spaces. Will ask them to re-enter the message otherwise.
             bool test = false;
             bool flag = false;

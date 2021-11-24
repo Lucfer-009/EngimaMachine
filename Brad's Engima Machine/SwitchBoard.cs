@@ -12,6 +12,8 @@ namespace Brad_s_Engima_Machine
 
     class SwitchArray : LookupArray
     {
-
+        public SwitchArray(int size, string fileLocation) : base(size, fileLocation)
+        {
+        }
     }
 }

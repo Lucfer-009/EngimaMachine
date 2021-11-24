@@ -11,17 +11,18 @@ namespace Brad_s_Engima_Machine
     {
         protected int[] shiftArray;
         protected int size;
-        protected string fileLocation;
+        protected string cogFileLocation;
 
-        public LookupArray(int size, string fileLocation)
+        public LookupArray(int size, string fileLocation = "x")
         {
             shiftArray = new int[size];
-            shiftArray = FileToShiftArray();
             this.size = size;
-            this.fileLocation = fileLocation;
+            this.cogFileLocation = fileLocation;
+            shiftArray = FileToShiftArray();
+
         }
 
-        protected virtual int forwardParse(int letterIndex)
+        public virtual int ForwardParse(int letterIndex)
         {
             int x = (shiftArray[(letterIndex % size)] + letterIndex) % size;
             return x;
@@ -31,7 +32,7 @@ namespace Brad_s_Engima_Machine
         {
             int[] current = new int[size];
             string key = "";
-            StreamReader sr = new StreamReader(fileLocation);
+            StreamReader sr = new StreamReader(cogFileLocation);
             key = sr.ReadLine();
             sr.Close();
 

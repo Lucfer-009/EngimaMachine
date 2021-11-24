@@ -188,6 +188,7 @@ namespace Brad_s_Engima_Machine
                     {
                         throw new Exception("Integer provided is out of desired bounds");
                     }
+                    X = y;
                     check = false;
                 }
                 catch

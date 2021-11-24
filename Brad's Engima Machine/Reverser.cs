@@ -13,6 +13,8 @@ namespace Brad_s_Engima_Machine
 
     class ReverserArray : LookupArray
     {
-
+        public ReverserArray(int size, string fileLocation) : base(size, fileLocation)
+        {
+        }
     }
 }

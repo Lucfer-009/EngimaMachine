@@ -15,15 +15,31 @@ namespace Brad_s_Engima_Machine
 
         public Cog(int size, int cogChosen, int currentPos, int ringPos)
         {
-            cogFileLocation += $"{cogChosen}.txt";
+            cogFileLocation += $"cog{cogChosen}.txt";
             int startShift = (currentPos - ringPos) % size;
             this.size = size;
-            cypher = new CogArray(this, startShift);
+            cypher = new CogArray(startShift, size, cogFileLocation);
+        }
+
+        public char Parse(char _in, bool forward)
+        {
+            char _out = ' ';
+            int v;
+            if (forward == true)
+            {
+                v = cypher.ForwardParse(GU.AlphaCharToIntIndex(_in));
+            }
+            else
+            {
+                v = cypher.reverseParse(GU.AlphaCharToIntIndex(_in));
+            }
+
+            _out = GU.IntIndexToAlphaChar(v);
+            return _out;
         }
 
 
         public int GetSize() { return size; }
-        //public int GetTurnover() { return turnover; }
         public string GetCogFileLocation() { return cogFileLocation; }
 
     }
@@ -32,13 +48,12 @@ namespace Brad_s_Engima_Machine
     {
         private int shift;
         private int turnover;
-        public CogArray(Cog click, int shift) : base(click.GetSize(), click.GetCogFileLocation())
+        public CogArray(int shift, int size, string fileLocation) : base(size, fileLocation)
         {
             this.shift = shift;
-            shiftArray = FileToShiftArray();
         }
 
-        protected override int forwardParse(int letterIndex)
+        public override int ForwardParse(int letterIndex)
         {
             int x = (shiftArray[(letterIndex + shift) % size] + letterIndex) % size;
             return x;
@@ -53,9 +68,8 @@ namespace Brad_s_Engima_Machine
         protected override int[] FileToShiftArray()
         {
             int[] current = new int[size];
-            string key = "";
-            StreamReader sr = new StreamReader(fileLocation);
-            key = sr.ReadLine();
+            StreamReader sr = new StreamReader(cogFileLocation);
+            string key = sr.ReadLine();
             sr.Close();
 
             string[] slice = key.Split(','); // Cog file needs to read the turnover from a file

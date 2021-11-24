@@ -15,3 +15,20 @@ C:\Users\Brad\Documents\GitHub\EngimaMachine\Brad's Engima Machine\obj\Debug\net
 C:\Users\Brad\Documents\GitHub\EngimaMachine\Brad's Engima Machine\obj\Debug\net5.0\Brad's Engima Machine.pdb
 C:\Users\Brad\Documents\GitHub\EngimaMachine\Brad's Engima Machine\obj\Debug\net5.0\Brad's Engima Machine.genruntimeconfig.cache
 C:\Users\Brad\Documents\GitHub\EngimaMachine\Brad's Engima Machine\obj\Debug\net5.0\Brad's Engima Machine.csproj.ResolveComReference.cache
+F:\VS Projects\Project\Lucfer-009\EngimaMachine\Brad's Engima Machine\obj\Debug\net5.0\Brad's Engima Machine.csproj.AssemblyReference.cache
+F:\VS Projects\Project\Lucfer-009\EngimaMachine\Brad's Engima Machine\obj\Debug\net5.0\Brad's Engima Machine.csproj.ResolveComReference.cache
+F:\VS Projects\Project\Lucfer-009\EngimaMachine\Brad's Engima Machine\obj\Debug\net5.0\Brad's Engima Machine.GeneratedMSBuildEditorConfig.editorconfig
+F:\VS Projects\Project\Lucfer-009\EngimaMachine\Brad's Engima Machine\obj\Debug\net5.0\Brad's Engima Machine.AssemblyInfoInputs.cache
+F:\VS Projects\Project\Lucfer-009\EngimaMachine\Brad's Engima Machine\obj\Debug\net5.0\Brad's Engima Machine.AssemblyInfo.cs
+F:\VS Projects\Project\Lucfer-009\EngimaMachine\Brad's Engima Machine\obj\Debug\net5.0\Brad's Engima Machine.csproj.CoreCompileInputs.cache
+F:\VS Projects\Project\Lucfer-009\EngimaMachine\Brad's Engima Machine\obj\Debug\net5.0\Brad's Engima Machine.dll
+F:\VS Projects\Project\Lucfer-009\EngimaMachine\Brad's Engima Machine\obj\Debug\net5.0\ref\Brad's Engima Machine.dll
+F:\VS Projects\Project\Lucfer-009\EngimaMachine\Brad's Engima Machine\obj\Debug\net5.0\Brad's Engima Machine.pdb
+F:\VS Projects\Project\Lucfer-009\EngimaMachine\Brad's Engima Machine\bin\Debug\net5.0\Brad's Engima Machine.exe
+F:\VS Projects\Project\Lucfer-009\EngimaMachine\Brad's Engima Machine\bin\Debug\net5.0\Brad's Engima Machine.deps.json
+F:\VS Projects\Project\Lucfer-009\EngimaMachine\Brad's Engima Machine\bin\Debug\net5.0\Brad's Engima Machine.runtimeconfig.json
+F:\VS Projects\Project\Lucfer-009\EngimaMachine\Brad's Engima Machine\bin\Debug\net5.0\Brad's Engima Machine.runtimeconfig.dev.json
+F:\VS Projects\Project\Lucfer-009\EngimaMachine\Brad's Engima Machine\bin\Debug\net5.0\Brad's Engima Machine.dll
+F:\VS Projects\Project\Lucfer-009\EngimaMachine\Brad's Engima Machine\bin\Debug\net5.0\ref\Brad's Engima Machine.dll
+F:\VS Projects\Project\Lucfer-009\EngimaMachine\Brad's Engima Machine\bin\Debug\net5.0\Brad's Engima Machine.pdb
+F:\VS Projects\Project\Lucfer-009\EngimaMachine\Brad's Engima Machine\obj\Debug\net5.0\Brad's Engima Machine.genruntimeconfig.cache
