@@ -9,7 +9,7 @@ namespace Brad_s_Engima_Machine
 {
     class LogFile
     {
-        private const string defaultPath = @"F:\VS Projects\Project\Lucfer-009\EngimaMachine\Brad's Engima Machine\log files\";
+        private const string defaultPath = @"C:\Users\Brad\Documents\GitHub\EngimaMachine\Brad's Engima Machine\log files\";
         private string address;
 
         private string currentTime = DateTime.Now.ToString("HH:mm:ss");

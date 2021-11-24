@@ -32,13 +32,15 @@ namespace Brad_s_Engima_Machine
             return x;
         }
 
-        public void IncrementCog()
+        public bool IncrementCog()
         {
             shift++;
             if(shift % __size == 0 )
             {
-                +
+                shift = 0;
+                return true;
             }
+            else { return false; }
         }
 
         protected override int[] FileToShiftArray()

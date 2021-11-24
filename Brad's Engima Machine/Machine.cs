@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,10 +42,11 @@ namespace Brad_s_Engima_Machine
         {
             log.Write("Machine.powerOn()", "First boot of engima machine");
 
+            List<int> choiceOfCogs = new List<int> { 1, 2, 3, 4, 5 };
             for(int x = 0; x < 3; x++)
             {
                 GU.Print("Enter your cogs from right to left from the options below: "); // Gathers essential settings
-                int C = GetCogChoice($"{x+1}");
+                int C = GetCogChoice($"{x+1}", ref choiceOfCogs);
                 int S = GU.GetIntWithinBound($"Enter start position for cog {C}", 0, defaultArraySize); // Start Position
                 int R = GU.GetIntWithinBound($"Enter ring position for cog {C}", 0, defaultArraySize); // Ring Position
 
@@ -71,16 +73,34 @@ namespace Brad_s_Engima_Machine
 
         }
 
-        private int GetCogChoice(string position)
-        {
-            Console.WriteLine("-- -- -- -- -- -- -- --");
-            Console.WriteLine("Cog I   :   Cog IV");
-            Console.WriteLine("Cog II  :   Cog V");
-            Console.WriteLine("Cog III :");
-            Console.WriteLine("-- -- -- -- -- -- -- --");
-            int x = GU.GetIntWithinBound($"Enter cog {position} ", 1, 5);
+        
 
-            return x;
+        private int GetCogChoice(string position, ref List<int> choiceOfCogs)
+        {
+            int cog = -1;
+
+            bool clear = false;
+            while(clear == false)
+            {
+                GU.Print("- Avaliable Cogs -");
+                foreach(int N in choiceOfCogs)
+                {
+                    GU.Print($"> Cog {N}");
+                }
+                cog = GU.GetIntWithinBound($"Enter cog {position} ", 1, 5);
+                if(choiceOfCogs.Contains(cog))
+                {
+                    choiceOfCogs.Remove(cog);
+                    clear = true;
+                }
+                else
+                {
+                    GU.Print("ERROR | You can not enter the same cog more than once!");
+                }
+            }
+                
+            if(cog == -1) { throw new Exception("Issue with cog assignment in Machine.GetCogChoice()"); }
+            return cog;
         }
 
         private bool CheckIfTraditionalCompatible(string input)
