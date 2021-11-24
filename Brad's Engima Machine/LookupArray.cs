@@ -9,30 +9,29 @@ namespace Brad_s_Engima_Machine
 {
     class LookupArray
     {
-        protected int[] shiftArray;
-        protected int size;
-        protected string cogFileLocation;
+        protected int[] __shiftArray;
+        protected int __size;
+        protected string __cogFileLocation;
 
-        public LookupArray(int size, string fileLocation = "x")
+        public LookupArray(int size, string cogFileLocation)
         {
-            shiftArray = new int[size];
-            this.size = size;
-            this.cogFileLocation = fileLocation;
-            shiftArray = FileToShiftArray();
+            __shiftArray = new int[size];
+            this.__size = size;
+            this.__cogFileLocation = cogFileLocation;
 
         }
 
         public virtual int ForwardParse(int letterIndex)
         {
-            int x = (shiftArray[(letterIndex % size)] + letterIndex) % size;
+            int x = (__shiftArray[(letterIndex % __size)] + letterIndex) % __size;
             return x;
         }
 
         protected virtual int[] FileToShiftArray()
         {
-            int[] current = new int[size];
+            int[] current = new int[__size];
             string key = "";
-            StreamReader sr = new StreamReader(cogFileLocation);
+            StreamReader sr = new StreamReader(__cogFileLocation);
             key = sr.ReadLine();
             sr.Close();
 
