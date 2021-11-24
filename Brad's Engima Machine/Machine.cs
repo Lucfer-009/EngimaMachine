@@ -40,7 +40,6 @@ namespace Brad_s_Engima_Machine
         public void PowerOn()
         {
             log.Write("Machine.powerOn()", "First boot of engima machine");
-            log.Close();
 
             for(int x = 0; x < 3; x++)
             {
