@@ -23,7 +23,7 @@ namespace Brad_s_Engima_Machine
 
 
         public int GetSize() { return size; }
-        public int GetTurnover() { return turnover; }
+        //public int GetTurnover() { return turnover; }
         public string GetCogFileLocation() { return cogFileLocation; }
 
     }
