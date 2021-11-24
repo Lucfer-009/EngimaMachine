@@ -19,7 +19,7 @@ namespace Brad_s_Engima_Machine
 
         private Random rand = new Random();
 
-        private Cog[] machineCogs = new Cog[3];
+        private CogArray[] machineCogs = new CogArray[3];
 
         private LogFile log;
 
@@ -43,12 +43,15 @@ namespace Brad_s_Engima_Machine
 
             for(int x = 0; x < 3; x++)
             {
-                GU.Print("Enter your cogs from right to left from the options below: ");
+                GU.Print("Enter your cogs from right to left from the options below: "); // Gathers essential settings
                 int C = GetCogChoice($"{x+1}");
-                int S = GU.GetIntWithinBound($"Enter start position for cog {C}", 0, 26);
-                int R = GU.GetIntWithinBound($"Enter ring position for cog {C}", 0, 26);
+                int S = GU.GetIntWithinBound($"Enter start position for cog {C}", 0, defaultArraySize); // Start Position
+                int R = GU.GetIntWithinBound($"Enter ring position for cog {C}", 0, defaultArraySize); // Ring Position
 
-                machineCogs[x] = new Cog(26, C, S, R);
+                int shift;
+                if (R > S) { shift = defaultArraySize + (S - R); } // Calculates the relative positive shift (e.g. with an index size of 10. A shift of -2 becomes +8. A circular array)
+                else { shift = S - R; }
+                machineCogs[x] = new CogArray(shift, defaultArraySize, $"cog{x+1}.txt");
             }
             
         }

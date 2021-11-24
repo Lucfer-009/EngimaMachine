@@ -12,9 +12,9 @@ namespace Brad_s_Engima_Machine
     {
         private int shift;
         private int turnover;
-        private string defaultLocation = @"C:\Users\Brad\Documents\GitHub\EngimaMachine\Brad's Engima Machine\cogs\";
+        private const string defaultPath = @"C:\Users\Brad\Documents\GitHub\EngimaMachine\Brad's Engima Machine\cogs\";
 
-        public CogArray(int shift, int size, string cogFileLocation) : base(size, cogFileLocation)
+        public CogArray(int shift, int size, string cogFileLocation) : base(size, $"{defaultPath}{cogFileLocation}")
         {
             this.shift = shift;
             __shiftArray = FileToShiftArray();
@@ -26,10 +26,19 @@ namespace Brad_s_Engima_Machine
             return x;
         }
 
-        public int reverseParse(int letterIndex)
+        public int ReverseParse(int letterIndex)
         {
             int x = (__shiftArray[letterIndex - shift % __size] + letterIndex) % __size;
             return x;
+        }
+
+        public void IncrementCog()
+        {
+            shift++;
+            if(shift % __size == 0 )
+            {
+                +
+            }
         }
 
         protected override int[] FileToShiftArray()
