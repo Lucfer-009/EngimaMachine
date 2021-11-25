@@ -43,9 +43,12 @@ namespace Brad_s_Engima_Machine
         public void PowerOn()
         {
             log.Write("Machine.powerOn()", "First boot of engima machine");
+            log.Close();
             InitialiseCogs();
             InitialiseSwitchboard();
-            
+            InitialiseUKW();
+            char x = FullPassThrough('A');
+            GU.Print($"A > {x}");
         }
 
         private void InitialiseCogs()
@@ -98,6 +101,26 @@ namespace Brad_s_Engima_Machine
 
         }
 
+        private void InitialiseUKW()
+        {
+            bool check = true;
+            char choice = ' ';
+            while(check == true)
+            {
+                choice = GU.GetCharFromUser("Enter UKW / Reverser of choice, A - B - C");
+                if(choice is not('A' or 'B' or 'C'))
+                {
+                    GU.Print("ERROR | Please enter either A, B or C");
+                }
+                else
+                {
+                    check = false;
+                }
+            }
+            ukw = new ReverserArray(defaultArraySize, $"reflector{choice}.txt");
+
+        }
+
         private void KeyByKeyEntry()
         {
 
@@ -113,6 +136,38 @@ namespace Brad_s_Engima_Machine
 
         }
 
+        private char FullPassThrough(char inflow)
+        {
+            if(machineCogs[0].IncrementCog() == true) // Increments through cogs upon entry of character
+            {
+                if(machineCogs[1].IncrementCog() == true)
+                {
+                    machineCogs[2].IncrementCog();
+                }
+            }
+
+            int current = GU.AlphaCharToIntIndex(inflow); //Starts by getting the index
+
+
+            current = switchBoard.ForwardParse(current); //Goes through SwitchBoard
+
+            foreach(CogArray C in machineCogs)
+            {
+                current = C.ForwardParse(current);
+            }
+
+            current = ukw.ForwardParse(current);
+
+            for (int i = 2; i >= 0; i--)
+            {
+                current = machineCogs[i].ReverseParse(current);
+            }
+
+            current = switchBoard.ReverseParse(current);
+
+            char outflow = GU.IntIndexToAlphaChar(current);
+            return outflow;
+        }
         
         private string Get_SB_Settings(double maxBinds)
         {
