@@ -18,7 +18,7 @@ namespace Brad_s_Engima_Machine
 
         private int defaultArraySize;
 
-        private Random rand = new Random();
+        private static Random rand = new Random();
 
         private CogArray[] machineCogs = new CogArray[3];
         private SwitchArray switchBoard;
@@ -81,8 +81,14 @@ namespace Brad_s_Engima_Machine
                 GU.Print($"You can have a total of {maxBinds} pairs, exceeding this will auto void the entry");
 
                 string endSetting = Get_SB_Settings(maxBinds);
-                GU.Print(endSetting);
+                GU.Print($"> {endSetting} <");
                 switchBoard = new SwitchArray(defaultArraySize, endSetting, true);
+
+                bool saveBoard = GU.GetBoolFromUser("Do you wish to save this Switchboad to memory?");
+                if(saveBoard == true)
+                {
+                    switchBoard.SaveSwitchBoard();
+                }
             }
             else
             {
@@ -124,7 +130,7 @@ namespace Brad_s_Engima_Machine
             {
                 try
                 {
-                    char A = GU.GetCharFromUser("Enter first character");
+                    char A = GU.GetCharFromUser("Enter first character", true);
                     if(bindsUsed > maxBinds)
                     {
                         throw new Exception("ERROR | You've used all your binds, please re-enter from the begining.");
@@ -139,9 +145,11 @@ namespace Brad_s_Engima_Machine
                     }
                     else
                     {
-                        char B = GU.GetCharFromUser("Enter second character");
+                        char B = GU.GetCharFromUser("Enter second character", true);
                         int index = GU.AlphaCharToIntIndex(A);
+                        int indexR = GU.AlphaCharToIntIndex(B);
                         blankSettings[index] = B;
+                        blankSettings[indexR] = A;
                         bindsUsed++;
                         GU.Print($"-- -- REMAINING PAIRS: {maxBinds - bindsUsed}");
                     }

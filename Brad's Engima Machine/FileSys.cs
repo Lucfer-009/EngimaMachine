@@ -19,6 +19,16 @@ namespace Brad_s_Engima_Machine
             sw.Close();
         }
 
+        public static void WriteArrayToTxtFile(int[] array, string location)
+        {
+            StreamWriter sw = new StreamWriter(location);
+            foreach (int y in array)
+            {
+                sw.WriteLine(y);
+            }
+            sw.Close();
+        }
+
         public static void WriteStringToTxtFile(string message, string location)
         {
             StreamWriter sw = new StreamWriter(location);

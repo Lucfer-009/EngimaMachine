@@ -38,7 +38,7 @@ namespace Brad_s_Engima_Machine
         protected override string[] LoadKey()
         {
             string[] localKeys = new string[2];
-            StreamReader sr = new StreamReader(__cogFileLocation);
+            StreamReader sr = new StreamReader(__fileLocation);
             string key_A = "";
             key_A = sr.ReadLine();
             sr.Close();

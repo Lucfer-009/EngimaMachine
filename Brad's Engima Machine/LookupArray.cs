@@ -14,12 +14,12 @@ namespace Brad_s_Engima_Machine
         protected int[] __RpointerArray;
         protected string[] __keys;
         protected int __size;
-        protected string __cogFileLocation;
+        protected string __fileLocation;
 
         public LookupArray(int size, string cogFileLocation = null)
         {
             this.__size = size;
-            this.__cogFileLocation = cogFileLocation;
+            this.__fileLocation = cogFileLocation;
 
         }
 
@@ -38,7 +38,7 @@ namespace Brad_s_Engima_Machine
         protected virtual string[] LoadKey()
         {
             string[] localKeys = new string[2];
-            StreamReader sr = new StreamReader(__cogFileLocation);
+            StreamReader sr = new StreamReader(__fileLocation);
             string key_A = "";
             key_A = sr.ReadLine();
             sr.Close();
