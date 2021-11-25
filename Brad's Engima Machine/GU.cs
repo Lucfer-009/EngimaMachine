@@ -59,7 +59,7 @@ namespace Brad_s_Engima_Machine
             return X;
         }
 
-        public static char GetCharFromUser(string message)
+        public static char GetCharFromUser(string message, bool upper = false)
         {
             char X = ' ';
 
@@ -68,7 +68,16 @@ namespace Brad_s_Engima_Machine
             {
                 try
                 {
-                    string y = GetStringFromUser(message);
+                    string y = "";
+                    if(upper == false)
+                    {
+                        y = GetStringFromUser(message);
+                    }
+                    else
+                    {
+                        y = GetStringFromUser(message).ToUpper();
+                    }
+                    
                     X = Convert.ToChar(y);
                     check = false;
                 }

@@ -10,58 +10,51 @@ namespace Brad_s_Engima_Machine
  
     class CogArray : LookupArray
     {
-        private int shift;
         private int turnover;
         private const string defaultPath = @"C:\Users\Brad\Documents\GitHub\EngimaMachine\Brad's Engima Machine\cogs\";
 
         public CogArray(int shift, int size, string cogFileLocation) : base(size, $"{defaultPath}{cogFileLocation}")
         {
-            this.shift = shift;
-            __shiftArray = FileToShiftArray();
-        }
-
-        public override int ForwardParse(int letterIndex)
-        {
-            int x = (__shiftArray[(letterIndex + shift) % __size] + letterIndex) % __size;
-            return x;
-        }
-
-        public int ReverseParse(int letterIndex)
-        {
-            int x = (__shiftArray[letterIndex - shift % __size] + letterIndex) % __size;
-            return x;
+            __shift = shift;
+            this.__keys = LoadKey();
+            __pointerArray = LoadShifts(__keys[0]);
+            __RpointerArray = LoadShifts(__keys[1]);
         }
 
         public bool IncrementCog()
         {
-            shift++;
-            if(shift % __size == 0 )
-            {
-                shift = 0;
+            __shift++;
+            if(__shift == turnover ) // Checks if the net shift (rotation) of the cog has reached the turnover latch,
+            {                        // If it has it returns True, otherwise it returns false.
                 return true;
             }
-            else { return false; }
+            else if(__shift % __size == 0)  // If the shift is above the size of the array it then resets it back to 0, despite the fact that there are %
+            {                               // functions spread around indexing code to prevent such an error.
+                __shift = 0;
+            }
+            return false;
         }
 
-        protected override int[] FileToShiftArray()
+        protected override string[] LoadKey()
         {
-            int[] current = new int[__size];
+            string[] localKeys = new string[2];
             StreamReader sr = new StreamReader(__cogFileLocation);
-            string key = sr.ReadLine();
+            string key_A = "";
+            key_A = sr.ReadLine();
             sr.Close();
 
-            string[] slice = key.Split(','); // Cog file needs to read the turnover from a file
-            key = slice[1];
+            // -- -- -- -- Custom for Cog, cog data requires that a turnover char be loaded in with the settings, as such the LoadKey is slightly different.
+            string[] slice = key_A.Split(','); // Cog file needs to read the turnover from a file
             turnover = GU.AlphaCharToIntIndex(Convert.ToChar(slice[0]));
+            key_A = slice[1];
+            // -- -- -- -- -- -- -- -- -- -- --
 
-            int count = 0;
-            foreach (char y in key)
-            {
-                current[count] = Convert.ToInt32(y) - 65 - count;
-                count++;
-            }
+            localKeys[0] = key_A; // Sets Standard pointer direction to localKey[0]
+            localKeys[1] = InvertKey(key_A); // Sets inverted pointer direction to localKey[1]
 
-            return current;
+
+            return localKeys;
         }
+
     }
 }

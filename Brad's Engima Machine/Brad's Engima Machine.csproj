@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <Folder Include="log files\" />
+    <Folder Include="switchboard saves\" />
     <Folder Include="settings files\" />
   </ItemGroup>
 
