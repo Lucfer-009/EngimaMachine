@@ -47,8 +47,7 @@ namespace Brad_s_Engima_Machine
             InitialiseCogs();
             InitialiseSwitchboard();
             InitialiseUKW();
-            char x = FullPassThrough('A');
-            GU.Print($"A > {x}");
+            KeyByKeyEntry();
         }
 
         private void InitialiseCogs()
@@ -123,17 +122,53 @@ namespace Brad_s_Engima_Machine
 
         private void KeyByKeyEntry()
         {
+            GU.Print("\n\n: KeyByKey Entry :");
 
+            bool check = true;
+            string message = "";
+            while (check == true)
+            {
+                try
+                {
+                    GU.Print("Enter ! to stop and end");
+                    GU.Print("Enter # to restart");
+                    char input = GU.GetCharFromUser("Enter a character to parse through the machine > ", true);
+                    if(input == '!')
+                    {
+                        GU.Print("\n - END - \n");
+                        check = false;
+                    }
+                    else if (input == '#')
+                    {
+                        message = "";
+                        GU.Print("Message cleared!");
+                    }
+                    else if (CheckIfTraditionalCompatible(input) == false)
+                    {
+                        GU.Print("ERROR | Enter a valid character");
+                    }
+                    else
+                    {
+                        message += FullPassThrough(input);
+                        GU.Print($"\nCurrent Message : {message}\n");
+                    }
+                       
+                }
+                catch
+                {
+
+                }
+            }
         }
 
         private void LiveRead()
         {
-
+            GU.Print("\n\n: Live Read :");
         }
 
         private void FileRead()
         {
-
+            GU.Print("\n\n: File Read :");
         }
 
         private char FullPassThrough(char inflow)
@@ -181,11 +216,13 @@ namespace Brad_s_Engima_Machine
             }
 
             bool check = true;
+            char A = ' ';
+            char B = ' ';
             while(check == true)
             {
                 try
                 {
-                    char A = GU.GetCharFromUser("Enter first character", true);
+                    A = GU.GetCharFromUser("Enter first character", true);
                     if(bindsUsed > maxBinds)
                     {
                         throw new Exception("ERROR | You've used all your binds, please re-enter from the begining.");
@@ -198,11 +235,15 @@ namespace Brad_s_Engima_Machine
                     {
                         check = false;
                     }
+                    else if(CheckIfTraditionalCompatible(A) == false || CheckIfTraditionalCompatible(B) == false) // This could be removed at a later edition to allow for a larger cog to be used.
+                    {
+                        throw new Exception("Invalid input");
+                    }
                     else
                     {
-                        char B = GU.GetCharFromUser("Enter second character", true);
-                        int index = GU.AlphaCharToIntIndex(A);
-                        int indexR = GU.AlphaCharToIntIndex(B);
+                        B = GU.GetCharFromUser("Enter second character", true);
+                        int index = GU.AlphaCharToIntIndex(A); // A > E
+                        int indexR = GU.AlphaCharToIntIndex(B); // E > A
                         blankSettings[index] = B;
                         blankSettings[indexR] = A;
                         bindsUsed++;
@@ -263,11 +304,28 @@ namespace Brad_s_Engima_Machine
                     flag = true;
                 }
             }
-
-            if (flag == false) { test = true; }
-
+            if (flag == false)
+            {
+                test = true; 
+            }
             return test;
+        }
 
+        private bool CheckIfTraditionalCompatible(char input)
+        { // Ensures that a user only enters letters or spaces. Will ask them to re-enter the message otherwise.
+            bool test = false;
+            bool flag = false;
+
+            int index = GU.AlphaCharToIntIndex(input);
+            if ((index < 0 || index > 25) & index != -33) // -33 is the index value for SPACE, allows spaces to be allowed through
+            {
+                flag = true;
+            }
+            if (flag == false)
+            { 
+                test = true; 
+            }
+            return test;
         }
 
 

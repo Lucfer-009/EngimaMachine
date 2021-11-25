@@ -1,0 +1,2 @@
+11:30:21  > Machine.powerOn()                   | First boot of engima machine
+11:30:21  > logFile.Close()                     | Logging terminated.

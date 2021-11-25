@@ -25,12 +25,14 @@ namespace Brad_s_Engima_Machine
 
         public int ForwardParse(int letterIndex)
         {
+            if(letterIndex < 0) { letterIndex = __size + letterIndex; }
             int x = (__pointerArray[(letterIndex + __shift) % __size] + letterIndex) % __size; // Gets shift with __shiftArray[letterIndex] then applies to intitial index, then ensures doesn't go out of bounds
             return x;
         }
 
         public int ReverseParse(int letterIndex)
         {
+            if (letterIndex < 0) { letterIndex = __size + letterIndex; }
             int x = (__RpointerArray[(letterIndex + __shift) % __size] + letterIndex) % __size;
             return x;
         }
