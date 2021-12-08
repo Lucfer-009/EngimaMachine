@@ -9,7 +9,7 @@ namespace Brad_s_Engima_Machine
 
     class ReverserArray : LookupArray
     {
-        private const string defaultPath = @"C:\Users\Brad\Documents\GitHub\EngimaMachine\Brad's Engima Machine\ukws\";
+        private const string defaultPath = @"F:\VS Projects\Project\Lucfer-009\EngimaMachine\Brad's Engima Machine\ukws\";
         public ReverserArray(int size, string fileLocation) : base(size, $"{defaultPath}{fileLocation}")
         {
             this.__keys = LoadKey();

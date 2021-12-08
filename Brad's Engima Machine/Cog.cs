@@ -11,7 +11,7 @@ namespace Brad_s_Engima_Machine
     class CogArray : LookupArray
     {
         private int turnover;
-        private const string defaultPath = @"C:\Users\Brad\Documents\GitHub\EngimaMachine\Brad's Engima Machine\cogs\";
+        private const string defaultPath = @"F:\VS Projects\Project\Lucfer-009\EngimaMachine\Brad's Engima Machine\cogs\";
 
         public CogArray(int shift, int size, string cogFileLocation) : base(size, $"{defaultPath}{cogFileLocation}")
         {
@@ -24,7 +24,7 @@ namespace Brad_s_Engima_Machine
         public bool IncrementCog()
         {
             __shift++;
-            if(__shift == turnover ) // Checks if the net shift (rotation) of the cog has reached the turnover latch,
+            if(__shift == turnover+1 ) // Checks if the net shift (rotation) of the cog has reached the turnover latch,
             {                        // If it has it returns True, otherwise it returns false.
                 return true;
             }

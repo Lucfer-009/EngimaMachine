@@ -9,7 +9,7 @@ namespace Brad_s_Engima_Machine
 
     class SwitchArray : LookupArray
     {
-        private const string defaultPath = @"C:\Users\Brad\Documents\GitHub\EngimaMachine\Brad's Engima Machine\switchboard saves\";
+        private const string defaultPath = @"F:\VS Projects\Project\Lucfer-009\EngimaMachine\Brad's Engima Machine\switchboard saves\";
         private static string ID;
         private static Random rand = new Random();
 

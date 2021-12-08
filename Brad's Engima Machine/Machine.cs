@@ -47,7 +47,7 @@ namespace Brad_s_Engima_Machine
             InitialiseCogs();
             InitialiseSwitchboard();
             InitialiseUKW();
-            KeyByKeyEntry();
+            LiveRead();
         }
 
         private void InitialiseCogs()
@@ -163,7 +163,29 @@ namespace Brad_s_Engima_Machine
 
         private void LiveRead()
         {
+            string input = "";
             GU.Print("\n\n: Live Read :");
+            bool acceptable = false;
+            while (acceptable == false)
+            {
+                input = GU.GetStringFromUser("Please enter your message: ").ToUpper();
+                if(CheckIfTraditionalCompatible(input) == true)
+                {
+                    acceptable = true;
+                }
+                else
+                {
+                    GU.Print("ERROR | Please enter a string that contains genuine engima characters!\n");
+                }
+            }
+            GU.Print("");
+            foreach(char y in input)
+            {
+                char got = FullPassThrough(y);
+                Console.Write(got);
+            }
+            GU.Print("");
+
         }
 
         private void FileRead()
@@ -173,16 +195,18 @@ namespace Brad_s_Engima_Machine
 
         private char FullPassThrough(char inflow)
         {
-            if(machineCogs[0].IncrementCog() == true) // Increments through cogs upon entry of character
+            char outflow = ' ';
+
+            if (machineCogs[0].IncrementCog() == true) // Increments through cogs upon entry of character
             {
-                if(machineCogs[1].IncrementCog() == true)
+                if (machineCogs[1].IncrementCog() == true)
                 {
                     machineCogs[2].IncrementCog();
                 }
             }
 
             int current = GU.AlphaCharToIntIndex(inflow); //Starts by getting the index
-
+            if(current == -33) { return outflow; }
 
             current = switchBoard.ForwardParse(current); //Goes through SwitchBoard
 
@@ -200,7 +224,9 @@ namespace Brad_s_Engima_Machine
 
             current = switchBoard.ReverseParse(current);
 
-            char outflow = GU.IntIndexToAlphaChar(current);
+            outflow = GU.IntIndexToAlphaChar(current);
+
+
             return outflow;
         }
         
