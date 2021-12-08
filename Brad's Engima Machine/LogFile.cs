@@ -10,26 +10,28 @@ namespace Brad_s_Engima_Machine
     class LogFile
     {
         private const string defaultPath = @"F:\VS Projects\Project\Lucfer-009\EngimaMachine\Brad's Engima Machine\log files\";
-        private string address;
+        static private string address;
 
-        private string currentTime = DateTime.Now.ToString("HH:mm:ss");
+        static private string currentTime = DateTime.Now.ToString("HH:mm:ss");
 
-        private StreamWriter mainFile; 
+        static private StreamWriter mainFile;
+        static private Random rand = new Random();
 
-        public LogFile(string u_ID)
+        static LogFile()
         {
+            string u_ID = $"{rand.Next(1000, 9999)}-{rand.Next(1000, 9999)}-{rand.Next(1000, 9999)}";
             address = defaultPath + $"{u_ID}.txt";
             mainFile = new StreamWriter(address); // Name of file is the date passed through alongside the ID.
         }
 
-        public void Close()
+        static public void Close()
         {
             Write("logFile.Close()", "Logging terminated.");
             mainFile.Close();
 
         } // Closes log file
 
-        public void Write(string commandAction, string note)
+        static public void Write(string commandAction, string note)
         {
             mainFile.WriteLine($"{currentTime}  > {commandAction, -35} | {note}");
         }

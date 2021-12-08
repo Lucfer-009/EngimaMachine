@@ -36,5 +36,12 @@ namespace Brad_s_Engima_Machine
             sw.Close();
         }
 
+        public static string GetStringFromFile(string location)
+        {
+            StreamReader sr = new StreamReader(location);
+            string x = sr.ReadToEnd();
+            sr.Close();
+            return x;
+        }
     }
 }

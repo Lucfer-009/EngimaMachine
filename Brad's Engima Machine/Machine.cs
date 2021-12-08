@@ -35,19 +35,23 @@ namespace Brad_s_Engima_Machine
             this.defaultArraySize = defaultArraySize;
             this.logFileAddress = logFileAddress;
 
-            ID = $"{rand.Next(1000, 9999)}-{rand.Next(1000, 9999)}-{rand.Next(1000, 9999)}"; // ID system. Assigns each instance of Machine a number.
-
-            log = new LogFile(ID);  // File name here is the short date + the ID of the Machine
+            log = new LogFile();
         }
 
         public void PowerOn()
         {
-            log.Write("Machine.powerOn()", "First boot of engima machine");
-            log.Close();
+            LogFile.Write("Machine.powerOn()", "First boot of engima machine");
+            
             InitialiseCogs();
+            LogFile.Write("Machine.InitialseCogs()", "Got cog settings from user" );
             InitialiseSwitchboard();
+            LogFile.Write("Machine.InitialseSwitchboard()", "Got switchboard settings from user");
             InitialiseUKW();
-            LiveRead();
+            LogFile.Write("Machine.InitialseUKW()", "Got reverser settings from user");
+
+            FileRead();
+            LogFile.Close();
+            GU.Print("-- -- -- -- -- --");
         }
 
         private void InitialiseCogs()
@@ -179,38 +183,90 @@ namespace Brad_s_Engima_Machine
                 }
             }
             GU.Print("");
+
+            string ret = "";
             foreach(char y in input)
             {
                 char got = FullPassThrough(y);
-                Console.Write(got);
+                ret += got;
             }
-            GU.Print("");
+            Console.WriteLine("\n");
+            GU.Print($"{ret}");
 
         }
 
         private void FileRead()
         {
             GU.Print("\n\n: File Read :");
+            string writtenText = "";
+            const string baseLocationOfText = @"F:\VS Projects\Project\Lucfer-009\EngimaMachine\Brad's Engima Machine\messages\";
+            string locationOfText = "";
+            bool acceptable = false;
+            while (acceptable == false)
+            {
+                locationOfText = GU.GetStringFromUser("Please enter the file name of message (IF NOT IN \\messages enter \"!\")");
+                
+                if (locationOfText == "!")
+                {
+                    locationOfText = GU.GetStringFromUser("Enter the full address");
+                }
+                else
+                {
+
+                    locationOfText = $"{baseLocationOfText}{locationOfText}.txt";
+                }
+
+                if(File.Exists(locationOfText) == true)
+                {
+                    acceptable = true;
+                }
+                else
+                {
+                    GU.Print("ERROR | Please enter a valid path, file doesn't exsist.");
+                }
+            }
+            
+
+            writtenText = FileSys.GetStringFromFile(locationOfText);
+
+            GU.Print("\n");
+            string ret = "";
+            foreach(char y in writtenText)
+            {
+                char got = FullPassThrough(y);
+                ret += got;
+            }
+            Console.WriteLine("\n");
+            GU.Print(writtenText);
+            GU.Print(ret);
         }
 
         private char FullPassThrough(char inflow)
         {
+            string log = "";
             char outflow = ' ';
 
+            int current = GU.AlphaCharToIntIndex(inflow); //Starts by getting the index
+            if(current == -33) 
+            {
+                LogFile.Write("FullPassThrough()"," - [SPACE] <Character Skipped>");
+                return outflow; 
+            }
+            LogFile.Write("FullPassThrough()", " - Cog in position 1 Incremented");
             if (machineCogs[0].IncrementCog() == true) // Increments through cogs upon entry of character
             {
+                LogFile.Write("FullPassThrough()", " - Cog in position 1 reached turnover, Cog in position 2 Incremented");
                 if (machineCogs[1].IncrementCog() == true)
                 {
+                    LogFile.Write("FullPassThrough()", " - Cog in position 2 reached turnover, Cog in position 3 Incremented");
                     machineCogs[2].IncrementCog();
                 }
             }
 
-            int current = GU.AlphaCharToIntIndex(inflow); //Starts by getting the index
-            if(current == -33) { return outflow; }
-
+            log = $"{current}";
             current = switchBoard.ForwardParse(current); //Goes through SwitchBoard
-
-            foreach(CogArray C in machineCogs)
+            LogFile.Write("FullPassThrough()", $" - {log} > [Switchboard-F] > {current}");
+            foreach (CogArray C in machineCogs)
             {
                 current = C.ForwardParse(current);
             }

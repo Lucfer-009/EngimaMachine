@@ -1,0 +1,5 @@
+11:44:36  > Machine.powerOn()                   | First boot of engima machine
+11:44:36  > Machine.InitialseCogs()             | Got cog settings from user
+11:44:36  > Machine.InitialseSwitchboard()      | Got switchboard settings from user
+11:44:36  > Machine.InitialseUKW()              | Got reverser settings from user
+11:44:36  > logFile.Close()                     | Logging terminated.
