@@ -35,6 +35,20 @@ namespace Brad_s_Engima_Machine
             return false;
         }
 
+        public bool DecrementCog() // Experimental , likely not to be used
+        {
+            __shift--;
+            if (__shift == turnover - 1)
+            {       
+                return true;
+            }
+            else if (__shift % __size == 0)  
+            {                               
+                __shift = 0;
+            }
+            return false;
+        }
+
         protected override string[] LoadKey()
         {
             string[] localKeys = new string[2];

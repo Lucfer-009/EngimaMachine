@@ -43,5 +43,25 @@ namespace Brad_s_Engima_Machine
             sr.Close();
             return x;
         }
+
+        public static int[] GetIntArrayFromFile(string location)
+        {
+            string[] outputX = File.ReadAllLines(location);
+            int[] outputY = new int[outputX.Length];
+            int count = 0;
+            foreach (string c in outputX)
+            {
+                outputY[count] = Convert.ToInt32(c);
+                count++;
+            }
+            return outputY;
+
+        }
+
+        public static string[] GetStringArrayFromFile(string location)
+        {
+            string[] outputX = File.ReadAllLines(location);
+            return outputX;
+        }
     }
 }

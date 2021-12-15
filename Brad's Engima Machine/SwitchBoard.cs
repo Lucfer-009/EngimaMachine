@@ -28,9 +28,14 @@ namespace Brad_s_Engima_Machine
             __fileLocation = $"{defaultPath}{ID}.txt";
         }
 
-        public void SaveSwitchBoard()
+        public void SaveSwitchBoard(string save)
         {
-            FileSys.WriteArrayToTxtFile(__pointerArray, __fileLocation);
+            FileSys.WriteStringToTxtFile(save, __fileLocation);
+        }
+        
+        public string GetID()
+        {
+            return ID;
         }
     }
 
