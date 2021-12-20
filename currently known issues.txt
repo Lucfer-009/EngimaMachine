@@ -1,0 +1,3 @@
+differences with cog 5 and online application
+some minor bugs with ring and start positions
+still issues with turnovering
