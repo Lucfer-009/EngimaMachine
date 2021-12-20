@@ -11,7 +11,7 @@ namespace Brad_s_Engima_Machine
     class CogArray : LookupArray
     {
         private int turnover;
-        private const string defaultPath = @"F:\VS Projects\Project\Lucfer-009\EngimaMachine\Brad's Engima Machine\cogs\";
+        private const string defaultPath = @"C:\Users\Brad\Documents\GitHub\EngimaMachine\Brad's Engima Machine\cogs\";
 
         public CogArray(int shift, int size, string cogFileLocation) : base(size, $"{defaultPath}{cogFileLocation}")
         {
