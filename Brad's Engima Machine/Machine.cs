@@ -81,12 +81,32 @@ namespace Brad_s_Engima_Machine
 
 
 
-
-
-
-
             LogFile.Write("", "");
             LogFile.Write("-- --", "");
+
+
+            LogFile.Write("--", "COG SETTINGS --");
+            int count = 0;
+            foreach (CogArray Y in machineCogs)
+            {
+                LogFile.Write("", $"|Position: {count} |     |Cog: {Y.GetCogLocation()} |     |Intital Char: {Y.GetInitialChar()} |     |Initial RingPos: {Y.GetInitialRingPos()}|  ");
+                count++;
+            }
+
+            LogFile.Write("--", "SWITCHBOARD SETTINGS --");
+
+            string switchTextOut = "";
+            for (int i = 0; i < switchBoard.GetPointers().Length; i++)
+            {
+                switchTextOut += $">{Convert.ToChar(i+65)}|{GU.IntIndexToAlphaChar(switchBoard.GetPointers()[i])}<    ";
+                if((i == switchBoard.GetPointers().Length / 2) || (i == switchBoard.GetPointers().Length-1))
+                {
+                    LogFile.Write("", $"{switchTextOut}");
+                    switchTextOut = "";
+                }
+            }
+
+
             LogFile.Close();
             GU.Print("-- -- -- -- -- --");
         }
@@ -98,13 +118,29 @@ namespace Brad_s_Engima_Machine
             {
                 GU.Print("Enter your cogs from right to left from the options below: "); // Gathers essential settings
                 int C = GetCogChoice($"{x + 1}", ref choiceOfCogs);
-                int S = GU.GetIntWithinBound($"Enter start position for cog {C}", 0, defaultArraySize); // Start Position
+
+                char S_ = '+';
+                bool test = false;
+                while (test == false)
+                {
+                    S_ = GU.GetCharFromUser($"Enter start character for cog {C}", true);
+                    if(CheckIfTraditionalCompatible(S_) == false || S_ == ' ')
+                    {
+                        GU.Print("ERROR | Please enter a valid character A-Z");
+                    }
+                    else
+                    {
+                        test = true;
+                    }
+                }
+
+                int S = GU.AlphaCharToIntIndex(S_); // Start Position
                 int R = GU.GetIntWithinBound($"Enter ring position for cog {C}", 0, defaultArraySize); // Ring Position
 
                 int shift;
                 if (R > S) { shift = defaultArraySize + (S - R); } // Calculates the relative positive shift (e.g. with an index size of 10. A shift of -2 becomes +8. A circular array)
                 else { shift = S - R; }
-                machineCogs[x] = new CogArray(shift, defaultArraySize, $"cog{x + 1}.txt");
+                machineCogs[x] = new CogArray(shift, defaultArraySize, $"cog{C}.txt", S_, R);
             }
             GU.Print("");
         }

@@ -1,0 +1,56 @@
+16:21:38  > Machine.powerOn()                   | First boot of engima machine
+16:21:38  > Machine.InitialseCogs()             | Got cog settings from user
+16:21:38  > Machine.InitialseSwitchboard()      | Got switchboard settings from user
+16:21:38  > Machine.InitialseUKW()              | Got reverser settings from user
+16:21:38  > ------------------                  | 
+16:21:38  > FullPassThrough()                   |  - Cog in position 1 Incremented
+16:21:38  > FullPassThrough()                   |  - 19(T) > [Switchboard-F] > 19(T)
+16:21:38  > FullPassThrough()                   |  - 19(T) > [COG 0 -F] > 13(N)
+16:21:38  > FullPassThrough()                   |  - 13(N) > [COG 1 -F] > 16(Q)
+16:21:38  > FullPassThrough()                   |  - 16(Q) > [COG 2 -F] > 18(S)
+16:21:38  > FullPassThrough()                   |  - 18(S) > [UKW] > 5(F)
+16:21:38  > FullPassThrough()                   |  - 5(F) > [COG 2 -R] > 13(N)
+16:21:38  > FullPassThrough()                   |  - 13(N) > [COG 1 -R] > 4(E)
+16:21:38  > FullPassThrough()                   |  - 4(E) > [COG 0 -R] > 12(M)
+16:21:38  > FullPassThrough()                   |  - 12(M) > [Switchboard-R] > 12(M)
+16:21:38  > ------------------                  | 
+16:21:38  > FullPassThrough()                   |  - Cog in position 1 Incremented
+16:21:38  > FullPassThrough()                   |  - Cog in position 1 reached turnover, Cog in position 2 Incremented
+16:21:38  > FullPassThrough()                   |  - 4(E) > [Switchboard-F] > 4(E)
+16:21:38  > FullPassThrough()                   |  - 4(E) > [COG 0 -F] > 6(G)
+16:21:38  > FullPassThrough()                   |  - 6(G) > [COG 1 -F] > -15(2)
+16:21:38  > FullPassThrough()                   |  - -15(2) > [COG 2 -F] > 9(J)
+16:21:38  > FullPassThrough()                   |  - 9(J) > [UKW] > 23(X)
+16:21:38  > FullPassThrough()                   |  - 23(X) > [COG 2 -R] > 5(F)
+16:21:38  > FullPassThrough()                   |  - 5(F) > [COG 1 -R] > 2(C)
+16:21:38  > FullPassThrough()                   |  - 2(C) > [COG 0 -R] > 24(Y)
+16:21:38  > FullPassThrough()                   |  - 24(Y) > [Switchboard-R] > 24(Y)
+16:21:38  > ------------------                  | 
+16:21:38  > FullPassThrough()                   |  - Cog in position 1 Incremented
+16:21:38  > FullPassThrough()                   |  - 18(S) > [Switchboard-F] > 22(W)
+16:21:38  > FullPassThrough()                   |  - 22(W) > [COG 0 -F] > 3(D)
+16:21:38  > FullPassThrough()                   |  - 3(D) > [COG 1 -F] > -14(3)
+16:21:38  > FullPassThrough()                   |  - -14(3) > [COG 2 -F] > 7(H)
+16:21:38  > FullPassThrough()                   |  - 7(H) > [UKW] > 3(D)
+16:21:38  > FullPassThrough()                   |  - 3(D) > [COG 2 -R] > 14(O)
+16:21:38  > FullPassThrough()                   |  - 14(O) > [COG 1 -R] > 18(S)
+16:21:38  > FullPassThrough()                   |  - 18(S) > [COG 0 -R] > 5(F)
+16:21:38  > FullPassThrough()                   |  - 5(F) > [Switchboard-R] > 5(F)
+16:21:38  > ------------------                  | 
+16:21:38  > FullPassThrough()                   |  - Cog in position 1 Incremented
+16:21:38  > FullPassThrough()                   |  - 19(T) > [Switchboard-F] > 19(T)
+16:21:38  > FullPassThrough()                   |  - 19(T) > [COG 0 -F] > 12(M)
+16:21:38  > FullPassThrough()                   |  - 12(M) > [COG 1 -F] > 15(P)
+16:21:38  > FullPassThrough()                   |  - 15(P) > [COG 2 -F] > 16(Q)
+16:21:38  > FullPassThrough()                   |  - 16(Q) > [UKW] > 4(E)
+16:21:38  > FullPassThrough()                   |  - 4(E) > [COG 2 -R] > -4(=)
+16:21:38  > FullPassThrough()                   |  - -4(=) > [COG 1 -R] > 1(B)
+16:21:38  > FullPassThrough()                   |  - 1(B) > [COG 0 -R] > 9(J)
+16:21:38  > FullPassThrough()                   |  - 9(J) > [Switchboard-R] > 17(R)
+16:21:38  >                                     | 
+16:21:38  > -- --                               | 
+16:21:38  > --                                  | COG SETTINGS --
+16:21:38  >                                     | |Position: 0 |     |Cog: cog5.txt |     |Intital Char: C |     |Initial RingPos: 4|  
+16:21:38  >                                     | |Position: 1 |     |Cog: cog2.txt |     |Intital Char: A |     |Initial RingPos: 8|  
+16:21:38  >                                     | |Position: 2 |     |Cog: cog3.txt |     |Intital Char: B |     |Initial RingPos: 16|  
+16:21:38  > logFile.Close()                     | Logging terminated.

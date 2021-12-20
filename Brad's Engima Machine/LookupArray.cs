@@ -85,5 +85,6 @@ namespace Brad_s_Engima_Machine
         public int GetSize() { return __size; }
         public int GetShift() { return __shift; }
         public void SetShift(int y) { __shift = y; }
+        public int[] GetPointers() { return __pointerArray; }
     }
 }

@@ -12,10 +12,16 @@ namespace Brad_s_Engima_Machine
     {
         private int turnover;
         private const string defaultPath = @"C:\Users\Brad\Documents\GitHub\EngimaMachine\Brad's Engima Machine\cogs\";
+        private string cogFileLocation;
+        private char initialChar;
+        private int initialRingPos;
 
-        public CogArray(int shift, int size, string cogFileLocation) : base(size, $"{defaultPath}{cogFileLocation}")
+        public CogArray(int shift, int size, string cogFileLocation, char initialChar, int initialRingPos) : base(size, $"{defaultPath}{cogFileLocation}")
         {
             __shift = shift;
+            this.cogFileLocation = cogFileLocation;
+            this.initialChar = initialChar;
+            this.initialRingPos = initialRingPos;
             this.__keys = LoadKey();
             __pointerArray = LoadShifts(__keys[0]);
             __RpointerArray = LoadShifts(__keys[1]);
@@ -69,6 +75,10 @@ namespace Brad_s_Engima_Machine
 
             return localKeys;
         }
+
+        public string GetCogLocation() { return cogFileLocation; }
+        public string GetInitialRingPos() { return $"{initialRingPos}"; }
+        public string GetInitialChar() { return $"{initialChar}"; }
 
     }
 }
