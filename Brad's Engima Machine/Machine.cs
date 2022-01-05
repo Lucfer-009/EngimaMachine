@@ -112,7 +112,7 @@ namespace Brad_s_Engima_Machine
                 GU.Print("Enter your cogs from right to left from the options below: "); // Gathers essential settings
                 int C = GetCogChoice($"{x + 1}", ref choiceOfCogs);
 
-                char S_ = '+';
+                char S_ = '#';
                 bool test = false;
                 while (test == false)
                 {
@@ -127,12 +127,12 @@ namespace Brad_s_Engima_Machine
                     }
                 }
 
-                int S = GU.AlphaCharToIntIndex(S_); // Start Position
+                int S = GU.AlphaCharToIntIndex(S_,-64); // Start Position
                 int R = GU.GetIntWithinBound($"Enter ring position for cog {C}", 0, defaultArraySize); // Ring Position
 
                 int shift;
-                if (R > S) { shift = defaultArraySize + (S - R); } // Calculates the relative positive shift (e.g. with an index size of 10. A shift of -2 becomes +8. A circular array)
-                else { shift = S - R; }
+                if (R > S) { shift = (defaultArraySize + (S - R) ) % defaultArraySize; } // Calculates the relative positive shift (e.g. with an index size of 10. A shift of -2 becomes +8. A circular array)
+                else { shift = (S - R) % defaultArraySize; }
                 machineCogs[x] = new CogArray(shift, defaultArraySize, $"cog{C}.txt", S_, R);
             }
             GU.Print("");

@@ -1,0 +1,141 @@
+11:43:42  > Machine.powerOn()                   | First boot of engima machine
+11:43:42  > Machine.InitialseCogs()             | Got cog settings from user
+11:43:42  > Machine.InitialseSwitchboard()      | Got switchboard settings from user
+11:43:42  > Machine.InitialseUKW()              | Got reverser settings from user
+11:43:42  > ------------------                  | 
+11:43:42  > FullPassThrough()                   |  - Cog in position 1 Incremented
+11:43:42  > FullPassThrough()                   |  - 19(T) > [Switchboard-F] > 19(T)
+11:43:42  > FullPassThrough()                   |  - 19(T) > [COG 0 -F] > 24(Y)
+11:43:42  > FullPassThrough()                   |  - 24(Y) > [COG 1 -F] > 7(H)
+11:43:42  > FullPassThrough()                   |  - 7(H) > [COG 2 -F] > 20(U)
+11:43:42  > FullPassThrough()                   |  - 20(U) > [UKW] > 2(C)
+11:43:42  > FullPassThrough()                   |  - 2(C) > [COG 2 -R] > 3(D)
+11:43:42  > FullPassThrough()                   |  - 3(D) > [COG 1 -R] > 3(D)
+11:43:42  > FullPassThrough()                   |  - 3(D) > [COG 0 -R] > 14(O)
+11:43:42  > FullPassThrough()                   |  - 14(O) > [Switchboard-R] > 14(O)
+11:43:42  > ------------------                  | 
+11:43:42  > FullPassThrough()                   |  - Cog in position 1 Incremented
+11:43:42  > FullPassThrough()                   |  - 7(H) > [Switchboard-F] > 7(H)
+11:43:42  > FullPassThrough()                   |  - 7(H) > [COG 0 -F] > -12(5)
+11:43:42  > FullPassThrough()                   |  - -12(5) > [COG 1 -F] > 16(Q)
+11:43:42  > FullPassThrough()                   |  - 16(Q) > [COG 2 -F] > 24(Y)
+11:43:42  > FullPassThrough()                   |  - 24(Y) > [UKW] > 0(A)
+11:43:42  > FullPassThrough()                   |  - 0(A) > [COG 2 -R] > -24())
+11:43:42  > FullPassThrough()                   |  - -24()) > [COG 1 -R] > 8(I)
+11:43:42  > FullPassThrough()                   |  - 8(I) > [COG 0 -R] > 10(K)
+11:43:42  > FullPassThrough()                   |  - 10(K) > [Switchboard-R] > 10(K)
+11:43:42  > ------------------                  | 
+11:43:42  > FullPassThrough()                   |  - Cog in position 1 Incremented
+11:43:42  > FullPassThrough()                   |  - 8(I) > [Switchboard-F] > 8(I)
+11:43:42  > FullPassThrough()                   |  - 8(I) > [COG 0 -F] > -1(@)
+11:43:42  > FullPassThrough()                   |  - -1(@) > [COG 1 -F] > 9(J)
+11:43:42  > FullPassThrough()                   |  - 9(J) > [COG 2 -F] > 21(V)
+11:43:42  > FullPassThrough()                   |  - 21(V) > [UKW] > 22(W)
+11:43:42  > FullPassThrough()                   |  - 22(W) > [COG 2 -R] > 1(B)
+11:43:42  > FullPassThrough()                   |  - 1(B) > [COG 1 -R] > -8(9)
+11:43:42  > FullPassThrough()                   |  - -8(9) > [COG 0 -R] > 15(P)
+11:43:42  > FullPassThrough()                   |  - 15(P) > [Switchboard-R] > 15(P)
+11:43:42  > ------------------                  | 
+11:43:42  > FullPassThrough()                   |  - Cog in position 1 Incremented
+11:43:42  > FullPassThrough()                   |  - 18(S) > [Switchboard-F] > 18(S)
+11:43:42  > FullPassThrough()                   |  - 18(S) > [COG 0 -F] > 14(O)
+11:43:42  > FullPassThrough()                   |  - 14(O) > [COG 1 -F] > 16(Q)
+11:43:42  > FullPassThrough()                   |  - 16(Q) > [COG 2 -F] > 24(Y)
+11:43:42  > FullPassThrough()                   |  - 24(Y) > [UKW] > 0(A)
+11:43:42  > FullPassThrough()                   |  - 0(A) > [COG 2 -R] > -24())
+11:43:42  > FullPassThrough()                   |  - -24()) > [COG 1 -R] > 8(I)
+11:43:42  > FullPassThrough()                   |  - 8(I) > [COG 0 -R] > 3(D)
+11:43:42  > FullPassThrough()                   |  - 3(D) > [Switchboard-R] > 3(D)
+11:43:42  > ------------------                  | 
+11:43:42  > FullPassThrough()                   |  - [SPACE] <Character Skipped>
+11:43:42  > ------------------                  | 
+11:43:42  > FullPassThrough()                   |  - Cog in position 1 Incremented
+11:43:42  > FullPassThrough()                   |  - 8(I) > [Switchboard-F] > 8(I)
+11:43:42  > FullPassThrough()                   |  - 8(I) > [COG 0 -F] > 3(D)
+11:43:42  > FullPassThrough()                   |  - 3(D) > [COG 1 -F] > 3(D)
+11:43:42  > FullPassThrough()                   |  - 3(D) > [COG 2 -F] > 2(C)
+11:43:42  > FullPassThrough()                   |  - 2(C) > [UKW] > 20(U)
+11:43:42  > FullPassThrough()                   |  - 20(U) > [COG 2 -R] > 7(H)
+11:43:42  > FullPassThrough()                   |  - 7(H) > [COG 1 -R] > -2(?)
+11:43:42  > FullPassThrough()                   |  - -2(?) > [COG 0 -R] > 24(Y)
+11:43:42  > FullPassThrough()                   |  - 24(Y) > [Switchboard-R] > 24(Y)
+11:43:42  > ------------------                  | 
+11:43:42  > FullPassThrough()                   |  - Cog in position 1 Incremented
+11:43:42  > FullPassThrough()                   |  - 18(S) > [Switchboard-F] > 18(S)
+11:43:42  > FullPassThrough()                   |  - 18(S) > [COG 0 -F] > 1(B)
+11:43:42  > FullPassThrough()                   |  - 1(B) > [COG 1 -F] > 8(I)
+11:43:42  > FullPassThrough()                   |  - 8(I) > [COG 2 -F] > 25(Z)
+11:43:42  > FullPassThrough()                   |  - 25(Z) > [UKW] > 19(T)
+11:43:42  > FullPassThrough()                   |  - 19(T) > [COG 2 -R] > 11(L)
+11:43:42  > FullPassThrough()                   |  - 11(L) > [COG 1 -R] > 5(F)
+11:43:42  > FullPassThrough()                   |  - 5(F) > [COG 0 -R] > -5(<)
+11:43:42  > FullPassThrough()                   |  - -5(<) > [Switchboard-R] > 21(V)
+11:43:42  > ------------------                  | 
+11:43:42  > FullPassThrough()                   |  - [SPACE] <Character Skipped>
+11:43:42  > ------------------                  | 
+11:43:42  > FullPassThrough()                   |  - Cog in position 1 Incremented
+11:43:42  > FullPassThrough()                   |  - 0(A) > [Switchboard-F] > 0(A)
+11:43:42  > FullPassThrough()                   |  - 0(A) > [COG 0 -F] > 5(F)
+11:43:42  > FullPassThrough()                   |  - 5(F) > [COG 1 -F] > -15(2)
+11:43:42  > FullPassThrough()                   |  - -15(2) > [COG 2 -F] > 19(T)
+11:43:42  > FullPassThrough()                   |  - 19(T) > [UKW] > 25(Z)
+11:43:42  > FullPassThrough()                   |  - 25(Z) > [COG 2 -R] > 8(I)
+11:43:42  > FullPassThrough()                   |  - 8(I) > [COG 1 -R] > 1(B)
+11:43:42  > FullPassThrough()                   |  - 1(B) > [COG 0 -R] > 6(G)
+11:43:42  > FullPassThrough()                   |  - 6(G) > [Switchboard-R] > 6(G)
+11:43:42  > ------------------                  | 
+11:43:42  > FullPassThrough()                   |  - [SPACE] <Character Skipped>
+11:43:42  > ------------------                  | 
+11:43:42  > FullPassThrough()                   |  - Cog in position 1 Incremented
+11:43:42  > FullPassThrough()                   |  - 19(T) > [Switchboard-F] > 19(T)
+11:43:42  > FullPassThrough()                   |  - 19(T) > [COG 0 -F] > 3(D)
+11:43:42  > FullPassThrough()                   |  - 3(D) > [COG 1 -F] > 3(D)
+11:43:42  > FullPassThrough()                   |  - 3(D) > [COG 2 -F] > 2(C)
+11:43:42  > FullPassThrough()                   |  - 2(C) > [UKW] > 20(U)
+11:43:42  > FullPassThrough()                   |  - 20(U) > [COG 2 -R] > 7(H)
+11:43:42  > FullPassThrough()                   |  - 7(H) > [COG 1 -R] > -2(?)
+11:43:42  > FullPassThrough()                   |  - -2(?) > [COG 0 -R] > 6(G)
+11:43:42  > FullPassThrough()                   |  - 6(G) > [Switchboard-R] > 6(G)
+11:43:42  > ------------------                  | 
+11:43:42  > FullPassThrough()                   |  - Cog in position 1 Incremented
+11:43:42  > FullPassThrough()                   |  - 4(E) > [Switchboard-F] > 4(E)
+11:43:42  > FullPassThrough()                   |  - 4(E) > [COG 0 -F] > -1(@)
+11:43:42  > FullPassThrough()                   |  - -1(@) > [COG 1 -F] > 9(J)
+11:43:42  > FullPassThrough()                   |  - 9(J) > [COG 2 -F] > 21(V)
+11:43:42  > FullPassThrough()                   |  - 21(V) > [UKW] > 22(W)
+11:43:42  > FullPassThrough()                   |  - 22(W) > [COG 2 -R] > 1(B)
+11:43:42  > FullPassThrough()                   |  - 1(B) > [COG 1 -R] > -8(9)
+11:43:42  > FullPassThrough()                   |  - -8(9) > [COG 0 -R] > 12(M)
+11:43:42  > FullPassThrough()                   |  - 12(M) > [Switchboard-R] > 12(M)
+11:43:42  > ------------------                  | 
+11:43:42  > FullPassThrough()                   |  - Cog in position 1 Incremented
+11:43:42  > FullPassThrough()                   |  - 18(S) > [Switchboard-F] > 18(S)
+11:43:42  > FullPassThrough()                   |  - 18(S) > [COG 0 -F] > 5(F)
+11:43:42  > FullPassThrough()                   |  - 5(F) > [COG 1 -F] > -15(2)
+11:43:42  > FullPassThrough()                   |  - -15(2) > [COG 2 -F] > 19(T)
+11:43:42  > FullPassThrough()                   |  - 19(T) > [UKW] > 25(Z)
+11:43:42  > FullPassThrough()                   |  - 25(Z) > [COG 2 -R] > 8(I)
+11:43:42  > FullPassThrough()                   |  - 8(I) > [COG 1 -R] > 1(B)
+11:43:42  > FullPassThrough()                   |  - 1(B) > [COG 0 -R] > -9(8)
+11:43:42  > FullPassThrough()                   |  - -9(8) > [Switchboard-R] > 17(R)
+11:43:42  > ------------------                  | 
+11:43:42  > FullPassThrough()                   |  - Cog in position 1 Incremented
+11:43:42  > FullPassThrough()                   |  - 19(T) > [Switchboard-F] > 19(T)
+11:43:42  > FullPassThrough()                   |  - 19(T) > [COG 0 -F] > 3(D)
+11:43:42  > FullPassThrough()                   |  - 3(D) > [COG 1 -F] > 3(D)
+11:43:42  > FullPassThrough()                   |  - 3(D) > [COG 2 -F] > 2(C)
+11:43:42  > FullPassThrough()                   |  - 2(C) > [UKW] > 20(U)
+11:43:42  > FullPassThrough()                   |  - 20(U) > [COG 2 -R] > 7(H)
+11:43:42  > FullPassThrough()                   |  - 7(H) > [COG 1 -R] > -2(?)
+11:43:42  > FullPassThrough()                   |  - -2(?) > [COG 0 -R] > 14(O)
+11:43:42  > FullPassThrough()                   |  - 14(O) > [Switchboard-R] > 14(O)
+11:43:42  >                                     | 
+11:43:42  > -- --                               | 
+11:43:42  > --                                  | COG SETTINGS --
+11:43:42  >                                     | |Position: 0 |     |Cog: cog3.txt |     |Intital Char: L |     |Initial RingPos: 1|  
+11:43:42  >                                     | |Position: 1 |     |Cog: cog1.txt |     |Intital Char: Q |     |Initial RingPos: 1|  
+11:43:42  >                                     | |Position: 2 |     |Cog: cog5.txt |     |Intital Char: A |     |Initial RingPos: 1|  
+11:43:42  > --                                  | SWITCHBOARD SETTINGS --
+11:43:42  >                                     | >A|A<    >B|A<    >C|A<    >D|A<    >E|A<    >F|A<    >G|A<    >H|A<    >I|A<    >J|A<    >K|A<    >L|A<    >M|A<    >N|A<    
+11:43:42  >                                     | >O|A<    >P|A<    >Q|A<    >R|A<    >S|A<    >T|A<    >U|A<    >V|A<    >W|A<    >X|A<    >Y|A<    >Z|A<    
+11:43:42  > logFile.Close()                     | Logging terminated.

@@ -40,7 +40,7 @@ namespace Brad_s_Engima_Machine
             return false;
         }
 
-        public bool DecrementCog() // Experimental , likely not to be used
+        public bool DecrementCog() // Experimental
         {
             __shift--;
             if (__shift == turnover - 1)
