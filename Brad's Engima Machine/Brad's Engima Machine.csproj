@@ -25,10 +25,13 @@
     <Content Include="bin\Debug\net5.0\Brad%27s Engima Machine.deps.json" />
     <Content Include="bin\Debug\net5.0\Brad%27s Engima Machine.runtimeconfig.dev.json" />
     <Content Include="bin\Debug\net5.0\Brad%27s Engima Machine.runtimeconfig.json" />
+    <Content Include="bin\Debug\net5.0\settings\log files\3369-2244-8374.txt" />
+    <Content Include="bin\Debug\net5.0\settings\log files\5858-7251-3574.txt" />
+    <Content Include="bin\Debug\net5.0\settings\log files\9206-7476-9890.txt" />
+    <Content Include="bin\Debug\net5.0\settings\log files\9354-1601-4175.txt" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="bin\Debug\net5.0\settings\log files\" />
     <Folder Include="bin\Debug\net5.0\settings\ukws\" />
     <Folder Include="bin\Debug\net5.0\settings\switchboard\" />
   </ItemGroup>
@@ -43,9 +46,6 @@
     <None Include="bin\Debug\net5.0\settings\cogs\cog3.txt" />
     <None Include="bin\Debug\net5.0\settings\cogs\cog4.txt" />
     <None Include="bin\Debug\net5.0\settings\cogs\cog5.txt" />
-    <None Include="bin\Debug\net5.0\settings\log files\1992-7870-2253.txt" />
-    <None Include="bin\Debug\net5.0\settings\log files\2107-6415-8098.txt" />
-    <None Include="bin\Debug\net5.0\settings\log files\2976-7747-7888.txt" />
     <None Include="bin\Debug\net5.0\settings\messages\test.txt" />
     <None Include="bin\Debug\net5.0\settings\messages\testIn.txt" />
     <None Include="bin\Debug\net5.0\settings\switchboard\3897.txt" />

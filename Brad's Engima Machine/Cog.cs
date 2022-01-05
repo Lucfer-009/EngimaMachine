@@ -11,12 +11,11 @@ namespace Brad_s_Engima_Machine
     class CogArray : LookupArray
     {
         private int turnover;
-        private const string defaultPath = @"C:\Users\Brad\Documents\GitHub\EngimaMachine\Brad's Engima Machine\cogs\";
         private string cogFileLocation;
         private char initialChar;
         private int initialRingPos;
 
-        public CogArray(int shift, int size, string cogFileLocation, char initialChar, int initialRingPos) : base(size, $"{defaultPath}{cogFileLocation}")
+        public CogArray(int shift, int size, string cogFileLocation, char initialChar, int initialRingPos) : base(size, $"{FileLocationHandler.cogs_R}{cogFileLocation}")
         {
             __shift = shift;
             this.cogFileLocation = cogFileLocation;

@@ -9,11 +9,10 @@ namespace Brad_s_Engima_Machine
 
     class SwitchArray : LookupArray
     {
-        private const string defaultPath = @"C:\Users\Brad\Documents\GitHub\EngimaMachine\Brad's Engima Machine\switchboard saves\";
         private static string ID;
         private static Random rand = new Random();
 
-        public SwitchArray(int size, string fileLocation) : base(size, $"{defaultPath}{fileLocation}")
+        public SwitchArray(int size, string fileLocation) : base(size, $"{FileLocationHandler.switchboard_R}{fileLocation}")
         {
             this.__keys = LoadKey();
             __pointerArray = LoadShifts(__keys[0]);
@@ -25,7 +24,7 @@ namespace Brad_s_Engima_Machine
             __pointerArray = LoadShifts(manualSettings);
             __RpointerArray = LoadShifts(InvertKey(manualSettings));
             ID = $"{rand.Next(1000, 9999)}"; // ID system. Assigns each instance of Machine a number.
-            __fileLocation = $"{defaultPath}{ID}.txt";
+            __fileLocation = $"{FileLocationHandler.switchboard_R}{ID}.txt";
         }
 
         public void SaveSwitchBoard(string save)

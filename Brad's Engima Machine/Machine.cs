@@ -9,12 +9,9 @@ namespace Brad_s_Engima_Machine
 {
     class Machine
     {
-        private static string ID;
-
         private string launchTime;
         private string launchTimeSrt;
         private string name;
-        private string logFileAddress;
 
         private int defaultArraySize;
 
@@ -24,18 +21,13 @@ namespace Brad_s_Engima_Machine
         private SwitchArray switchBoard;
         private ReverserArray ukw;
 
-        private LogFile log;
-
-        public Machine(string name, int defaultArraySize, string logFileAddress = @"C:\Users\Brad\Documents\GitHub\EngimaMachine\Brad's Engima Machine\log files\")
+        public Machine(string name, int defaultArraySize)
         {
             launchTime = DateTime.Now.ToString("F"); // Logs the time at which the Machine was instanciated.
             launchTimeSrt = DateTime.Now.ToString("G"); // Logs a short version of the dateTime for the name of the logfile
 
             this.name = name;
             this.defaultArraySize = defaultArraySize;
-            this.logFileAddress = logFileAddress;
-
-            log = new LogFile();
         }
 
         public void PowerOn()
@@ -111,6 +103,7 @@ namespace Brad_s_Engima_Machine
             GU.Print("-- -- -- -- -- --");
         }
 
+
         private void InitialiseCogs()
         {
             List<int> choiceOfCogs = new List<int> { 1, 2, 3, 4, 5 };
@@ -144,7 +137,6 @@ namespace Brad_s_Engima_Machine
             }
             GU.Print("");
         }
-
         private void InitialiseSwitchboard()
         {
             GU.Print("");
@@ -177,7 +169,6 @@ namespace Brad_s_Engima_Machine
             }
 
         }
-
         private void InitialiseUKW()
         {
             bool check = true;
@@ -197,6 +188,7 @@ namespace Brad_s_Engima_Machine
             ukw = new ReverserArray(defaultArraySize, $"reflector{choice}.txt");
 
         }
+
 
         private void KeyByKeyEntry()
         {
@@ -283,7 +275,6 @@ namespace Brad_s_Engima_Machine
                 }
             }
         }
-
         private void LiveRead()
         {
             string input = "";
@@ -313,7 +304,6 @@ namespace Brad_s_Engima_Machine
             GU.Print($"{ret}");
 
         }
-
         private void FileRead()
         {
             GU.Print("\n\n: File Read :");
@@ -359,6 +349,7 @@ namespace Brad_s_Engima_Machine
             GU.Print(writtenText);
             GU.Print(ret);
         }
+
 
         private char FullPassThrough(char inflow)
         {
@@ -413,6 +404,7 @@ namespace Brad_s_Engima_Machine
 
             return outflow;
         }
+   
         
         private string Get_SB_Settings(double maxBinds)
         {
@@ -500,6 +492,7 @@ namespace Brad_s_Engima_Machine
             if(cog == -1) { throw new Exception("Issue with cog assignment in Machine.GetCogChoice()"); }
             return cog;
         }
+
 
         private bool CheckIfTraditionalCompatible(string input)
         { // Ensures that a user only enters letters or spaces. Will ask them to re-enter the message otherwise.
