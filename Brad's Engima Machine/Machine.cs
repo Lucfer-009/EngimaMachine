@@ -373,10 +373,13 @@ namespace Brad_s_Engima_Machine
                     machineCogs[2].IncrementCog();
                 }
             }
+
             int countA = 0;
             log = current;
+
             current = switchBoard.ForwardParse(current); //Goes through SwitchBoard
             LogFile.Write("FullPassThrough()", $" - {log}({GU.IntIndexToAlphaChar(log)}) > [Switchboard-F] > {current}({GU.IntIndexToAlphaChar(current)})");
+
             foreach (CogArray C in machineCogs)
             {
                 log = current;
@@ -384,6 +387,7 @@ namespace Brad_s_Engima_Machine
                 LogFile.Write("FullPassThrough()", $" - {log}({GU.IntIndexToAlphaChar(log)}) > [COG {countA} -F] > {current}({GU.IntIndexToAlphaChar(current)})");
                 countA++;
             }
+
             log = current;
             current = ukw.ForwardParse(current);
             LogFile.Write("FullPassThrough()", $" - {log}({GU.IntIndexToAlphaChar(log)}) > [UKW] > {current}({GU.IntIndexToAlphaChar(current)})");
@@ -400,7 +404,6 @@ namespace Brad_s_Engima_Machine
             LogFile.Write("FullPassThrough()", $" - {log}({GU.IntIndexToAlphaChar(log)}) > [Switchboard-R] > {current}({GU.IntIndexToAlphaChar(current)})");
 
             outflow = GU.IntIndexToAlphaChar(current);
-
 
             return outflow;
         }
