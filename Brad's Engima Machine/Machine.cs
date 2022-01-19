@@ -9,9 +9,9 @@ namespace Brad_s_Engima_Machine
 {
     class Machine
     {
-        private string launchTime;
-        private string launchTimeSrt;
-        private string name;
+        private string initialMessage;
+        private string endMessage;
+        private string switchboardLog;
 
         private int defaultArraySize;
 
@@ -23,10 +23,6 @@ namespace Brad_s_Engima_Machine
 
         public Machine(string name, int defaultArraySize)
         {
-            launchTime = DateTime.Now.ToString("F"); // Logs the time at which the Machine was instanciated.
-            launchTimeSrt = DateTime.Now.ToString("G"); // Logs a short version of the dateTime for the name of the logfile
-
-            this.name = name;
             this.defaultArraySize = defaultArraySize;
         }
 
@@ -71,13 +67,13 @@ namespace Brad_s_Engima_Machine
                     break;
             }
 
-
+            // Logging of the process
 
             LogFile.Write("", "");
             LogFile.Write("-- --", "");
 
 
-            LogFile.Write("--", "COG SETTINGS --");
+            LogFile.Write("--", "COG SETTINGS --"); // Logs Cog Settings
             int count = 0;
             foreach (CogArray Y in machineCogs)
             {
@@ -85,19 +81,24 @@ namespace Brad_s_Engima_Machine
                 count++;
             }
 
-            LogFile.Write("--", "SWITCHBOARD SETTINGS --");
+            LogFile.Write("--", "SWITCHBOARD SETTINGS --"); // Logs, quite complicatedly, the switchboard config
 
-            string switchTextOut = "";
-            for (int i = 0; i < switchBoard.GetPointers().Length; i++)
+            string line = " ";
+            count = 0;
+            List<char> usedSwitchPairs = new List<char>();
+            foreach(char y in switchboardLog) // shows parings that aren't that of themselves, aka - not AA but will show AC
             {
-                switchTextOut += $">{Convert.ToChar(i+65)}|{GU.IntIndexToAlphaChar(switchBoard.GetPointers()[i])}<    ";
-                if((i == switchBoard.GetPointers().Length / 2) || (i == switchBoard.GetPointers().Length-1))
+                if( (  Convert.ToString(GU.IntIndexToAlphaChar(count)) != Convert.ToString(y).ToUpper() ) && usedSwitchPairs.Contains(y) == false )
                 {
-                    LogFile.Write("", $"{switchTextOut}");
-                    switchTextOut = "";
-                }
+                    usedSwitchPairs.Add(GU.IntIndexToAlphaChar(count));
+                    line += $"{GU.IntIndexToAlphaChar(count)}/{Convert.ToString(y).ToUpper()} ";
+                }             
+                count++;           
             }
+            LogFile.Write("", line);
 
+            LogFile.Write("-- Start message --\n", $"{initialMessage}");
+            LogFile.Write("-- End Message --\n", $"{endMessage}");
 
             LogFile.Close();
             GU.Print("-- -- -- -- -- --");
@@ -197,7 +198,7 @@ namespace Brad_s_Engima_Machine
 
             int[] loggedShifts = { machineCogs[0].GetShift(), machineCogs[1].GetShift(), machineCogs[2].GetShift() };
 
-
+            string startmessage = "";
             bool check = true;
             int menucount = 5;
             string message = "";
@@ -205,7 +206,7 @@ namespace Brad_s_Engima_Machine
             {
                 try
                 {
-                    if(menucount == 5)
+                    if(menucount == 12)
                     {
                         GU.Print("Enter ! to stop and end");
                         GU.Print("Enter # to restart");
@@ -226,6 +227,7 @@ namespace Brad_s_Engima_Machine
                     else if (input == '#')
                     {
                         message = "";
+                        startmessage = "";
                         GU.Print("Message cleared!");
                     }
 
@@ -238,6 +240,7 @@ namespace Brad_s_Engima_Machine
                             count++;
                         }
                         message = "";
+                        startmessage = "";
                         GU.Print("Message cleared! & Cogs reset to initial settings");
                         LogFile.Write("KeyByKeyEntry()", "User cleared entry and reset cogs to initial settings");
 
@@ -255,6 +258,7 @@ namespace Brad_s_Engima_Machine
                             }
                         }
                         message = message.Substring(0, message.Length-1);
+                        startmessage = startmessage.Substring(0, startmessage.Length - 1);
                         GU.Print($"\nCurrent Message : {message}\n");
                     }
 
@@ -265,6 +269,7 @@ namespace Brad_s_Engima_Machine
 
                     else
                     {
+                        startmessage += input;
                         message += FullPassThrough(input);
                         GU.Print($"\nCurrent Message : {message}\n");
                     }
@@ -275,6 +280,8 @@ namespace Brad_s_Engima_Machine
 
                 }
             }
+            endMessage = message;
+            initialMessage = startmessage;
         }
         private void LiveRead()
         {
@@ -303,6 +310,8 @@ namespace Brad_s_Engima_Machine
             }
             Console.WriteLine("\n");
             GU.Print($"{ret}");
+            initialMessage = input;
+            endMessage = ret;
 
         }
         private void FileRead()
@@ -349,6 +358,9 @@ namespace Brad_s_Engima_Machine
             Console.WriteLine("\n");
             GU.Print(writtenText);
             GU.Print(ret);
+
+            initialMessage = writtenText;
+            endMessage = ret;
         }
 
 
@@ -485,6 +497,8 @@ namespace Brad_s_Engima_Machine
             {
                 endSetting += x;
             }
+
+            switchboardLog = endSetting;
             return endSetting;
 
         }

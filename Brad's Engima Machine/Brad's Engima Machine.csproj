@@ -16,13 +16,10 @@
     <Content Include="bin\Debug\net5.0\Brad%27s Engima Machine.deps.json" />
     <Content Include="bin\Debug\net5.0\Brad%27s Engima Machine.runtimeconfig.dev.json" />
     <Content Include="bin\Debug\net5.0\Brad%27s Engima Machine.runtimeconfig.json" />
-    <Content Include="bin\Debug\net5.0\settings\log files\3369-2244-8374.txt" />
-    <Content Include="bin\Debug\net5.0\settings\log files\5858-7251-3574.txt" />
-    <Content Include="bin\Debug\net5.0\settings\log files\9206-7476-9890.txt" />
-    <Content Include="bin\Debug\net5.0\settings\log files\9354-1601-4175.txt" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="bin\Debug\net5.0\settings\log files\" />
     <Folder Include="bin\Debug\net5.0\settings\ukws\" />
     <Folder Include="bin\Debug\net5.0\settings\switchboard\" />
   </ItemGroup>

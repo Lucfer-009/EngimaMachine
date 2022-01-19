@@ -29,7 +29,7 @@ namespace Brad_s_Engima_Machine
         public bool IncrementCog()
         {
             __shift++;
-            if(__shift == turnover+1 ) // Checks if the net shift (rotation) of the cog has reached the turnover latch,
+            if(__shift == turnover ) // Checks if the net shift (rotation) of the cog has reached the turnover latch,
             {                        // If it has it returns True, otherwise it returns false.
                 return true;
             }
