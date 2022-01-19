@@ -13,15 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <COMReference Include="{215d64d2-031c-33c7-96e3-61794cd1ee61}">
-      <WrapperTool>tlbimp</WrapperTool>
-      <VersionMinor>4</VersionMinor>
-      <VersionMajor>2</VersionMajor>
-      <Guid>215d64d2-031c-33c7-96e3-61794cd1ee61</Guid>
-    </COMReference>
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Include="bin\Debug\net5.0\Brad%27s Engima Machine.deps.json" />
     <Content Include="bin\Debug\net5.0\Brad%27s Engima Machine.runtimeconfig.dev.json" />
     <Content Include="bin\Debug\net5.0\Brad%27s Engima Machine.runtimeconfig.json" />
@@ -48,9 +39,6 @@
     <None Include="bin\Debug\net5.0\settings\cogs\cog5.txt" />
     <None Include="bin\Debug\net5.0\settings\messages\test.txt" />
     <None Include="bin\Debug\net5.0\settings\messages\testIn.txt" />
-    <None Include="bin\Debug\net5.0\settings\switchboard\3897.txt" />
-    <None Include="bin\Debug\net5.0\settings\switchboard\4537.txt" />
-    <None Include="bin\Debug\net5.0\settings\switchboard\7371.txt" />
     <None Include="bin\Debug\net5.0\settings\ukws\reflectorA.txt" />
     <None Include="bin\Debug\net5.0\settings\ukws\reflectorB.txt" />
     <None Include="bin\Debug\net5.0\settings\ukws\reflectorC.txt" />
