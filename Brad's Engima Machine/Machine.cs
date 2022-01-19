@@ -144,12 +144,13 @@ namespace Brad_s_Engima_Machine
 
             if(reply == false)
             {
-                double maxBinds = Math.Round(Convert.ToDouble(defaultArraySize) / 2, 0) - 1;
-                GU.Print("Enter characters that are connected by typing \"AB\" to illustrate that A & B are joined.");
-                GU.Print("Type \"!\" to end and pass through the configuration <");
-                GU.Print("Type \"#\" to restart the process.                   <");
-                GU.Print("  -- -- -- -- -- -- -- --");
-                GU.Print($"You can have a total of {maxBinds} pairs, exceeding this will auto void the entry");
+                double maxBinds = Math.Round(Convert.ToDouble(defaultArraySize) / 2, 0) - 3;
+                GU.Print("Enter characters that are connected, typing \"AB\" means that A & B are joined.");
+                GU.Print("> Type \"!\" to end and pass through the configuration <");
+                GU.Print("> Type \"#\" to restart the process.                   <");
+                GU.Print("   -- -- -- -- -- -- -- --");
+                GU.Print($"You can have a total of {maxBinds} pairs,");
+                GU.Print("going up to this will automatically pass the selection through");
 
                 string endSetting = Get_SB_Settings(maxBinds);
                 GU.Print($"> {endSetting} <");
@@ -420,41 +421,60 @@ namespace Brad_s_Engima_Machine
             bool check = true;
             char A = ' ';
             char B = ' ';
-            while(check == true)
-            {
+            List<char> usedChar = new List<char>();
+            while (check == true) // Rather complex array of statements that essentially prevent the user from entering anything other than an alphabetical
+            {                     // character or a char to restart/end the process (!, #). Not to mention it prevents the user from binding the same char to two
+                                  // different other characters.
                 try
                 {
+                    
                     A = GU.GetCharFromUser("Enter first character", true);
-                    if(bindsUsed > maxBinds)
+                    B = GU.GetCharFromUser("Enter second character", true);
+                    if (A == '#')
                     {
-                        throw new Exception("ERROR | You've used all your binds, please re-enter from the begining.");
+                        GU.Print("UPDATE | This process has been restarted!\n\n");
+                        bindsUsed = 0; //resests the binds used to 0
+                        for (int i = 0; i < defaultArraySize; i++) // wipes the array to defualt
+                        {
+                            blankSettings[i] = GU.IntIndexToAlphaChar(i);
+                        }
+
                     }
-                    else if (A == '#')
+                    else if (usedChar.Contains(A) == true || usedChar.Contains(B) == true) 
                     {
-                        throw new Exception("RESTARTED PROCESS");
+                        GU.Print($"ERROR | You've already bound {A} or {B}! this entry has been ignored.");
                     }
                     else if (A == '!')
                     {
                         check = false;
                     }
+                    else if (bindsUsed == maxBinds) 
+                    {
+                        GU.Print("You've used all your binds, continuing with current selection.");
+                        check = false;
+                    }
                     else if(CheckIfTraditionalCompatible(A) == false || CheckIfTraditionalCompatible(B) == false) // This could be removed at a later edition to allow for a larger cog to be used.
                     {
-                        throw new Exception("Invalid input");
+                        GU.Print($"ERROR | Etiher {A} or {B} is not an acceptable character!");
                     }
                     else
                     {
-                        B = GU.GetCharFromUser("Enter second character", true);
+                        usedChar.Add(A); usedChar.Add(B); // Adds the two characters to a log of used characters so they can't be re-entered.
+
                         int index = GU.AlphaCharToIntIndex(A); // A > E
                         int indexR = GU.AlphaCharToIntIndex(B); // E > A
                         blankSettings[index] = B;
                         blankSettings[indexR] = A;
                         bindsUsed++;
-                        GU.Print($"-- -- REMAINING PAIRS: {maxBinds - bindsUsed}");
+                        
+                        
+
                     }
-                    
+                    GU.Print($"-- -- REMAINING PAIRS: {maxBinds - bindsUsed}");
                 }
                 catch(Exception e)
                 {
+                    usedChar.Clear();
                     GU.Print(e.ToString());
                 }
             }
