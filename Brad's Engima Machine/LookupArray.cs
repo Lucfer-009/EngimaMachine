@@ -18,8 +18,8 @@ namespace Brad_s_Engima_Machine
 
         public LookupArray(int size, string cogFileLocation = null)
         {
-            this.__size = size;
-            this.__fileLocation = cogFileLocation;
+            __size = size;
+            __fileLocation = cogFileLocation;
 
         }
 
@@ -59,7 +59,7 @@ namespace Brad_s_Engima_Machine
             int count = 0;
             foreach (char y in standard)
             {
-                Rlive.Add(y, Convert.ToChar(count + 65));
+                Rlive.Add(y, GU.IntIndexToAlphaChar(count));
                 count++;
             }
             foreach (KeyValuePair<char, char> y in Rlive)
