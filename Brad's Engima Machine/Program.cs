@@ -8,8 +8,12 @@ namespace Brad_s_Engima_Machine
         static void Main(string[] args)
         {
             GU.Print("Hello World!");
-            Machine engima = new Machine("Test Machine", 26);
-            engima.PowerOn(); // Starts the machine
+            //Machine engima = new Machine("Test Machine", 26);
+            //engima.PowerOn(); // Starts the machine
+
+            Fitness test = new Fitness();
+            test.UpdateIndexOfCoincidence("THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOGHEWASABIGBOY");
+            GU.Print($"{test.indexOfCoincidence}");
         }
     }
     

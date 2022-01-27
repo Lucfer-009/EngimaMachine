@@ -26,6 +26,28 @@ namespace Brad_s_Engima_Machine
             this.defaultArraySize = defaultArraySize;
         }
 
+        public string ForceUse(string message, CogArray[] forced_machineCogs, SwitchArray forced_switchBoard, ReverserArray forced_ukw) // Used to instantly return a string from a given engima setting.
+        {
+            for(int i = 0; i < forced_machineCogs.Length; i++)
+            {
+                machineCogs[i] = forced_machineCogs[i];
+            }
+            switchBoard = forced_switchBoard;
+            ukw = forced_ukw;
+
+            string ret = "";
+            foreach(char y in message)
+            {
+                if(CheckIfTraditionalCompatible(y) == false)
+                {
+                    throw new Exception($"Issue with force loading through the engima machine, a not compatiable value | {y} | was attempted to be decoded.");
+                }
+                ret += FullPassThrough(y);
+            }
+            return ret;
+        }
+
+
         public void PowerOn()
         {
             LogFile.Write("Machine.powerOn()", "First boot of engima machine");
