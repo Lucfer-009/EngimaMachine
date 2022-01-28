@@ -218,6 +218,19 @@ namespace Brad_s_Engima_Machine
                 Print($"- {element}");
             }
         }
+        public static void PrintStrArrayToConsole(string[,] x)
+        {
+            for(int i = 0; i < x.GetLength(0); i++)
+            {
+                string temp = "";
+                for(int j = 0; j < x.GetLength(1);j++)
+                {
+                    temp += $" - {x[i, j]}";
+                }
+                Print(temp);
+            }
+        }
+
 
         public static void PrintIntArrayToConsole(int[] x)
         {
@@ -261,7 +274,24 @@ namespace Brad_s_Engima_Machine
             return X;
         }
 
+        public static string ConvertToScriptco(string message)
+        {
+            string ret = "";
+            foreach(char y in message)
+            {
+                int asciiValue = Convert.ToInt32(y);
+                if(asciiValue >= 97 && asciiValue <= 122) // checks for lowercase characters and makes them uppercase
+                {
+                    asciiValue -= 32;
+                }
 
+                if(asciiValue >= 65 && asciiValue <= 90)
+                {
+                    ret += y;
+                }
+            }
+            return null;
+        }
 
     }
 }

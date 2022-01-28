@@ -12,8 +12,18 @@ namespace Brad_s_Engima_Machine
             //engima.PowerOn(); // Starts the machine
 
             Fitness test = new Fitness();
-            test.UpdateIndexOfCoincidence("THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOGHEWASABIGBOY");
-            GU.Print($"{test.indexOfCoincidence}");
+
+            string exampleText_1 = GU.ConvertToScriptco(FileSys.GetStringFromFile(FileLocationHandler.knownEnglishWords_R));
+            double bigramFreq = test.GetFrequencyAnalysis(exampleText_1, 2, test.knownBigramFreqs);
+            double trigramFeq = test.GetFrequencyAnalysis(exampleText_1, 3, test.knownTrigramFreqs);
+            double quadgramFreq = test.GetFrequencyAnalysis(exampleText_1, 4, test.knownQuadgramFreqs);
+
+            GU.Print($"BI = {bigramFreq}");
+            GU.Print($"TRI = {trigramFeq}");
+            GU.Print($"QUAD = {quadgramFreq}");
+            GU.Print($"TOTAL = {bigramFreq+trigramFeq+quadgramFreq}");
+            GU.Print($"------");
+
         }
     }
     

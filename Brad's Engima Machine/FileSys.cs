@@ -63,5 +63,18 @@ namespace Brad_s_Engima_Machine
             string[] outputX = File.ReadAllLines(location);
             return outputX;
         }
+
+        public static string[,] GetFrequenciesFromFile(string location)
+        {
+            string[] lines = GetStringArrayFromFile(location);
+            string[,] output = new string[lines.Length, 2];
+            for(int i = 0; i < lines.Length; i++)
+            {
+                string[] temp = lines[i].Split('#');
+                output[i, 0] = temp[0];
+                output[i, 1] = temp[1];
+            }
+            return output;
+        }
     }
 }

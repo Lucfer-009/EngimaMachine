@@ -16,6 +16,11 @@
     <Content Include="bin\Debug\net5.0\Brad%27s Engima Machine.deps.json" />
     <Content Include="bin\Debug\net5.0\Brad%27s Engima Machine.runtimeconfig.dev.json" />
     <Content Include="bin\Debug\net5.0\Brad%27s Engima Machine.runtimeconfig.json" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\bigram frequencies.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\common words.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\known english text.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\quadgram frequencies.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\trigram frequencies.txt" />
   </ItemGroup>
 
   <ItemGroup>
