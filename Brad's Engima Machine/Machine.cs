@@ -406,17 +406,23 @@ namespace Brad_s_Engima_Machine
 
             // Brad's much improved engima stepping code
 
-            machineCogs[0].IncrementCog();
-            LogFile.Write("FullPassThrough()", " - Cog in position 1 Incremented");
-            if (machineCogs[0].IsAtTurnover(1) || machineCogs[1].IsAtTurnover(0))
+
+            if (machineCogs[0].IsAtTurnover(0) == false && machineCogs[1].IsAtTurnover(0) == false)
             {
-                machineCogs[1].IncrementCog();
-                LogFile.Write("FullPassThrough()", " - Cog in position 2 Incremented");
+                machineCogs[0].IncrementCog();
             }
-            if(machineCogs[1].IsAtTurnover(0))
+            else if( machineCogs[0].IsAtTurnover(0) == true && machineCogs[1].IsAtTurnover(0) == false)
             {
-                machineCogs[2].IncrementCog();
-                LogFile.Write("FullPassThrough()", " - Cog in position 3 Incremented");
+                machineCogs[0].IncrementCog();
+                machineCogs[1].IncrementCog();
+            }
+            else if(machineCogs[0].IsAtTurnover(0) == false && machineCogs[1].IsAtTurnover(0) == true)
+            {
+                foreach(CogArray C in machineCogs) { C.IncrementCog(); } //turns all
+            }
+            else if (machineCogs[0].IsAtTurnover(0) == true && machineCogs[1].IsAtTurnover(0) == true)
+            {
+                foreach (CogArray C in machineCogs) { C.IncrementCog(); } //turns all
             }
 
 
