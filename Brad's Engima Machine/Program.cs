@@ -8,23 +8,38 @@ namespace Brad_s_Engima_Machine
         static void Main(string[] args)
         {
             GU.Print("Hello World!");
-            //Machine engima = new Machine("Test Machine", 26);
-            //engima.PowerOn(); // Starts the machine
+            Machine engima = new Machine("Test Machine", 26);
+            engima.PowerOn(); // Starts the machine
+
+            //Testing();
 
 
 
+            
 
+        }
+        static void Testing()
+        {
+            string[,] tests =
+            {
+                {"", },
+                {"", },
+                {"", }
 
+            };
+            foreach(string y in tests)
+            {
+                Fitness test = new Fitness(y);
 
-            //string exampleText_1 = FileSys.GetStringFromFile(FileLocationHandler.bible30chapters_R);
-            string exampleText_1 = "ONCEWASAMANNAMEDDAVIDWHOLIVEDALONGROADNEARTHENEARESTSHOPPINGHALLHEREALLYLIKEDITWHENPEOPLETOOKHISYELLOWCOAT";
-            Fitness test = new Fitness(exampleText_1);
-
-            GU.Print($"BIGRAM = {test.GetNGramFreq(2)}");
-            GU.Print($"UNIGRAM = {test.GetNGramFreq(1)}");
-            GU.Print($"IOC = {Math.Round(test.indexOfCoincidence, 4)}% difference");
-            GU.Print($"------");
-
+                GU.Print("------");
+                GU.Print($"UNIGRAM  = {test.GetNGramFreq(1)}");
+                GU.Print($"BIGRAM   = {test.GetNGramFreq(2)}");
+                GU.Print($"TRIGRAM  = {test.GetNGramFreq(3)}");
+                GU.Print($"QUADGRAM = {test.GetNGramFreq(4)}");
+                GU.Print($"IOC = {Math.Round(test.indexOfCoincidence, 4)}% difference");
+                GU.Print($"------\n\n");
+            }
+            
         }
     }
     

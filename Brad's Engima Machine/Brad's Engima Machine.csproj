@@ -16,19 +16,20 @@
     <Content Include="bin\Debug\net5.0\Brad%27s Engima Machine.deps.json" />
     <Content Include="bin\Debug\net5.0\Brad%27s Engima Machine.runtimeconfig.dev.json" />
     <Content Include="bin\Debug\net5.0\Brad%27s Engima Machine.runtimeconfig.json" />
-    <Content Include="bin\Debug\net5.0\settings\cracking\bible30chapters.txt" />
-    <Content Include="bin\Debug\net5.0\settings\cracking\bigram frequencies.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\testfiles\bible30chapters.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\bigram frequencies.txt" />
     <Content Include="bin\Debug\net5.0\settings\cracking\common words.txt" />
-    <Content Include="bin\Debug\net5.0\settings\cracking\known english text.txt" />
-    <Content Include="bin\Debug\net5.0\settings\cracking\quadgram frequencies.txt" />
-    <Content Include="bin\Debug\net5.0\settings\cracking\trigram frequencies.txt" />
-    <Content Include="bin\Debug\net5.0\settings\cracking\unigram frequencies.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\testfiles\known english text.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\quadgram frequencies.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\trigram frequencies.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\unigram frequencies.txt" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="bin\Debug\net5.0\settings\log files\" />
-    <Folder Include="bin\Debug\net5.0\settings\ukws\" />
-    <Folder Include="bin\Debug\net5.0\settings\switchboard\" />
+    <Folder Include="bin\Debug\net5.0\settings\enigma\log files\" />
+    <Folder Include="bin\Debug\net5.0\settings\enigma\readout\" />
+    <Folder Include="bin\Debug\net5.0\settings\enigma\ukws\" />
+    <Folder Include="bin\Debug\net5.0\settings\enigma\switchboard\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,16 +37,16 @@
     <None Include="bin\Debug\net5.0\Brad%27s Engima Machine.exe" />
     <None Include="bin\Debug\net5.0\Brad%27s Engima Machine.pdb" />
     <None Include="bin\Debug\net5.0\ref\Brad%27s Engima Machine.dll" />
-    <None Include="bin\Debug\net5.0\settings\cogs\cog1.txt" />
-    <None Include="bin\Debug\net5.0\settings\cogs\cog2.txt" />
-    <None Include="bin\Debug\net5.0\settings\cogs\cog3.txt" />
-    <None Include="bin\Debug\net5.0\settings\cogs\cog4.txt" />
-    <None Include="bin\Debug\net5.0\settings\cogs\cog5.txt" />
-    <None Include="bin\Debug\net5.0\settings\messages\test.txt" />
-    <None Include="bin\Debug\net5.0\settings\messages\testIn.txt" />
-    <None Include="bin\Debug\net5.0\settings\ukws\reflectorA.txt" />
-    <None Include="bin\Debug\net5.0\settings\ukws\reflectorB.txt" />
-    <None Include="bin\Debug\net5.0\settings\ukws\reflectorC.txt" />
+    <None Include="bin\Debug\net5.0\settings\enigma\cogs\cog1.txt" />
+    <None Include="bin\Debug\net5.0\settings\enigma\cogs\cog2.txt" />
+    <None Include="bin\Debug\net5.0\settings\enigma\cogs\cog3.txt" />
+    <None Include="bin\Debug\net5.0\settings\enigma\cogs\cog4.txt" />
+    <None Include="bin\Debug\net5.0\settings\enigma\cogs\cog5.txt" />
+    <None Include="bin\Debug\net5.0\settings\enigma\messages\test.txt" />
+    <None Include="bin\Debug\net5.0\settings\enigma\messages\testIn.txt" />
+    <None Include="bin\Debug\net5.0\settings\enigma\ukws\reflectorA.txt" />
+    <None Include="bin\Debug\net5.0\settings\enigma\ukws\reflectorB.txt" />
+    <None Include="bin\Debug\net5.0\settings\enigma\ukws\reflectorC.txt" />
   </ItemGroup>
 
 </Project>

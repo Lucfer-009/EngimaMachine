@@ -26,32 +26,33 @@ namespace Brad_s_Engima_Machine
             __RpointerArray = LoadShifts(__keys[1]);
         }
 
-        public bool IncrementCog()
+        public void IncrementCog()
         {
             __shift++;
-            if(__shift == turnover ) // Checks if the net shift (rotation) of the cog has reached the turnover latch,
-            {                        // If it has it returns True, otherwise it returns false.
-                return true;
-            }
-            else if(__shift % __size == 0)  // If the shift is above the size of the array it then resets it back to 0, despite the fact that there are %
+            if(__shift % __size == 0)  // If the shift is above the size of the array it then resets it back to 0, despite the fact that there are %
             {                               // functions spread around indexing code to prevent such an error.
                 __shift = 0;
             }
-            return false;
         }
-
-        public bool DecrementCog() // Experimental
+        public bool IsAtTurnover(int modifier)
         {
-            __shift--;
-            if (__shift == turnover - 1)
-            {       
+            if(__shift == turnover + modifier)
+            {
                 return true;
             }
-            else if (__shift % __size == 0)  
+            else
+            {
+                return false;
+            }
+        }
+
+        public void DecrementCog() // Experimental
+        {
+            __shift--;
+            if (__shift % __size == 0)  
             {                               
                 __shift = 0;
             }
-            return false;
         }
 
         protected override string[] LoadKey()

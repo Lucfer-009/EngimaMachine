@@ -89,6 +89,14 @@ namespace Brad_s_Engima_Machine
                     break;
             }
 
+            GU.Print("----\n");
+            bool save = GU.GetBoolFromUser("Would you like to save this answer to a file?");
+            if(save == true)
+            {
+                FileSys.WriteStringToTxtFile(endMessage, FileLocationHandler.readout_R + $"{rand.Next(1000, 9999)}.txt");
+            }
+
+
             // Logging of the process
 
             LogFile.Write("", "");
@@ -120,7 +128,7 @@ namespace Brad_s_Engima_Machine
             LogFile.Write("", line);
 
             LogFile.Write("-- Start message --\n", $"{initialMessage}");
-            LogFile.Write("-- End Message --\n", $"{endMessage}");
+            LogFile.Write("-- End Message   --\n", $"{endMessage}");
 
             LogFile.Close();
             GU.Print("-- -- -- -- -- --");
@@ -190,6 +198,7 @@ namespace Brad_s_Engima_Machine
             {
                 int address = GU.GetIntWithinBound("Please enter 4-digit ID for switchboard saved preset", 1000, 9999);
                 switchBoard = new SwitchArray(defaultArraySize, $"{address}.txt");
+                switchboardLog = FileSys.GetStringFromFile(FileLocationHandler.switchboard_R + $"{address}.txt");
             }
 
         }
@@ -270,15 +279,7 @@ namespace Brad_s_Engima_Machine
 
                     else if (input == '$')
                     {
-                        if (machineCogs[0].DecrementCog() == true) // Increments through cogs upon entry of character
-                        {
-                            LogFile.Write("FullPassThrough()", " - Cog in position 1 reached turnover, Cog in position 2 Incremented");
-                            if (machineCogs[1].DecrementCog() == true)
-                            {
-                                LogFile.Write("FullPassThrough()", " - Cog in position 2 reached turnover, Cog in position 3 Incremented");
-                                machineCogs[2].DecrementCog();
-                            }
-                        }
+                        // need to put backparsing in here
                         message = message.Substring(0, message.Length-1);
                         startmessage = startmessage.Substring(0, startmessage.Length - 1);
                         GU.Print($"\nCurrent Message : {message}\n");
@@ -325,10 +326,12 @@ namespace Brad_s_Engima_Machine
             GU.Print("");
 
             string ret = "";
+            int count = 0; // for breakpoint reasons
             foreach(char y in input)
             {
                 char got = FullPassThrough(y);
                 ret += got;
+                count++;
             }
             Console.WriteLine("\n");
             GU.Print($"{ret}");
@@ -398,16 +401,24 @@ namespace Brad_s_Engima_Machine
                 LogFile.Write("FullPassThrough()"," - [SPACE] <Character Skipped>");
                 return outflow; 
             }
+
+
+
+            // Brad's much improved engima stepping code
+
+            machineCogs[0].IncrementCog();
             LogFile.Write("FullPassThrough()", " - Cog in position 1 Incremented");
-            if (machineCogs[0].IncrementCog() == true) // Increments through cogs upon entry of character
+            if (machineCogs[0].IsAtTurnover(1) || machineCogs[1].IsAtTurnover(0))
             {
-                LogFile.Write("FullPassThrough()", " - Cog in position 1 reached turnover, Cog in position 2 Incremented");
-                if (machineCogs[1].IncrementCog() == true)
-                {
-                    LogFile.Write("FullPassThrough()", " - Cog in position 2 reached turnover, Cog in position 3 Incremented");
-                    machineCogs[2].IncrementCog();
-                }
+                machineCogs[1].IncrementCog();
+                LogFile.Write("FullPassThrough()", " - Cog in position 2 Incremented");
             }
+            if(machineCogs[1].IsAtTurnover(0))
+            {
+                machineCogs[2].IncrementCog();
+                LogFile.Write("FullPassThrough()", " - Cog in position 3 Incremented");
+            }
+
 
             int countA = 0;
             log = current;
