@@ -287,10 +287,10 @@ namespace Brad_s_Engima_Machine
 
                 if(asciiValue >= 65 && asciiValue <= 90)
                 {
-                    ret += y;
+                    ret += Convert.ToChar(asciiValue);
                 }
             }
-            return null;
+            return ret;
         }
 
     }

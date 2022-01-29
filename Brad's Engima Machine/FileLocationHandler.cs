@@ -20,11 +20,16 @@ namespace Brad_s_Engima_Machine
         static public readonly string reversers_R           = masterConfigPath + @"ukws\";
         static public readonly string messages_R            = masterConfigPath + @"messages\";
         static public readonly string switchboard_R         = masterConfigPath + @"switchboard\";
+
+
+        static public readonly string unigramFrequencies_R  = masterConfigPath + @"cracking\unigram frequencies.txt";
         static public readonly string bigramFrequencies_R   = masterConfigPath + @"cracking\bigram frequencies.txt";
         static public readonly string trigramFrequencies_R  = masterConfigPath + @"cracking\trigram frequencies.txt";
         static public readonly string quadgramFrequencies_R = masterConfigPath + @"cracking\quadgram frequencies.txt";
         static public readonly string commonWords_R         = masterConfigPath + @"cracking\common words.txt";
-        static public readonly string knownEnglishWords_R = masterConfigPath + @"cracking\known english text.txt";
+        static public readonly string knownEnglishWords_R   = masterConfigPath + @"cracking\known english text.txt";
+        static public readonly string bible30chapters_R     = masterConfigPath + @"cracking\bible30chapters.txt";
+        
 
     }
 }
