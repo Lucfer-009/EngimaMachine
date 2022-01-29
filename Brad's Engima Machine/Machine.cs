@@ -63,7 +63,7 @@ namespace Brad_s_Engima_Machine
             InitialiseUKW();
             GU.Print("");
             LogFile.Write("Machine.InitialseUKW()", "Got reverser settings from user");
-
+            GU.Print("");
 
             GU.Print("-- -- -- -- --");
             GU.Print("1 . Live Entry");
@@ -97,7 +97,7 @@ namespace Brad_s_Engima_Machine
             }
 
 
-            // Logging of the process
+            // Logging of the process ---------------------------------------------------------
 
             LogFile.Write("", "");
             LogFile.Write("-- --", "");
@@ -137,11 +137,12 @@ namespace Brad_s_Engima_Machine
 
         private void InitialiseCogs()
         {
+            string[] postions = { "FIRST/FAST", "MIDDLE", "LAST/SLOW" };
             List<int> choiceOfCogs = new List<int> { 1, 2, 3, 4, 5 };
             for (int x = 0; x < 3; x++)
             {
                 GU.Print("Enter your cogs from right to left from the options below: "); // Gathers essential settings
-                int C = GetCogChoice($"{x + 1}", ref choiceOfCogs);
+                int C = GetCogChoice($"{x + 1} | {postions[x]}", ref choiceOfCogs);
 
                 char S_ = '#';
                 bool test = false;
@@ -158,13 +159,18 @@ namespace Brad_s_Engima_Machine
                     }
                 }
 
-                int S = GU.AlphaCharToIntIndex(S_,-64); // Start Position
-                int R = GU.GetIntWithinBound($"Enter ring position for cog {C}", 0, defaultArraySize); // Ring Position
+                int Position = GU.AlphaCharToIntIndex(S_,-64); // Start Position
+                int Ring = GU.GetIntWithinBound($"Enter ring position for cog {C}", 1, defaultArraySize+1); // Ring Position
+                GU.Print("--");
 
                 int shift;
-                if (R > S) { shift = (defaultArraySize + (S - R) ) % defaultArraySize; } // Calculates the relative positive shift (e.g. with an index size of 10. A shift of -2 becomes +8. A circular array)
-                else { shift = (S - R) % defaultArraySize; }
-                machineCogs[x] = new CogArray(shift, defaultArraySize, $"cog{C}.txt", S_, R);
+                shift = Position - Ring;
+                if (Position < Ring)
+                {
+                    shift = (defaultArraySize + shift) % defaultArraySize;
+                }
+
+                machineCogs[x] = new CogArray(shift, defaultArraySize, $"cog{C}.txt", S_, Ring);
             }
             GU.Print("");
         }
@@ -186,7 +192,7 @@ namespace Brad_s_Engima_Machine
                 string endSetting = Get_SB_Settings(maxBinds);
                 GU.Print($"> {endSetting} <");
                 switchBoard = new SwitchArray(defaultArraySize, endSetting, true);
-
+                GU.Print("--");
                 bool saveBoard = GU.GetBoolFromUser("Do you wish to save this Switchboad to memory?");
                 if(saveBoard == true)
                 {
@@ -200,7 +206,7 @@ namespace Brad_s_Engima_Machine
                 switchBoard = new SwitchArray(defaultArraySize, $"{address}.txt");
                 switchboardLog = FileSys.GetStringFromFile(FileLocationHandler.switchboard_R + $"{address}.txt");
             }
-
+            GU.Print("");
         }
         private void InitialiseUKW()
         {
@@ -209,7 +215,7 @@ namespace Brad_s_Engima_Machine
             while(check == true)
             {
                 choice = GU.GetCharFromUser("Enter UKW / Reverser of choice, A - B - C");
-                if(choice is not('A' or 'B' or 'C'))
+                if(choice.ToString().ToUpper() is not("A" or "B" or "C"))
                 {
                     GU.Print("ERROR | Please enter either A, B or C");
                 }
