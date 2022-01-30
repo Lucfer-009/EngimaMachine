@@ -381,10 +381,18 @@ namespace Brad_s_Engima_Machine
 
             GU.Print("\n");
             string ret = "";
-            foreach(char y in writtenText)
+            DateTime starttime = DateTime.Now;
+            int count = 0;
+            foreach (char y in writtenText)
             {
                 char got = FullPassThrough(y);
                 ret += got;
+                count++;
+                if (count == 20000)
+                {
+                    TimeSpan loadtime = DateTime.Now - starttime;
+                    GU.Print($"~{(loadtime.TotalSeconds * (writtenText.Length / 5000))} seconds remaining ");
+                }
             }
             Console.WriteLine("\n");
             GU.Print(writtenText);

@@ -25,6 +25,10 @@ namespace Brad_s_Engima_Machine
 
         public int ForwardParse(int letterIndex)
         {
+            if (letterIndex < 0)
+            {
+                letterIndex = __size - (Math.Abs(letterIndex) % 26);
+            }
             int x = 0;
             int cCeaserShift = __pointerArray[(letterIndex + __shift) % __size];
             x = __size + cCeaserShift;
@@ -35,6 +39,10 @@ namespace Brad_s_Engima_Machine
 
         public int ReverseParse(int letterIndex)
         {
+            if (letterIndex < 0)
+            {
+                letterIndex = __size - (Math.Abs(letterIndex) % 26);
+            }
             int x = 0;
             int cCeaserShift = __RpointerArray[(letterIndex + __shift) % __size];
             x = __size + cCeaserShift;

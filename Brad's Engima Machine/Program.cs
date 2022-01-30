@@ -22,14 +22,15 @@ namespace Brad_s_Engima_Machine
         {
             string[,] tests =
             {
-                {"", },
-                {"", },
-                {"", }
+                {"Bible", FileSys.GetStringFromFile(FileLocationHandler.bible30chapters_R) },
+                {"Scrambled Bible", FileSys.GetStringFromFile(FileLocationHandler.bible30chaptersEnigma_R)},
+                {"Lissa", "Lissa is the best"}
 
             };
-            foreach(string y in tests)
+            for (int i = 0; i < tests.GetLength(0); i++)
             {
-                Fitness test = new Fitness(y);
+                GU.Print($"{tests[i, 0]} ---------------");
+                Fitness test = new Fitness(tests[i, 1]);
 
                 GU.Print("------");
                 GU.Print($"UNIGRAM  = {test.GetNGramFreq(1)}");
@@ -39,7 +40,7 @@ namespace Brad_s_Engima_Machine
                 GU.Print($"IOC = {Math.Round(test.indexOfCoincidence, 4)}% difference");
                 GU.Print($"------\n\n");
             }
-            
+
         }
     }
     
