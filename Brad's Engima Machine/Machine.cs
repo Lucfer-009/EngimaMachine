@@ -380,18 +380,31 @@ namespace Brad_s_Engima_Machine
             writtenText = FileSys.GetStringFromFile(locationOfText);
 
             GU.Print("\n");
-            string ret = "";
+
             DateTime starttime = DateTime.Now;
             int count = 0;
+            double totalSpeed = 0;
+            int count2 = 0;
+            const int updateSum = 2000; // this only needs to be run for every long encryptions
+            string ret = "";
             foreach (char y in writtenText)
             {
                 char got = FullPassThrough(y);
                 ret += got;
                 count++;
-                if (count == 20000)
+                if (count % updateSum == 0)
                 {
-                    TimeSpan loadtime = DateTime.Now - starttime;
-                    GU.Print($"~{(loadtime.TotalSeconds * (writtenText.Length / 5000))} seconds remaining ");
+                    count2++;
+                    TimeSpan period = DateTime.Now - starttime;
+                    double EncryptionsPerSecond = count / period.TotalSeconds;
+                    totalSpeed += EncryptionsPerSecond;
+                    double timeLeft = (writtenText.Length-count) / (totalSpeed/count2);
+
+                    if(count % (updateSum * 20) == 0)
+                    {
+                        GU.Print($"~{timeLeft:N} - Seconds left");
+                    }
+
                 }
             }
             Console.WriteLine("\n");
