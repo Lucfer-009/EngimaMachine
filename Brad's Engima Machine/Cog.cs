@@ -34,9 +34,9 @@ namespace Brad_s_Engima_Machine
                 __shift = 0;
             }
         }
-        public bool IsAtTurnover(int modifier)
+        public bool IsAtTurnover()
         {
-            if(__shift == turnover + modifier)
+            if(__shift == turnover)
             {
                 return true;
             }

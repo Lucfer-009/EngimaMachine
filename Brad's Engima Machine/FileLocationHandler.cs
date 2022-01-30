@@ -32,6 +32,7 @@ namespace Brad_s_Engima_Machine
 
         static public readonly string knownEnglishWords_R   = masterConfigPath + @"cracking\testfiles\known english text.txt";
         static public readonly string bible30chapters_R     = masterConfigPath + @"cracking\testfiles\bible30chapters.txt";
+        static public readonly string bible30chaptersEnigma_R = masterConfigPath + @"cracking\testfiles\bible30chaptersEnigma.txt";
 
         
 

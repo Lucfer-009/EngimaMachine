@@ -231,7 +231,8 @@ namespace Brad_s_Engima_Machine
 
         private void KeyByKeyEntry()
         {
-            GU.Print("\n\n: KeyByKey Entry :");
+            GU.Print("");
+            GU.Print(": KeyByKey Entry :");
 
             int[] loggedShifts = { machineCogs[0].GetShift(), machineCogs[1].GetShift(), machineCogs[2].GetShift() };
 
@@ -315,7 +316,8 @@ namespace Brad_s_Engima_Machine
         private void LiveRead()
         {
             string input = "";
-            GU.Print("\n\n: Live Read :");
+            GU.Print("");
+            GU.Print(": Live Read :");
             bool acceptable = false;
             while (acceptable == false)
             {
@@ -347,7 +349,8 @@ namespace Brad_s_Engima_Machine
         }
         private void FileRead()
         {
-            GU.Print("\n\n: File Read :");
+            GU.Print("");
+            GU.Print(": File Read :");
             string writtenText = "";
             const string baseLocationOfText = @"F:\VS Projects\Project\Lucfer-009\EngimaMachine\Brad's Engima Machine\messages\";
             string locationOfText = "";
@@ -431,23 +434,23 @@ namespace Brad_s_Engima_Machine
 
 
 
-            // Brad's much improved engima stepping code
+            // Brad's much improved engima stepping code (flawless :) )
 
 
-            if (machineCogs[0].IsAtTurnover(0) == false && machineCogs[1].IsAtTurnover(0) == false)
+            if (machineCogs[0].IsAtTurnover() == false && machineCogs[1].IsAtTurnover() == false)
             {
                 machineCogs[0].IncrementCog();
             }
-            else if( machineCogs[0].IsAtTurnover(0) == true && machineCogs[1].IsAtTurnover(0) == false)
+            else if( machineCogs[0].IsAtTurnover() == true && machineCogs[1].IsAtTurnover() == false)
             {
                 machineCogs[0].IncrementCog();
                 machineCogs[1].IncrementCog();
             }
-            else if(machineCogs[0].IsAtTurnover(0) == false && machineCogs[1].IsAtTurnover(0) == true)
+            else if(machineCogs[0].IsAtTurnover() == false && machineCogs[1].IsAtTurnover() == true)
             {
                 foreach(CogArray C in machineCogs) { C.IncrementCog(); } //turns all
             }
-            else if (machineCogs[0].IsAtTurnover(0) == true && machineCogs[1].IsAtTurnover(0) == true)
+            else if (machineCogs[0].IsAtTurnover() == true && machineCogs[1].IsAtTurnover() == true)
             {
                 foreach (CogArray C in machineCogs) { C.IncrementCog(); } //turns all
             }

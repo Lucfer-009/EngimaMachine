@@ -7,11 +7,11 @@ namespace Brad_s_Engima_Machine
     {
         static void Main(string[] args)
         {
-            GU.Print("Hello World!");
-            Machine engima = new Machine("Test Machine", 26);
-            engima.PowerOn(); // Starts the machine
+            //GU.Print("Hello World!");
+            //Machine engima = new Machine("Test Machine", 26);
+            //engima.PowerOn(); // Starts the machine
 
-            //Testing();
+            Testing();
 
 
 
@@ -23,7 +23,7 @@ namespace Brad_s_Engima_Machine
             string[,] tests =
             {
                 {"Bible", FileSys.GetStringFromFile(FileLocationHandler.bible30chapters_R) },
-                //{"Scrambled Bible", FileSys.GetStringFromFile(FileLocationHandler.bible30chaptersEnigma_R)},
+                {"Scrambled Bible", FileSys.GetStringFromFile(FileLocationHandler.bible30chaptersEnigma_R)},
                 {"Lissa", "Lissa is the best"}
 
             };
@@ -42,6 +42,16 @@ namespace Brad_s_Engima_Machine
             }
 
         }
+        static void TurnFileIntoFreq(string file, string endFileLocation)
+        {
+
+            string[] text = FileSys.GetStringArrayFromFile(file);
+            foreach(string line in text)
+            {
+
+            }
+        }
+
     }
     
 }
