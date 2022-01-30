@@ -24,17 +24,25 @@ namespace Brad_s_Engima_Machine
 
         // ---------------------
 
-        static public readonly string unigramFrequencies_R  = masterConfigPath + @"cracking\ngram analysis\unigram frequencies.txt";
-        static public readonly string bigramFrequencies_R   = masterConfigPath + @"cracking\ngram analysis\bigram frequencies.txt";
-        static public readonly string trigramFrequencies_R  = masterConfigPath + @"cracking\ngram analysis\trigram frequencies.txt";
-        static public readonly string quadgramFrequencies_R = masterConfigPath + @"cracking\ngram analysis\quadgram frequencies.txt";
+        static public readonly string unigramFrequencies_R  = masterConfigPath + @"cracking\ngram analysis\Old\unigram frequencies.txt";
+        static public readonly string bigramFrequencies_R   = masterConfigPath + @"cracking\ngram analysis\Old\bigram frequencies.txt";
+        static public readonly string trigramFrequencies_R  = masterConfigPath + @"cracking\ngram analysis\Old\trigram frequencies.txt";
+        static public readonly string quadgramFrequencies_R = masterConfigPath + @"cracking\ngram analysis\Old\quadgram frequencies.txt";
         static public readonly string commonWords_R         = masterConfigPath + @"cracking\common words.txt";
 
-        static public readonly string knownEnglishWords_R   = masterConfigPath + @"cracking\testfiles\known english text.txt";
-        static public readonly string bible30chapters_R     = masterConfigPath + @"cracking\testfiles\bible30chapters.txt";
-        static public readonly string bible30chaptersEnigma_R = masterConfigPath + @"cracking\testfiles\bible30chaptersEnigma.txt";
+        static public readonly string knownEnglishWords_R       = masterConfigPath + @"cracking\testfiles\known english text.txt";
+        static public readonly string bible30chapters_R         = masterConfigPath + @"cracking\testfiles\bible30chapters.txt";
+        static public readonly string bible30chaptersEnigma_R   = masterConfigPath + @"cracking\testfiles\bible30chaptersEnigma.txt";
 
-        
+        static public readonly string knownEnglishBigrams_R     = masterConfigPath + @"machine specific files\english_bigrams.txt";
+        static public readonly string knownEnglishTrigrams_R    = masterConfigPath + @"machine specific files\english_trigrams.txt";
+        static public readonly string knownEnglishQuadgrams_R   = masterConfigPath + @"machine specific files\english_quadgrams.txt";
+        static public readonly string knownEnglishQuintgrams_R  = masterConfigPath + @"machine specific files\english_quintgrams.txt";
+
+        static public readonly string newBiGram_R = masterConfigPath + @"cracking\ngram analysis\Improved\newBiGram5000.txt";
+        static public readonly string newTriGram_R = masterConfigPath + @"cracking\ngram analysis\Improved\newTriGram5000.txt";
+        static public readonly string newQuadGram_R = masterConfigPath + @"cracking\ngram analysis\Improved\newQuadGram5000.txt";
+        static public readonly string newQuintGram_R = masterConfigPath + @"cracking\ngram analysis\Improved\newQuintGram5000.txt";
 
     }
 }

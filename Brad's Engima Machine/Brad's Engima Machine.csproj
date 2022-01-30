@@ -16,15 +16,24 @@
     <Content Include="bin\Debug\net5.0\Brad%27s Engima Machine.deps.json" />
     <Content Include="bin\Debug\net5.0\Brad%27s Engima Machine.runtimeconfig.dev.json" />
     <Content Include="bin\Debug\net5.0\Brad%27s Engima Machine.runtimeconfig.json" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Improved\newBiGram5000.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Improved\newQuadGram5000.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Improved\newQuintGram5000.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Improved\newTriGram5000.txt" />
     <Content Include="bin\Debug\net5.0\settings\cracking\testfiles\bible30chapters.txt" />
-    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\bigram frequencies.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Old\bigram frequencies.txt" />
     <Content Include="bin\Debug\net5.0\settings\cracking\common words.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\testfiles\bible30chaptersEnigma.txt" />
     <Content Include="bin\Debug\net5.0\settings\cracking\testfiles\known english text.txt" />
-    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\quadgram frequencies.txt" />
-    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\trigram frequencies.txt" />
-    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\unigram frequencies.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Old\quadgram frequencies.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Old\trigram frequencies.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Old\unigram frequencies.txt" />
     <Content Include="bin\Debug\net5.0\settings\enigma\messages\test.txt" />
     <Content Include="bin\Debug\net5.0\settings\enigma\messages\testIn.txt" />
+    <Content Include="bin\Debug\net5.0\settings\machine specific files\english_bigrams.txt" />
+    <Content Include="bin\Debug\net5.0\settings\machine specific files\english_quadgrams.txt" />
+    <Content Include="bin\Debug\net5.0\settings\machine specific files\english_quintgrams.txt" />
+    <Content Include="bin\Debug\net5.0\settings\machine specific files\english_trigrams.txt" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,7 +41,6 @@
     <Folder Include="bin\Debug\net5.0\settings\enigma\readout\" />
     <Folder Include="bin\Debug\net5.0\settings\enigma\ukws\" />
     <Folder Include="bin\Debug\net5.0\settings\enigma\switchboard\" />
-    <Folder Include="bin\Debug\net5.0\settings\machine specific files\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -48,6 +56,10 @@
     <None Include="bin\Debug\net5.0\settings\enigma\ukws\reflectorA.txt" />
     <None Include="bin\Debug\net5.0\settings\enigma\ukws\reflectorB.txt" />
     <None Include="bin\Debug\net5.0\settings\enigma\ukws\reflectorC.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Collections" Version="4.3.0" />
   </ItemGroup>
 
 </Project>
