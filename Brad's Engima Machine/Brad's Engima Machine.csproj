@@ -23,6 +23,8 @@
     <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\quadgram frequencies.txt" />
     <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\trigram frequencies.txt" />
     <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\unigram frequencies.txt" />
+    <Content Include="bin\Debug\net5.0\settings\enigma\messages\test.txt" />
+    <Content Include="bin\Debug\net5.0\settings\enigma\messages\testIn.txt" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,8 +44,6 @@
     <None Include="bin\Debug\net5.0\settings\enigma\cogs\cog3.txt" />
     <None Include="bin\Debug\net5.0\settings\enigma\cogs\cog4.txt" />
     <None Include="bin\Debug\net5.0\settings\enigma\cogs\cog5.txt" />
-    <None Include="bin\Debug\net5.0\settings\enigma\messages\test.txt" />
-    <None Include="bin\Debug\net5.0\settings\enigma\messages\testIn.txt" />
     <None Include="bin\Debug\net5.0\settings\enigma\ukws\reflectorA.txt" />
     <None Include="bin\Debug\net5.0\settings\enigma\ukws\reflectorB.txt" />
     <None Include="bin\Debug\net5.0\settings\enigma\ukws\reflectorC.txt" />

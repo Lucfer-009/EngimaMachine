@@ -23,7 +23,7 @@ namespace Brad_s_Engima_Machine
             string[,] tests =
             {
                 {"Bible", FileSys.GetStringFromFile(FileLocationHandler.bible30chapters_R) },
-                {"Scrambled Bible", FileSys.GetStringFromFile(FileLocationHandler.bible30chaptersEnigma_R)},
+                //{"Scrambled Bible", FileSys.GetStringFromFile(FileLocationHandler.bible30chaptersEnigma_R)},
                 {"Lissa", "Lissa is the best"}
 
             };

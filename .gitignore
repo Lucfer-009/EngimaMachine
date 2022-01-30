@@ -1,4 +1,5 @@
 #Excluded files or folders
 
-GitHub\EngimaMachine\Brad's Engima Machine\bin\Debug\net5.0\settings\enigma\log files\
-GitHub\EngimaMachine\Brad's Engima Machine\bin\Debug\net5.0\settings\enigma\readout\
+/Brad's Engima Machine/bin/Debug/net5.0/settings/enigma/log files
+/Brad's Engima Machine/bin/Debug/net5.0/settings/enigma/readout
+/Brad's Engima Machine/bin/Debug/net5.0/settings/enigma/messages
