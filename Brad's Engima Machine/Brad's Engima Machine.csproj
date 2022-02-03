@@ -28,16 +28,11 @@
     <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Old\quadgram frequencies.txt" />
     <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Old\trigram frequencies.txt" />
     <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Old\unigram frequencies.txt" />
-    <Content Include="bin\Debug\net5.0\settings\enigma\messages\test.txt" />
-    <Content Include="bin\Debug\net5.0\settings\enigma\messages\testIn.txt" />
-    <Content Include="bin\Debug\net5.0\settings\machine specific files\english_bigrams.txt" />
-    <Content Include="bin\Debug\net5.0\settings\machine specific files\english_quadgrams.txt" />
-    <Content Include="bin\Debug\net5.0\settings\machine specific files\english_quintgrams.txt" />
-    <Content Include="bin\Debug\net5.0\settings\machine specific files\english_trigrams.txt" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="bin\Debug\net5.0\settings\enigma\log files\" />
+    <Folder Include="bin\Debug\net5.0\settings\enigma\messages\" />
     <Folder Include="bin\Debug\net5.0\settings\enigma\readout\" />
     <Folder Include="bin\Debug\net5.0\settings\enigma\ukws\" />
     <Folder Include="bin\Debug\net5.0\settings\enigma\switchboard\" />
@@ -56,10 +51,7 @@
     <None Include="bin\Debug\net5.0\settings\enigma\ukws\reflectorA.txt" />
     <None Include="bin\Debug\net5.0\settings\enigma\ukws\reflectorB.txt" />
     <None Include="bin\Debug\net5.0\settings\enigma\ukws\reflectorC.txt" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="System.Collections" Version="4.3.0" />
+    <None Include="bin\Debug\net5.0\settings\machine specific files\Refrence values.PNG" />
   </ItemGroup>
 
 </Project>
