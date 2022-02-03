@@ -13,10 +13,10 @@ namespace Brad_s_Engima_Machine
             //Machine engima = new Machine("Test Machine", 26);
             //engima.PowerOn(); // Starts the machine
 
-            //TurnFileIntoFreq(FileLocationHandler.knownEnglishBigrams_R, FileLocationHandler.newBiGram_R, 2, 500, 4);
-            //TurnFileIntoFreq(FileLocationHandler.knownEnglishTrigrams_R, FileLocationHandler.newTriGram_R, 3, 1000, 6);
-            //TurnFileIntoFreq(FileLocationHandler.knownEnglishQuadgrams_R, FileLocationHandler.newQuadGram_R, 4, 2000, 8);
-            //TurnFileIntoFreq(FileLocationHandler.knownEnglishQuintgrams_R, FileLocationHandler.newQuintGram_R, 5, 4000, 10);
+            TurnFileIntoFreq(FileLocationHandler.MSF_R + "english_bigrams.txt"      , , 2, 300, 4);
+            TurnFileIntoFreq(FileLocationHandler.MSF_R + "english_trigrams.txt"     , , 3, 500, 6);
+            TurnFileIntoFreq(FileLocationHandler.MSF_R + "english_quadgrams.txt"    , , 4, 700, 8);
+            TurnFileIntoFreq(FileLocationHandler.MSF_R + "english_quintgrams.txt"   , , 5, 900, 10);
             Testing();
 
 
@@ -29,7 +29,7 @@ namespace Brad_s_Engima_Machine
             string[,] testText =
             {
                 {"Bible", FileSys.GetStringFromFile(FileLocationHandler.bible30chapters_R) },
-                {"Scrambled Bible", FileSys.GetStringFromFile(FileLocationHandler.bible30chaptersEnigma_R)},
+                {"Scrambled Bible", FileSys.GetStringFromFile(FileLocationHandler.bible30chaptersRand_R)},
                 {"Lissa", "Lissa is the best"}
 
             };
