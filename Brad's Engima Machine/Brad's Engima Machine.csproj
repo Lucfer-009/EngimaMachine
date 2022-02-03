@@ -36,6 +36,7 @@
     <Folder Include="bin\Debug\net5.0\settings\enigma\readout\" />
     <Folder Include="bin\Debug\net5.0\settings\enigma\ukws\" />
     <Folder Include="bin\Debug\net5.0\settings\enigma\switchboard\" />
+    <Folder Include="bin\Debug\net5.0\settings\machine specific files\" />
   </ItemGroup>
 
   <ItemGroup>
