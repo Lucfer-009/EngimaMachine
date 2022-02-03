@@ -9,28 +9,51 @@ namespace Brad_s_Engima_Machine
     {
         static void Main(string[] args)
         {
-            //GU.Print("Hello World!");
-            //Machine engima = new Machine("Test Machine", 26);
-            //engima.PowerOn(); // Starts the machine
-
+            GU.Print("Hello World!");
+            Start();
             //TurnFileIntoFreq(FileLocationHandler.knownEnglishBigrams_R, FileLocationHandler.newBiGram_R, 2, 500, 4);
             //TurnFileIntoFreq(FileLocationHandler.knownEnglishTrigrams_R, FileLocationHandler.newTriGram_R, 3, 1000, 6);
             //TurnFileIntoFreq(FileLocationHandler.knownEnglishQuadgrams_R, FileLocationHandler.newQuadGram_R, 4, 2000, 8);
             //TurnFileIntoFreq(FileLocationHandler.knownEnglishQuintgrams_R, FileLocationHandler.newQuintGram_R, 5, 4000, 10);
-            Testing();
-
-
-
 
 
         }
+        static void Start()
+        {
+            GU.Print("1. Engima Machine");
+            GU.Print("2. Engima Decryption Program");
+            GU.Print("3. End Program");
+            GU.Print("--");
+            bool end = false;
+            while(end == false)
+            {
+                char choice = GU.GetCharFromUser("Enter your choice", true);
+                if(choice == '1')
+                {
+                    Machine engima = new Machine("Test Machine", 26);
+                    engima.PowerOn(); // Starts the machine
+                }
+                else if(choice == '2')
+                {
+                    Testing();
+                }
+                else
+                {
+                    end = true;
+                }
+                Console.WriteLine("\n\n\n\n\n\n\n\n----------------------------------------\n\n");
+            }
+
+
+        }
+
         static void Testing()
         {
             string[,] testText =
             {
                 {"Bible", FileSys.GetStringFromFile(FileLocationHandler.bible30chapters_R) },
                 {"Scrambled Bible", FileSys.GetStringFromFile(FileLocationHandler.bible30chaptersEnigma_R)},
-                {"Lissa", "Lissa is the best"}
+                {"Sentance", "The lonely man sat on the last stool avaliable in the crowded bar"}
 
             };
             Fitness[] testInstances = new Fitness[3];
