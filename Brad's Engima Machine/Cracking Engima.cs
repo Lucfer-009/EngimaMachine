@@ -20,14 +20,45 @@ namespace Brad_s_Engima_Machine
         private string message;
         private readonly string name;
 
-        public Fitness(string message, string nameID)
+        public Fitness(string message, string nameID, int accuracy)
         {
             this.message = message;
+
+            switch(accuracy)
+            {
+                case (5):
+
+                    break;
+
+                case (4):
+
+                    break;
+
+                case (3):
+
+                    break;
+
+                case (2):
+
+                    break;
+
+                case (1):
+
+                    break;
+
+                default:
+                    GU.DisplayErrorState(new Exception("NO FILE ASSOCIATED WITH GIVEN ACCURACY"), 
+                        "There is no association of ngram files to match the accuracy parsed", "Cracking Enigma.cs -Fitness (constructor)");
+                    break;
+            }
+
             ngramFreqs_R[1] = FileSys.GetFrequenciesFromFile(FileLocationHandler.unigramFrequencies_R);
-            ngramFreqs_R[2] = FileSys.GetFrequenciesFromFile(FileLocationHandler.newBiGram_R); // = 1 in array, n = 2 when refrenced 
-            ngramFreqs_R[3] = FileSys.GetFrequenciesFromFile(FileLocationHandler.newTriGram_R); // etc...
+            ngramFreqs_R[2] = FileSys.GetFrequenciesFromFile(FileLocationHandler.newBiGram_R);
+            ngramFreqs_R[3] = FileSys.GetFrequenciesFromFile(FileLocationHandler.newTriGram_R);
             ngramFreqs_R[4] = FileSys.GetFrequenciesFromFile(FileLocationHandler.newQuadGram_R);
             ngramFreqs_R[5] = FileSys.GetFrequenciesFromFile(FileLocationHandler.newQuintGram_R);
+
+
 
             name = nameID;
             //---

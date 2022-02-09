@@ -16,10 +16,10 @@
     <Content Include="bin\Debug\net5.0\Brad%27s Engima Machine.deps.json" />
     <Content Include="bin\Debug\net5.0\Brad%27s Engima Machine.runtimeconfig.dev.json" />
     <Content Include="bin\Debug\net5.0\Brad%27s Engima Machine.runtimeconfig.json" />
-    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Improved\newBiGram5000.txt" />
-    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Improved\newQuadGram5000.txt" />
-    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Improved\newQuintGram5000.txt" />
-    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Improved\newTriGram5000.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Accurate_4000\BiGram_500.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Accurate_4000\QuadGram_2000.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Accurate_4000\QuintGram_4000.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Accurate_4000\TriGram_1000.txt" />
     <Content Include="bin\Debug\net5.0\settings\cracking\testfiles\bible30chapters.txt" />
     <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Old\bigram frequencies.txt" />
     <Content Include="bin\Debug\net5.0\settings\cracking\common words.txt" />
