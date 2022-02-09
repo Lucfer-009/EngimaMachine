@@ -20,28 +20,35 @@ namespace Brad_s_Engima_Machine
         }
         static void Start()
         {
-            GU.Print("1. Engima Machine");
-            GU.Print("2. Engima Decryption Program");
-            GU.Print("3. End Program");
-            GU.Print("--");
+            
             bool end = false;
             while(end == false)
             {
+                GU.Print("1. Engima Machine");
+                GU.Print("2. Engima Decryption Program");
+                GU.Print("3. End Program");
+                GU.Print("--");
                 char choice = GU.GetCharFromUser("Enter your choice", true);
                 if(choice == '1')
                 {
                     Machine engima = new Machine("Test Machine", 26);
                     engima.PowerOn(); // Starts the machine
+                    Console.WriteLine("\n\n\n\n\n\n\n\n----------------------------------------\n\n");
                 }
                 else if(choice == '2')
                 {
                     Testing();
+                    Console.WriteLine("\n\n\n\n\n\n\n\n----------------------------------------\n\n");
                 }
-                else
+                else if ( choice == '3')
                 {
                     end = true;
                 }
-                Console.WriteLine("\n\n\n\n\n\n\n\n----------------------------------------\n\n");
+                else
+                {
+                    GU.Print("ERROR | Enter a valid choice, 1-3");
+                }
+                
             }
 
 
