@@ -11,14 +11,12 @@ namespace Brad_s_Engima_Machine
     {
         static private string address;
         static private string currentTime = DateTime.Now.ToString("HH:mm:ss");
-        static private string currentTimePathKey = DateTime.Now.ToString("HH.mm.ss");
-        static private string currentDate = DateTime.Now.ToString("d MMMM");
         static private StreamWriter mainFile;
         static private Random rand = new Random();
 
         static LogFile()
         {
-            string u_ID = $"{currentTimePathKey} - {currentDate}";
+            string u_ID = $"{DateTime.Now.ToString("HH.mm.ss")} - {DateTime.Now.ToString("d MMMM")}";
             address = FileLocationHandler.logFileLocation_R + $"{u_ID}.txt";
             mainFile = new StreamWriter(address); // Name of file is the date passed through alongside the ID.
         }

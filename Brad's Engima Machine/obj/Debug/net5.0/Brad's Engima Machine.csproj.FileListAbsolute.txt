@@ -15,7 +15,6 @@ C:\Users\Brad\Documents\GitHub\EngimaMachine\Brad's Engima Machine\obj\Debug\net
 C:\Users\Brad\Documents\GitHub\EngimaMachine\Brad's Engima Machine\obj\Debug\net5.0\Brad's Engima Machine.pdb
 C:\Users\Brad\Documents\GitHub\EngimaMachine\Brad's Engima Machine\obj\Debug\net5.0\Brad's Engima Machine.genruntimeconfig.cache
 F:\VS Projects\Project\Lucfer-009\EngimaMachine\Brad's Engima Machine\obj\Debug\net5.0\Brad's Engima Machine.csproj.AssemblyReference.cache
-F:\VS Projects\Project\Lucfer-009\EngimaMachine\Brad's Engima Machine\obj\Debug\net5.0\Brad's Engima Machine.csproj.ResolveComReference.cache
 F:\VS Projects\Project\Lucfer-009\EngimaMachine\Brad's Engima Machine\obj\Debug\net5.0\Brad's Engima Machine.GeneratedMSBuildEditorConfig.editorconfig
 F:\VS Projects\Project\Lucfer-009\EngimaMachine\Brad's Engima Machine\obj\Debug\net5.0\Brad's Engima Machine.AssemblyInfoInputs.cache
 F:\VS Projects\Project\Lucfer-009\EngimaMachine\Brad's Engima Machine\obj\Debug\net5.0\Brad's Engima Machine.AssemblyInfo.cs

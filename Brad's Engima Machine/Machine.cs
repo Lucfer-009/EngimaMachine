@@ -238,19 +238,18 @@ namespace Brad_s_Engima_Machine
 
             string startmessage = "";
             bool check = true;
-            int menucount = 5;
+            int menucount = 0;
             string message = "";
             while (check == true)
             {
                 try
                 {
-                    if(menucount == 12)
+                    if(menucount % 10 == 0)
                     {
                         GU.Print("Enter ! to stop and end");
                         GU.Print("Enter # to restart");
                         GU.Print("[EXPERIMENTAL] Enter @ to restart it to it's origional cog positions entered");
                         GU.Print("[EXPERIMENTAL] Enter $ to go back one character entry, to back parse the machine");
-                        menucount = 0;
                     }
                     menucount++;
 
@@ -287,6 +286,24 @@ namespace Brad_s_Engima_Machine
                     else if (input == '$')
                     {
                         // need to put backparsing in here
+                        if (machineCogs[0].IsAtTurnover() == false && machineCogs[1].IsAtTurnover() == false)
+                        {
+                            machineCogs[0].DecrementCog();
+                        }
+                        else if (machineCogs[0].IsAtTurnover() == true && machineCogs[1].IsAtTurnover() == false)
+                        {
+                            machineCogs[0].DecrementCog();
+                            machineCogs[1].DecrementCog();
+                        }
+                        else if (machineCogs[0].IsAtTurnover() == false && machineCogs[1].IsAtTurnover() == true)
+                        {
+                            foreach (CogArray C in machineCogs) { C.DecrementCog(); } //turns all
+                        }
+                        else if (machineCogs[0].IsAtTurnover() == true && machineCogs[1].IsAtTurnover() == true)
+                        {
+                            foreach (CogArray C in machineCogs) { C.DecrementCog(); } //turns all
+                        }
+
                         message = message.Substring(0, message.Length-1);
                         startmessage = startmessage.Substring(0, startmessage.Length - 1);
                         GU.Print($"\nCurrent Message : {message}\n");

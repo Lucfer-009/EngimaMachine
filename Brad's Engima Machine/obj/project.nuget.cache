@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "n+QIJK4xs/SY1rmfx72b/+VhtfjyAs1akrOfJJFtx+bSrsrYl5RbuBiL1IhWxmiaA5ADPVAVO2Qowjt8vtz5SQ==",
+  "dgSpecHash": "uKypga4b0I/z0DKi+e6eOzlTpiUXvK0UhMNa7mRt5DRTxnS3YQ/PWGWLNRVNweG1Lv6JUhhwA72jNFjNiCP/Sw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Brad\\Documents\\GitHub\\EngimaMachine\\Brad's Engima Machine\\Brad's Engima Machine.csproj",
+  "projectFilePath": "F:\\VS Projects\\Project\\Lucfer-009\\EngimaMachine\\Brad's Engima Machine\\Brad's Engima Machine.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Brad\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\Brad\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
-    "C:\\Users\\Brad\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
-    "C:\\Users\\Brad\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512"
+    "C:\\Users\\018275\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\018275\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\018275\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
+    "C:\\Users\\018275\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512"
   ],
   "logs": []
 }
