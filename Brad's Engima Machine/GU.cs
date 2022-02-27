@@ -195,14 +195,19 @@ namespace Brad_s_Engima_Machine
                     int y = GetIntFromUser(message);
                     if(!(y >= upperB & y <= lowerB))
                     {
-                        throw new Exception("Integer provided is out of desired bounds");
+                        Print("ERROR | Please ensure you enter an integer value within the specified bounds !");
+                        Print($"      | {upperB} >= y >= {lowerB}");
                     }
-                    X = y;
-                    check = false;
+                    else
+                    {
+                        X = y;
+                        check = false;
+                    }
+                   
                 }
                 catch
                 {
-                    Print("ERROR | Please ensure you enter an integer value within the specified bounds !");
+                    Print("ERROR | Please ensure you enter an INTEGER value within the specified bounds !");
                     Print($"      | {upperB} >= y >= {lowerB}");
                 }
             }

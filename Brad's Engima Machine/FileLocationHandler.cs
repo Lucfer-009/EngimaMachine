@@ -14,7 +14,7 @@ namespace Brad_s_Engima_Machine
         static private string settingsPath = @"\settings\";
         static private string masterConfigPath = mainDirectory + settingsPath;
 
-        static private string engima = @"engima\";
+        static private string engima = @"enigma\";
         static private string cracking = @"cracking\";
         // --------------------
         static public readonly string logFileLocation_R     = masterConfigPath + engima     + @"log files\";

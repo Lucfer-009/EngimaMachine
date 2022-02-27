@@ -13,11 +13,11 @@ namespace Brad_s_Engima_Machine
             //Machine engima = new Machine("Test Machine", 26);
             //engima.PowerOn(); // Starts the machine
 
-            TurnFileIntoFreq(FileLocationHandler.MSF_R + "english_bigrams.txt"      , , 2, 300, 4);
-            TurnFileIntoFreq(FileLocationHandler.MSF_R + "english_trigrams.txt"     , , 3, 500, 6);
-            TurnFileIntoFreq(FileLocationHandler.MSF_R + "english_quadgrams.txt"    , , 4, 700, 8);
-            TurnFileIntoFreq(FileLocationHandler.MSF_R + "english_quintgrams.txt"   , , 5, 900, 10);
-            Testing();
+            Start();
+            //TurnFileIntoFreq(FileLocationHandler.MSF_R + "english_bigrams.txt"      , , 2, 300, 4);
+            //TurnFileIntoFreq(FileLocationHandler.MSF_R + "english_trigrams.txt"     , , 3, 500, 6);
+            //TurnFileIntoFreq(FileLocationHandler.MSF_R + "english_quadgrams.txt"    , , 4, 700, 8);
+            //TurnFileIntoFreq(FileLocationHandler.MSF_R + "english_quintgrams.txt"   , , 5, 900, 10);
 
         }
         static void Start()
@@ -68,9 +68,9 @@ namespace Brad_s_Engima_Machine
             Fitness[] testInstances = new Fitness[3];
             for (int i = 0; i < testText.GetLength(0); i++)
             {
-                testInstances[i] = new Fitness(testText[i, 1], testText[i, 0]);
+                //testInstances[i] = new Fitness(testText[i, 1], testText[i, 0]);
             }
-            foreach(Fitness y in testInstances)
+            foreach (Fitness y in testInstances)
             {
                 y.PrintAllValues();
             }

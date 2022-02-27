@@ -21,9 +21,13 @@ namespace Brad_s_Engima_Machine
         private SwitchArray switchBoard;
         private ReverserArray ukw;
 
+        private LogFile Logging = new LogFile();
+
         public Machine(string name, int defaultArraySize)
         {
             this.defaultArraySize = defaultArraySize;
+            
+
         }
 
         public string ForceUse(string message, CogArray[] forced_machineCogs, SwitchArray forced_switchBoard, ReverserArray forced_ukw) // Used to instantly return a string from a given engima setting.
@@ -50,19 +54,19 @@ namespace Brad_s_Engima_Machine
 
         public void PowerOn()
         {
-            LogFile.Write("Machine.powerOn()", "First boot of engima machine");
+            Logging.Write("Machine.powerOn()", "First boot of engima machine");
             
             InitialiseCogs();
             GU.Print("");
-            LogFile.Write("Machine.InitialseCogs()", "Got cog settings from user" );
+            Logging.Write("Machine.InitialseCogs()", "Got cog settings from user" );
 
             InitialiseSwitchboard();
             GU.Print("");
-            LogFile.Write("Machine.InitialseSwitchboard()", "Got switchboard settings from user");
+            Logging.Write("Machine.InitialseSwitchboard()", "Got switchboard settings from user");
 
             InitialiseUKW();
             GU.Print("");
-            LogFile.Write("Machine.InitialseUKW()", "Got reverser settings from user");
+            Logging.Write("Machine.InitialseUKW()", "Got reverser settings from user");
             GU.Print("");
 
             GU.Print("-- -- -- -- --");
@@ -99,19 +103,19 @@ namespace Brad_s_Engima_Machine
 
             // Logging of the process ---------------------------------------------------------
 
-            LogFile.Write("", "");
-            LogFile.Write("-- --", "");
+            Logging.Write("", "");
+            Logging.Write("-- --", "");
 
 
-            LogFile.Write("--", "COG SETTINGS --"); // Logs Cog Settings
+            Logging.Write("--", "COG SETTINGS --"); // Logs Cog Settings
             int count = 0;
             foreach (CogArray Y in machineCogs)
             {
-                LogFile.Write("", $"|Position: {count} |     |Cog: {Y.GetCogLocation()} |     |Intital Char: {Y.GetInitialChar()} |     |Initial RingPos: {Y.GetInitialRingPos()}|  ");
+                Logging.Write("", $"|Position: {count} |     |Cog: {Y.GetCogLocation()} |     |Intital Char: {Y.GetInitialChar()} |     |Initial RingPos: {Y.GetInitialRingPos()}|  ");
                 count++;
             }
 
-            LogFile.Write("--", "SWITCHBOARD SETTINGS --"); // Logs, quite complicatedly, the switchboard config
+            Logging.Write("--", "SWITCHBOARD SETTINGS --"); // Logs, quite complicatedly, the switchboard config
 
             string line = " ";
             count = 0;
@@ -125,12 +129,12 @@ namespace Brad_s_Engima_Machine
                 }             
                 count++;           
             }
-            LogFile.Write("", line);
+            Logging.Write("", line);
 
-            LogFile.Write("-- Start message --\n", $"{initialMessage}");
-            LogFile.Write("-- End Message   --\n", $"{endMessage}");
+            Logging.Write("-- Start message --\n", $"{initialMessage}");
+            Logging.Write("-- End Message   --\n", $"{endMessage}");
 
-            LogFile.Close();
+            Logging.Close();
             GU.Print("-- -- -- -- -- --");
         }
 
@@ -160,7 +164,7 @@ namespace Brad_s_Engima_Machine
                 }
 
                 int Position = GU.AlphaCharToIntIndex(S_,-64); // Start Position
-                int Ring = GU.GetIntWithinBound($"Enter ring position for cog {C}", 1, defaultArraySize+1); // Ring Position
+                int Ring = GU.GetIntWithinBound($"Enter ring position for cog {C}", 1, defaultArraySize); // Ring Position
                 GU.Print("--");
 
                 int shift;
@@ -279,7 +283,7 @@ namespace Brad_s_Engima_Machine
                         message = "";
                         startmessage = "";
                         GU.Print("Message cleared! & Cogs reset to initial settings");
-                        LogFile.Write("KeyByKeyEntry()", "User cleared entry and reset cogs to initial settings");
+                        Logging.Write("KeyByKeyEntry()", "User cleared entry and reset cogs to initial settings");
 
                     }
 
@@ -438,14 +442,14 @@ namespace Brad_s_Engima_Machine
 
         private char FullPassThrough(char inflow)
         {
-            LogFile.Write("------------------", "");
+            Logging.Write("------------------", "");
             int log = 0;
             char outflow = ' ';
 
             int current = GU.AlphaCharToIntIndex(inflow); //Starts by getting the index
             if(current == -33) 
             {
-                LogFile.Write("FullPassThrough()"," - [SPACE] <Character Skipped>");
+                Logging.Write("FullPassThrough()"," - [SPACE] <Character Skipped>");
                 return outflow; 
             }
 
@@ -477,30 +481,30 @@ namespace Brad_s_Engima_Machine
             log = current;
 
             current = switchBoard.ForwardParse(current); //Goes through SwitchBoard
-            LogFile.Write("FullPassThrough()", $" - {log}({GU.IntIndexToAlphaChar(log)}) > [Switchboard-F] > {current}({GU.IntIndexToAlphaChar(current)})");
+            Logging.Write("FullPassThrough()", $" - {log}({GU.IntIndexToAlphaChar(log)}) > [Switchboard-F] > {current}({GU.IntIndexToAlphaChar(current)})");
 
             foreach (CogArray C in machineCogs)
             {
                 log = current;
                 current = C.ForwardParse(current);
-                LogFile.Write("FullPassThrough()", $" - {log}({GU.IntIndexToAlphaChar(log)}) > [COG {countA} -F] > {current}({GU.IntIndexToAlphaChar(current)})");
+                Logging.Write("FullPassThrough()", $" - {log}({GU.IntIndexToAlphaChar(log)}) > [COG {countA} -F] > {current}({GU.IntIndexToAlphaChar(current)})");
                 countA++;
             }
 
             log = current;
             current = ukw.ForwardParse(current);
-            LogFile.Write("FullPassThrough()", $" - {log}({GU.IntIndexToAlphaChar(log)}) > [UKW] > {current}({GU.IntIndexToAlphaChar(current)})");
+            Logging.Write("FullPassThrough()", $" - {log}({GU.IntIndexToAlphaChar(log)}) > [UKW] > {current}({GU.IntIndexToAlphaChar(current)})");
 
             for (int i = 2; i >= 0; i--)
             {
                 log = current;
                 current = machineCogs[i].ReverseParse(current);
-                LogFile.Write("FullPassThrough()", $" - {log}({GU.IntIndexToAlphaChar(log)}) > [COG {i} -R] > {current}({GU.IntIndexToAlphaChar(current)})");
+                Logging.Write("FullPassThrough()", $" - {log}({GU.IntIndexToAlphaChar(log)}) > [COG {i} -R] > {current}({GU.IntIndexToAlphaChar(current)})");
             }
 
             log = current;
             current = switchBoard.ReverseParse(current);
-            LogFile.Write("FullPassThrough()", $" - {log}({GU.IntIndexToAlphaChar(log)}) > [Switchboard-R] > {current}({GU.IntIndexToAlphaChar(current)})");
+            Logging.Write("FullPassThrough()", $" - {log}({GU.IntIndexToAlphaChar(log)}) > [Switchboard-R] > {current}({GU.IntIndexToAlphaChar(current)})");
 
             outflow = GU.IntIndexToAlphaChar(current);
 
