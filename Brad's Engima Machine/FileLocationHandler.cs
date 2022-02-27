@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Brad_s_Engima_Machine
+namespace Brad_s_enigma_Machine
 {
     static class FileLocationHandler
     {
@@ -14,16 +14,16 @@ namespace Brad_s_Engima_Machine
         static private string settingsPath = @"\settings\";
         static private string masterConfigPath = mainDirectory + settingsPath;
 
-        static private string engima = @"enigma\";
+        static private string enigma = @"enigma\";
         static private string cracking = @"cracking\";
         // --------------------
-        static public readonly string logFileLocation_R     = masterConfigPath + engima     + @"log files\";
-        static public readonly string machineData_R         = masterConfigPath + engima     + @"machine data\";
-        static public readonly string cogs_R                = masterConfigPath + engima     + @"cogs\";
-        static public readonly string reversers_R           = masterConfigPath + engima     + @"ukws\";
-        static public readonly string messages_R            = masterConfigPath + engima     + @"messages\";
-        static public readonly string switchboard_R         = masterConfigPath + engima     + @"switchboard\";
-        static public readonly string readout_R             = masterConfigPath + engima     + @"readout\";
+        static public readonly string logFileLocation_R     = masterConfigPath + enigma     + @"log files\";
+        static public readonly string machineData_R         = masterConfigPath + enigma     + @"machine data\";
+        static public readonly string cogs_R                = masterConfigPath + enigma     + @"cogs\";
+        static public readonly string reversers_R           = masterConfigPath + enigma     + @"ukws\";
+        static public readonly string messages_R            = masterConfigPath + enigma     + @"messages\";
+        static public readonly string switchboard_R         = masterConfigPath + enigma     + @"switchboard\";
+        static public readonly string readout_R             = masterConfigPath + enigma     + @"readout\";
 
         // ---------------------
 

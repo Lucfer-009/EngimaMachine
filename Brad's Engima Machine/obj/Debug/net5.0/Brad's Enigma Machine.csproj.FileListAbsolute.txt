@@ -1,0 +1,16 @@
+C:\Users\Brad\Documents\GitHub\EngimaMachine\Brad's Engima Machine\bin\Debug\net5.0\Brad's Enigma Machine.exe
+C:\Users\Brad\Documents\GitHub\EngimaMachine\Brad's Engima Machine\bin\Debug\net5.0\Brad's Enigma Machine.deps.json
+C:\Users\Brad\Documents\GitHub\EngimaMachine\Brad's Engima Machine\bin\Debug\net5.0\Brad's Enigma Machine.runtimeconfig.json
+C:\Users\Brad\Documents\GitHub\EngimaMachine\Brad's Engima Machine\bin\Debug\net5.0\Brad's Enigma Machine.runtimeconfig.dev.json
+C:\Users\Brad\Documents\GitHub\EngimaMachine\Brad's Engima Machine\bin\Debug\net5.0\Brad's Enigma Machine.dll
+C:\Users\Brad\Documents\GitHub\EngimaMachine\Brad's Engima Machine\bin\Debug\net5.0\ref\Brad's Enigma Machine.dll
+C:\Users\Brad\Documents\GitHub\EngimaMachine\Brad's Engima Machine\bin\Debug\net5.0\Brad's Enigma Machine.pdb
+C:\Users\Brad\Documents\GitHub\EngimaMachine\Brad's Engima Machine\obj\Debug\net5.0\Brad's Enigma Machine.csproj.AssemblyReference.cache
+C:\Users\Brad\Documents\GitHub\EngimaMachine\Brad's Engima Machine\obj\Debug\net5.0\Brad's Enigma Machine.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Brad\Documents\GitHub\EngimaMachine\Brad's Engima Machine\obj\Debug\net5.0\Brad's Enigma Machine.AssemblyInfoInputs.cache
+C:\Users\Brad\Documents\GitHub\EngimaMachine\Brad's Engima Machine\obj\Debug\net5.0\Brad's Enigma Machine.AssemblyInfo.cs
+C:\Users\Brad\Documents\GitHub\EngimaMachine\Brad's Engima Machine\obj\Debug\net5.0\Brad's Enigma Machine.csproj.CoreCompileInputs.cache
+C:\Users\Brad\Documents\GitHub\EngimaMachine\Brad's Engima Machine\obj\Debug\net5.0\Brad's Enigma Machine.dll
+C:\Users\Brad\Documents\GitHub\EngimaMachine\Brad's Engima Machine\obj\Debug\net5.0\ref\Brad's Enigma Machine.dll
+C:\Users\Brad\Documents\GitHub\EngimaMachine\Brad's Engima Machine\obj\Debug\net5.0\Brad's Enigma Machine.pdb
+C:\Users\Brad\Documents\GitHub\EngimaMachine\Brad's Engima Machine\obj\Debug\net5.0\Brad's Enigma Machine.genruntimeconfig.cache

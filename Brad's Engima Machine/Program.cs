@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.IO;
 
 
-namespace Brad_s_Engima_Machine
+namespace Brad_s_enigma_Machine
 {
     class Program
     {
         static void Main(string[] args)
         {
             //GU.Print("Hello World!");
-            //Machine engima = new Machine("Test Machine", 26);
-            //engima.PowerOn(); // Starts the machine
+            //Machine enigma = new Machine("Test Machine", 26);
+            //enigma.PowerOn(); // Starts the machine
 
             Start();
             //TurnFileIntoFreq(FileLocationHandler.MSF_R + "english_bigrams.txt"      , , 2, 300, 4);
@@ -26,15 +26,15 @@ namespace Brad_s_Engima_Machine
             bool end = false;
             while(end == false)
             {
-                GU.Print("1. Engima Machine");
-                GU.Print("2. Engima Decryption Program");
+                GU.Print("1. enigma Machine");
+                GU.Print("2. enigma Decryption Program");
                 GU.Print("3. End Program");
                 GU.Print("--");
                 char choice = GU.GetCharFromUser("Enter your choice", true);
                 if(choice == '1')
                 {
-                    Machine engima = new Machine("Test Machine", 26);
-                    engima.PowerOn(); // Starts the machine
+                    Machine enigma = new Machine("Test Machine", 26);
+                    enigma.PowerOn(); // Starts the machine
                     Console.WriteLine("\n\n\n\n\n\n\n\n----------------------------------------\n\n");
                 }
                 else if(choice == '2')

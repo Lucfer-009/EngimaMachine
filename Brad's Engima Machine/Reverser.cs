@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Brad_s_Engima_Machine
+namespace Brad_s_enigma_Machine
 {
 
     class ReverserArray : LookupArray

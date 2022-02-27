@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Numerics;
 
-namespace Brad_s_Engima_Machine
+namespace Brad_s_enigma_Machine
 {
     class Fitness
     {

@@ -1,9 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
-    <RootNamespace>Brad_s_Engima_Machine</RootNamespace>
+    <RootNamespace>Brad_s_enigma_Machine</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,9 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="bin\Debug\net5.0\Brad%27s Engima Machine.deps.json" />
-    <Content Include="bin\Debug\net5.0\Brad%27s Engima Machine.runtimeconfig.dev.json" />
-    <Content Include="bin\Debug\net5.0\Brad%27s Engima Machine.runtimeconfig.json" />
+    <Content Include="bin\Debug\net5.0\Brad%27s enigma Machine.deps.json" />
+    <Content Include="bin\Debug\net5.0\Brad%27s enigma Machine.runtimeconfig.dev.json" />
+    <Content Include="bin\Debug\net5.0\Brad%27s enigma Machine.runtimeconfig.json" />
     <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Accurate_4000\BiGram_500.txt" />
     <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Accurate_4000\QuadGram_2000.txt" />
     <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Accurate_4000\QuintGram_4000.txt" />
@@ -40,10 +40,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="bin\Debug\net5.0\Brad%27s Engima Machine.dll" />
-    <None Include="bin\Debug\net5.0\Brad%27s Engima Machine.exe" />
-    <None Include="bin\Debug\net5.0\Brad%27s Engima Machine.pdb" />
-    <None Include="bin\Debug\net5.0\ref\Brad%27s Engima Machine.dll" />
+    <None Include="bin\Debug\net5.0\Brad%27s enigma Machine.dll" />
+    <None Include="bin\Debug\net5.0\Brad%27s enigma Machine.exe" />
+    <None Include="bin\Debug\net5.0\Brad%27s enigma Machine.pdb" />
+    <None Include="bin\Debug\net5.0\ref\Brad%27s enigma Machine.dll" />
     <None Include="bin\Debug\net5.0\settings\enigma\cogs\cog1.txt" />
     <None Include="bin\Debug\net5.0\settings\enigma\cogs\cog2.txt" />
     <None Include="bin\Debug\net5.0\settings\enigma\cogs\cog3.txt" />

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Brad_s_Engima_Machine
+namespace Brad_s_enigma_Machine
 {
     class Machine
     {
@@ -30,7 +30,7 @@ namespace Brad_s_Engima_Machine
 
         }
 
-        public string ForceUse(string message, CogArray[] forced_machineCogs, SwitchArray forced_switchBoard, ReverserArray forced_ukw) // Used to instantly return a string from a given engima setting.
+        public string ForceUse(string message, CogArray[] forced_machineCogs, SwitchArray forced_switchBoard, ReverserArray forced_ukw) // Used to instantly return a string from a given enigma setting.
         {
             for(int i = 0; i < forced_machineCogs.Length; i++)
             {
@@ -44,7 +44,7 @@ namespace Brad_s_Engima_Machine
             {
                 if(CheckIfTraditionalCompatible(y) == false)
                 {
-                    throw new Exception($"Issue with force loading through the engima machine, a not compatiable value | {y} | was attempted to be decoded.");
+                    throw new Exception($"Issue with force loading through the enigma machine, a not compatiable value | {y} | was attempted to be decoded.");
                 }
                 ret += FullPassThrough(y);
             }
@@ -54,7 +54,7 @@ namespace Brad_s_Engima_Machine
 
         public void PowerOn()
         {
-            Logging.Write("Machine.powerOn()", "First boot of engima machine");
+            Logging.Write("Machine.powerOn()", "First boot of enigma machine");
             
             InitialiseCogs();
             GU.Print("");
@@ -349,7 +349,7 @@ namespace Brad_s_Engima_Machine
                 }
                 else
                 {
-                    GU.Print("ERROR | Please enter a string that contains genuine engima characters!\n");
+                    GU.Print("ERROR | Please enter a string that contains genuine enigma characters!\n");
                 }
             }
             GU.Print("");
@@ -373,7 +373,7 @@ namespace Brad_s_Engima_Machine
             GU.Print("");
             GU.Print(": File Read :");
             string writtenText = "";
-            const string baseLocationOfText = @"F:\VS Projects\Project\Lucfer-009\EngimaMachine\Brad's Engima Machine\messages\";
+            const string baseLocationOfText = @"F:\VS Projects\Project\Lucfer-009\enigmaMachine\Brad's enigma Machine\messages\";
             string locationOfText = "";
             bool acceptable = false;
             while (acceptable == false)
@@ -455,7 +455,7 @@ namespace Brad_s_Engima_Machine
 
 
 
-            // Brad's much improved engima stepping code (flawless :) )
+            // Brad's much improved enigma stepping code (flawless :) )
 
 
             if (machineCogs[0].IsAtTurnover() == false && machineCogs[1].IsAtTurnover() == false)
