@@ -40,6 +40,9 @@ namespace Brad_s_enigma_Machine
         {
             StreamReader sr = new StreamReader(location);
             string x = sr.ReadToEnd();
+            x = x.Replace("\n", string.Empty);
+            x = x.Replace("\r", string.Empty);
+            x = x.Replace("\t", string.Empty);
             sr.Close();
             return x;
         }

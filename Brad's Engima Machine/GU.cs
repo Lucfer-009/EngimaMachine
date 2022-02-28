@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,7 +29,7 @@ namespace Brad_s_enigma_Machine
 
         public static void Print(string message)
         {
-            Console.WriteLine("|| {0, -80} ||", message);
+            Console.WriteLine("|| {0, -95} ||", message);
         }
 
         public static void Header(string message = "")
@@ -307,5 +308,29 @@ namespace Brad_s_enigma_Machine
             return ret;
         }
 
+        public static void PrintContentsOfDirectory(string directoryPath, bool preview = false)
+        {
+            GU.Print("-- Contents of directory --");
+            foreach (var path in Directory.GetFiles(directoryPath))
+            {
+                string fileName = Path.GetFileName(path);
+                if(fileName.Contains(".git") == false )
+                {
+                    string[] division = fileName.Split('.');
+                    if( preview == true)
+                    {
+                        string content = FileSys.GetStringFromFile(path);
+                        GU.Print($">  {division[0]} (.{division[1]}) | {content}");
+                    }
+                    else
+                    {
+                        GU.Print($">  {division[0]} (.{division[1]})");
+                    }
+                    
+                }
+
+            }
+            GU.Print("-- -- --");
+        }
     }
 }

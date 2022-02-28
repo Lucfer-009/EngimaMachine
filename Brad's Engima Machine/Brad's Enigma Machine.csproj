@@ -23,12 +23,15 @@
     <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Accurate\tri_1000.txt" />
     <Content Include="bin\Debug\net5.0\settings\cracking\messages\English Bible 30c.txt" />
     <Content Include="bin\Debug\net5.0\settings\cracking\messages\Scrambled Bible 30c.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Fast\bi_64.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Fast\quad_256.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Fast\quint_512.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Fast\tri_128.txt" />
     <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\unigram frequencies.txt" />
     <Content Include="bin\Debug\net5.0\settings\enigma\messages\test.txt" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Fast\" />
     <Folder Include="bin\Debug\net5.0\settings\enigma\log files\" />
     <Folder Include="bin\Debug\net5.0\settings\enigma\readout\" />
     <Folder Include="bin\Debug\net5.0\settings\enigma\ukws\" />

@@ -111,7 +111,8 @@ namespace Brad_s_enigma_Machine
                 bool acceptable = false;
                 while (acceptable == false)
                 {
-                    locationOfText = GU.GetStringFromUser("Please enter the file name of message (IF NOT IN \\cracking\\messages enter !)");
+                    GU.PrintContentsOfDirectory(FileLocationHandler.cyphertextMessages_R);
+                    locationOfText = GU.GetStringFromUser("Please enter the file name of message (do NOT indlude the .txt)\n (IF NOT IN \\cracking\\messages enter !)");
 
                     if (locationOfText == "!")
                     {
@@ -120,7 +121,7 @@ namespace Brad_s_enigma_Machine
                     else
                     {
 
-                        locationOfText = $"{FileLocationHandler.cpyhertextMessages_R}{locationOfText}.txt";
+                        locationOfText = $"{FileLocationHandler.cyphertextMessages_R}{locationOfText}.txt";
                     }
 
                     if (File.Exists(locationOfText) == true)

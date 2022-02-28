@@ -218,7 +218,8 @@ namespace Brad_s_enigma_Machine
             }
             else
             {
-                int address = GU.GetIntWithinBound("Please enter 4-digit ID for switchboard saved preset", 1000, 9999);
+                GU.PrintContentsOfDirectory(FileLocationHandler.switchboard_R, true);
+                int address = GU.GetIntWithinBound("Please enter the relevant 4-digit ID", 1000, 9999);
                 switchBoard = new SwitchArray(defaultArraySize, $"{address}.txt");
                 switchboardLog = FileSys.GetStringFromFile(FileLocationHandler.switchboard_R + $"{address}.txt");
             }
@@ -389,6 +390,7 @@ namespace Brad_s_enigma_Machine
             bool acceptable = false;
             while (acceptable == false)
             {
+                GU.PrintContentsOfDirectory(FileLocationHandler.messages_R);
                 locationOfText = GU.GetStringFromUser("Please enter the file name of message (IF NOT IN \\messages enter \"!\")");
                 
                 if (locationOfText == "!")

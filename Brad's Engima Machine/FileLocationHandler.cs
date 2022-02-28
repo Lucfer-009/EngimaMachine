@@ -27,7 +27,7 @@ namespace Brad_s_enigma_Machine
         static public readonly string MSF_R                     = masterConfigPath + null       + @"machine specific files\"; // Quick Refrence for msf locations
 
         // ---------------------
-        static public readonly string cpyhertextMessages_R      = masterConfigPath + cracking   + @"messages\";
+        static public readonly string cyphertextMessages_R      = masterConfigPath + cracking   + @"messages\";
 
         static public readonly string unigramFrequencies_R      = masterConfigPath + cracking   + @"ngram analysis\unigram frequencies.txt"; 
 
