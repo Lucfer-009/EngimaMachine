@@ -23,7 +23,7 @@ namespace Brad_s_enigma_Machine
 
         private LogFile Logging = new LogFile();
 
-        public Machine(string name, int defaultArraySize)
+        public Machine(int defaultArraySize)
         {
             this.defaultArraySize = defaultArraySize;
             
@@ -67,8 +67,8 @@ namespace Brad_s_enigma_Machine
             InitialiseUKW();
             GU.Print("");
             Logging.Write("Machine.InitialseUKW()", "Got reverser settings from user");
+            
             GU.Print("");
-
             GU.Print("-- -- -- -- --");
             GU.Print("1 . Live Entry");
             GU.Print("2 . KeyByKey Entry");
@@ -111,7 +111,7 @@ namespace Brad_s_enigma_Machine
             int count = 0;
             foreach (CogArray Y in machineCogs)
             {
-                Logging.Write("", $"|Position: {count} |     |Cog: {Y.GetCogLocation()} |     |Intital Char: {Y.GetInitialChar()} |     |Initial RingPos: {Y.GetInitialRingPos()}|  ");
+                Logging.Write("", $"|Position: {count} |   |Cog: {Y.GetCogLocation()} |   |Initial Char: {Y.GetInitialChar()} |   |Initial RingPos: {Y.GetInitialRingPos()}|  ");
                 count++;
             }
 
@@ -133,6 +133,7 @@ namespace Brad_s_enigma_Machine
 
             Logging.Write("-- Start message --\n", $"{initialMessage}");
             Logging.Write("-- End Message   --\n", $"{endMessage}");
+            Logging.Write("-", "");
 
             Logging.Close();
             GU.Print("-- -- -- -- -- --");

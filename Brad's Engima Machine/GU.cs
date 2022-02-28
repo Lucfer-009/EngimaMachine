@@ -165,14 +165,23 @@ namespace Brad_s_enigma_Machine
                         Print("------ ------");
                     }
 
-                    if(yesValues.Contains(y) == true) { X = true; }
-                    else if (noValues.Contains(y) == true) { X = false; }
-                    else
+                    if(yesValues.Contains(y) == true) 
+                    { 
+                        X = true;
+                        check = false;
+                    }
+                    else if (noValues.Contains(y) == true) 
                     {
-                        throw new Exception("Invalid boolean response");
+                        X = false;
+                        check = false;
+                    }
+                    else 
+                    {
+                        Print("ERROR | Please ensure you enter an acceptable boolean response (i.e. Y/N)!");
+                        Print("      | entering \"-readout\" will proivde you with a list of releveant responses");
                     }
 
-                    check = false;
+                    
                 }
                 catch
                 {

@@ -14,7 +14,7 @@ namespace Brad_s_enigma_Machine
             //enigma.PowerOn(); // Starts the machine
 
             Start();
-            //TurnFileIntoFreq(FileLocationHandler.MSF_R + "english_bigrams.txt"      , , 2, 300, 4);
+            //TurnFileIntoFreq(FileLocationHandler.MSF_R + "english_bigrams.txt"      , , 2, 300, 4); // Under Development.
             //TurnFileIntoFreq(FileLocationHandler.MSF_R + "english_trigrams.txt"     , , 3, 500, 6);
             //TurnFileIntoFreq(FileLocationHandler.MSF_R + "english_quadgrams.txt"    , , 4, 700, 8);
             //TurnFileIntoFreq(FileLocationHandler.MSF_R + "english_quintgrams.txt"   , , 5, 900, 10);
@@ -26,14 +26,14 @@ namespace Brad_s_enigma_Machine
             bool end = false;
             while(end == false)
             {
-                GU.Print("1. enigma Machine");
-                GU.Print("2. enigma Decryption Program");
+                GU.Print("1. Enigma Machine");
+                GU.Print("2. Enigma Decryption Program");
                 GU.Print("3. End Program");
                 GU.Print("--");
                 char choice = GU.GetCharFromUser("Enter your choice", true);
                 if(choice == '1')
                 {
-                    Machine enigma = new Machine("Test Machine", 26);
+                    Machine enigma = new Machine(26); // Creates new instance of the machine
                     enigma.PowerOn(); // Starts the machine
                     Console.WriteLine("\n\n\n\n\n\n\n\n----------------------------------------\n\n");
                 }
