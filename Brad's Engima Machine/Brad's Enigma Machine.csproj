@@ -16,27 +16,23 @@
     <Content Include="bin\Debug\net5.0\Brad%27s enigma Machine.deps.json" />
     <Content Include="bin\Debug\net5.0\Brad%27s enigma Machine.runtimeconfig.dev.json" />
     <Content Include="bin\Debug\net5.0\Brad%27s enigma Machine.runtimeconfig.json" />
-    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Accurate_4000\BiGram_500.txt" />
-    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Accurate_4000\QuadGram_2000.txt" />
-    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Accurate_4000\QuintGram_4000.txt" />
-    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Accurate_4000\TriGram_1000.txt" />
-    <Content Include="bin\Debug\net5.0\settings\cracking\testfiles\bible30chapters.txt" />
-    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Old\bigram frequencies.txt" />
-    <Content Include="bin\Debug\net5.0\settings\cracking\common words.txt" />
-    <Content Include="bin\Debug\net5.0\settings\cracking\testfiles\bible30chaptersEnigma.txt" />
-    <Content Include="bin\Debug\net5.0\settings\cracking\testfiles\known english text.txt" />
-    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Old\quadgram frequencies.txt" />
-    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Old\trigram frequencies.txt" />
-    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Old\unigram frequencies.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\messages\essay.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Accurate\bi_500.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Accurate\quad_2000.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Accurate\quint_4000.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Accurate\tri_1000.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\messages\English Bible 30c.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\messages\Scrambled Bible 30c.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\unigram frequencies.txt" />
+    <Content Include="bin\Debug\net5.0\settings\enigma\messages\test.txt" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Fast\" />
     <Folder Include="bin\Debug\net5.0\settings\enigma\log files\" />
-    <Folder Include="bin\Debug\net5.0\settings\enigma\messages\" />
     <Folder Include="bin\Debug\net5.0\settings\enigma\readout\" />
     <Folder Include="bin\Debug\net5.0\settings\enigma\ukws\" />
     <Folder Include="bin\Debug\net5.0\settings\enigma\switchboard\" />
-    <Folder Include="bin\Debug\net5.0\settings\machine specific files\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -52,6 +48,7 @@
     <None Include="bin\Debug\net5.0\settings\enigma\ukws\reflectorA.txt" />
     <None Include="bin\Debug\net5.0\settings\enigma\ukws\reflectorB.txt" />
     <None Include="bin\Debug\net5.0\settings\enigma\ukws\reflectorC.txt" />
+    <None Include="bin\Debug\net5.0\settings\machine specific files\Refrence values.PNG" />
   </ItemGroup>
 
   <ItemGroup>

@@ -9,59 +9,38 @@ namespace Brad_s_enigma_Machine
 {
     class Fitness
     {
-        public double indexOfCoincidence = 0;
+        private double indexOfCoincidence = 0;
         private const double englishIOC = 0.0667;
-
-        private List<KnownPlainText> WordsKnown = new List<KnownPlainText>();
-        
+    
         private readonly string[][,] ngramFreqs_R = new string[6][,]; // stores known English Frequencies
         private double[] ngramIndex = new double[6];  // stores the results of our own analysis
 
         private string message;
-        private readonly string name;
 
-        public Fitness(string message, string nameID, int accuracy)
+        public Fitness(string message, bool fast = true)
         {
             this.message = message;
-
-            switch(accuracy)
-            {
-                case (5):
-
-                    break;
-
-                case (4):
-
-                    break;
-
-                case (3):
-
-                    break;
-
-                case (2):
-
-                    break;
-
-                case (1):
-
-                    break;
-
-                default:
-                    GU.DisplayErrorState(new Exception("NO FILE ASSOCIATED WITH GIVEN ACCURACY"), 
-                        "There is no association of ngram files to match the accuracy parsed", "Cracking Enigma.cs -Fitness (constructor)");
-                    break;
-            }
+            message = GU.ConvertToScriptco(message); // Ensures the message only contains A-Z and is capitalised.
+            Console.WriteLine(message);
+            GU.Print("");
 
             ngramFreqs_R[1] = FileSys.GetFrequenciesFromFile(FileLocationHandler.unigramFrequencies_R);
-            ngramFreqs_R[2] = FileSys.GetFrequenciesFromFile(FileLocationHandler.newBiGram_R);
-            ngramFreqs_R[3] = FileSys.GetFrequenciesFromFile(FileLocationHandler.newTriGram_R);
-            ngramFreqs_R[4] = FileSys.GetFrequenciesFromFile(FileLocationHandler.newQuadGram_R);
-            ngramFreqs_R[5] = FileSys.GetFrequenciesFromFile(FileLocationHandler.newQuintGram_R);
 
+            if(fast == false) // accurate (but slower) configs
+            {
+                ngramFreqs_R[2] = FileSys.GetFrequenciesFromFile(FileLocationHandler.accurateBiGram_R);
+                ngramFreqs_R[3] = FileSys.GetFrequenciesFromFile(FileLocationHandler.accurateTriGram_R);
+                ngramFreqs_R[4] = FileSys.GetFrequenciesFromFile(FileLocationHandler.accurateQuadGram_R);
+                ngramFreqs_R[5] = FileSys.GetFrequenciesFromFile(FileLocationHandler.accurateQuintGram_R);
+            }
+            else
+            {
+                ngramFreqs_R[2] = FileSys.GetFrequenciesFromFile(FileLocationHandler.fastBiGram_R);
+                ngramFreqs_R[3] = FileSys.GetFrequenciesFromFile(FileLocationHandler.fastTriGram_R);
+                ngramFreqs_R[4] = FileSys.GetFrequenciesFromFile(FileLocationHandler.fastQuadGram_R);
+                ngramFreqs_R[5] = FileSys.GetFrequenciesFromFile(FileLocationHandler.fastQuintGram_R);
+            }
 
-
-            name = nameID;
-            //---
             UpdateIndexOfCoincidence();
             for(int i = 0; i < 5; i++)
             {
@@ -69,7 +48,7 @@ namespace Brad_s_enigma_Machine
             }
         }
 
-        public void UpdateIndexOfCoincidence() // WORKS !
+        private void UpdateIndexOfCoincidence()
         {
             double length = message.Length;
             List<char> load = message.ToList();
@@ -89,11 +68,10 @@ namespace Brad_s_enigma_Machine
                 }
                 temp += noOfoccurances / length * (noOfoccurances - 1) / (length - 1);
             }
-            //indexOfCoincidence = temp;
             indexOfCoincidence = Math.Abs(((temp-englishIOC)/temp)*100); // Difference to English IOC
         }
 
-        public void UpdateFreqAnalysis(int sizeOfNgram) // Will be explained soon in algorithms
+        private void UpdateFreqAnalysis(int sizeOfNgram) // Will be explained with depth in algoirhtm section
         {
             sizeOfNgram += 1;
             string[,] frequencies = ngramFreqs_R[sizeOfNgram];
@@ -124,10 +102,12 @@ namespace Brad_s_enigma_Machine
                 collectiveDif += Math.Abs(((expectedFreq-frequency) / frequency ) *100);
 
                 // Time keeping ------------------------------------------------------------------------
+                // *please note this isn't particularly nessecary just that it's very useful when operating testing to know an approximation.
                 TimeSpan period = DateTime.UtcNow - start; // one operation completed in this period
                 avgPeriod += period; // the avg period it takes to complete one operation
                 TimeSpan timeRemaining = (frequenciesLength - j) * (avgPeriod.Divide(j+1));
-                timeRemaining = timeRemaining.Multiply(1.2); // To account for inaccuracies 
+                timeRemaining = timeRemaining.Multiply(1.2); // To account for inaccuracies in time keeping
+
 
                 const int noOfUpdatesToUser = 3;
                 if (j % ((int)(frequenciesLength) / noOfUpdatesToUser) == 0 && j != 0) //  26 is sudo prime as it's divisible by only 13 and 2, two primes. 
@@ -144,15 +124,13 @@ namespace Brad_s_enigma_Machine
 
         }
 
-        public double GetNGramFreq(int n)
+        private double GetNGramFreq(int n)
         {
             return ngramIndex[n-1];
         }
 
         public void PrintAllValues()
         {
-            GU.Print("------");
-            GU.Print($"{name}");
             GU.Print("------");
             GU.Print($"UNIGRAM      = {GetNGramFreq(1)}");
             GU.Print($"BIGRAM       = {GetNGramFreq(2)}");
@@ -163,12 +141,6 @@ namespace Brad_s_enigma_Machine
             GU.Print($"------\n\n");
         }
 
-
-        internal class KnownPlainText
-        {
-            public string word { get; set; }
-            public int startIndex { get; set; }
-        }
     }
    
 

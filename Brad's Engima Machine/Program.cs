@@ -9,15 +9,14 @@ namespace Brad_s_enigma_Machine
     {
         static void Main(string[] args)
         {
-            //GU.Print("Hello World!");
-            //Machine enigma = new Machine("Test Machine", 26);
-            //enigma.PowerOn(); // Starts the machine
-
             Start();
-            //TurnFileIntoFreq(FileLocationHandler.MSF_R + "english_bigrams.txt"      , , 2, 300, 4); // Under Development.
-            //TurnFileIntoFreq(FileLocationHandler.MSF_R + "english_trigrams.txt"     , , 3, 500, 6);
-            //TurnFileIntoFreq(FileLocationHandler.MSF_R + "english_quadgrams.txt"    , , 4, 700, 8);
-            //TurnFileIntoFreq(FileLocationHandler.MSF_R + "english_quintgrams.txt"   , , 5, 900, 10);
+            //For Testing and development use only.
+            //TurnFileIntoFreq(FileLocationHandler.MSF_R + "english_bigrams.txt", FileLocationHandler.MSF_R + "bi_64.txt", 2, 64, 4); // Under Development.
+            //TurnFileIntoFreq(FileLocationHandler.MSF_R + "english_trigrams.txt", FileLocationHandler.MSF_R + "tri_128.txt", 3, 128, 6);
+            //TurnFileIntoFreq(FileLocationHandler.MSF_R + "english_quadgrams.txt", FileLocationHandler.MSF_R + "quad_256.txt", 4, 256, 8);
+            //TurnFileIntoFreq(FileLocationHandler.MSF_R + "english_quintgrams.txt", FileLocationHandler.MSF_R + "quint_512.txt", 5, 512, 10);
+
+
 
         }
         static void Start()
@@ -39,7 +38,7 @@ namespace Brad_s_enigma_Machine
                 }
                 else if(choice == '2')
                 {
-                    Testing();
+                    LoadCypherBreaking();
                     Console.WriteLine("\n\n\n\n\n\n\n\n----------------------------------------\n\n");
                 }
                 else if ( choice == '3')
@@ -56,30 +55,105 @@ namespace Brad_s_enigma_Machine
 
         }
 
-        static void Testing()
+        static void LoadCypherBreaking()
         {
-            string[,] testText =
-            {
-                {"Bible", FileSys.GetStringFromFile(FileLocationHandler.bible30chapters_R) },
-                {"Scrambled Bible", FileSys.GetStringFromFile(FileLocationHandler.bible30chaptersRand_R)},
-                {"Lissa", "Lissa is the best"}
 
-            };
-            Fitness[] testInstances = new Fitness[3];
-            for (int i = 0; i < testText.GetLength(0); i++)
+            Fitness currentBreaker;
+            int loadingChoice = -1;
+            int speedChoice = -1;
+            bool valid = false;
+            while(valid == false)
             {
-                //testInstances[i] = new Fitness(testText[i, 1], testText[i, 0]);
+                GU.Print("-- -- ");
+                GU.Print("1. Load from file");
+                GU.Print("2. Enter as string");
+                GU.Print("");
+                GU.Print("Please Note: The less characters your string posses,");
+                GU.Print("the less accurate the result will be.");
+                GU.Print("-- -- ");
+
+                loadingChoice = GU.GetIntFromUser("Enter choice [1-2]");
+                if(loadingChoice == 1 || loadingChoice == 2)
+                {
+                    valid = true;
+                }
+                else
+                {
+                    GU.Print("ERROR | Please enter a valid choice, 1-2.");
+                    Console.WriteLine("\n");
+                }
             }
-            foreach (Fitness y in testInstances)
+            Console.WriteLine("\n");
+            valid = false;
+            while(valid == false)
             {
-                y.PrintAllValues();
+                GU.Print("-- -- ");
+                GU.Print("1. Accuracy Focus"); 
+                GU.Print("2. Speed Focus");
+                GU.Print("");
+                GU.Print("-- -- ");
+                speedChoice = GU.GetIntFromUser("Enter choice [1-2]");
+                if (speedChoice == 1 || speedChoice == 2)
+                {
+                    valid = true;
+                }
+                else
+                {
+                    GU.Print("ERROR | Please enter a valid choice, 1-2.");
+                    Console.WriteLine("\n");
+                }
             }
+            string writtenText;
+            if(loadingChoice == 1)
+            {
+                writtenText = "";
+                string locationOfText = "";
+                bool acceptable = false;
+                while (acceptable == false)
+                {
+                    locationOfText = GU.GetStringFromUser("Please enter the file name of message (IF NOT IN \\cracking\\messages enter !)");
+
+                    if (locationOfText == "!")
+                    {
+                        locationOfText = GU.GetStringFromUser("Enter the full address");
+                    }
+                    else
+                    {
+
+                        locationOfText = $"{FileLocationHandler.cpyhertextMessages_R}{locationOfText}.txt";
+                    }
+
+                    if (File.Exists(locationOfText) == true)
+                    {
+                        acceptable = true;
+                    }
+                    else
+                    {
+                        GU.Print("ERROR | Please enter a valid path, file doesn't exsist.");
+                    }
+                }
+
+
+                writtenText = FileSys.GetStringFromFile(locationOfText);
+            }
+            else
+            {
+                writtenText = GU.GetStringFromUser("Enter the message");
+            }
+
+            if(speedChoice == 1)
+            {
+                currentBreaker = new Fitness(writtenText, false);
+            }
+            else
+            {
+                currentBreaker = new Fitness(writtenText);
+            }
+            currentBreaker.PrintAllValues();
         }
 
-
-
         static void TurnFileIntoFreq(string file, string endFileLocation, double ngramSize, int noOfElements, int round)
-        {
+        { // This is purely for testing use, it's a needed program to create the load files.
             double noOfNgrams = GetNoOfNGramsFromGivenFile(file);
             string[] text = FileSys.GetStringArrayFromFile(file);
             string[] final = new string[noOfElements];
@@ -101,7 +175,7 @@ namespace Brad_s_enigma_Machine
             FileSys.WriteArrayToTxtFile(final, endFileLocation);
         }
         static double GetNoOfNGramsFromGivenFile(string file)
-        {
+        { // This is also a testing 
             double total = 0;
             string[] text = FileSys.GetStringArrayFromFile(file);
 

@@ -29,26 +29,37 @@ namespace Brad_s_enigma_Machine
             
 
         }
-
-        public string ForceUse(string message, CogArray[] forced_machineCogs, SwitchArray forced_switchBoard, ReverserArray forced_ukw) // Used to instantly return a string from a given enigma setting.
+        public bool Loaded = false;
+        public void ForceLoad(CogArray[] forced_machineCogs, SwitchArray forced_switchBoard, ReverserArray forced_ukw, bool force = false) // Used to instantly return a string from a given enigma setting.
         {
-            for(int i = 0; i < forced_machineCogs.Length; i++)
+            if (Loaded == true && force == false)
+            {
+                throw new Exception($"Machine {base.ToString()} Already Loaded!");
+            }
+            Loaded = true;
+            Logging.Write("ForceLoad()", "Force loaded enigma settings into machine");
+
+            for (int i = 0; i < forced_machineCogs.Length; i++)
             {
                 machineCogs[i] = forced_machineCogs[i];
             }
             switchBoard = forced_switchBoard;
             ukw = forced_ukw;
-
+        }    
+        public string ForceUse(string message)
+        {
             string ret = "";
-            foreach(char y in message)
+            foreach (char y in message)
             {
-                if(CheckIfTraditionalCompatible(y) == false)
+                if (CheckIfTraditionalCompatible(y) == false)
                 {
                     throw new Exception($"Issue with force loading through the enigma machine, a not compatiable value | {y} | was attempted to be decoded.");
                 }
                 ret += FullPassThrough(y);
             }
+            Logging.Close();
             return ret;
+            
         }
 
 
@@ -374,7 +385,6 @@ namespace Brad_s_enigma_Machine
             GU.Print("");
             GU.Print(": File Read :");
             string writtenText = "";
-            const string baseLocationOfText = @"F:\VS Projects\Project\Lucfer-009\enigmaMachine\Brad's enigma Machine\messages\";
             string locationOfText = "";
             bool acceptable = false;
             while (acceptable == false)
@@ -388,7 +398,7 @@ namespace Brad_s_enigma_Machine
                 else
                 {
 
-                    locationOfText = $"{baseLocationOfText}{locationOfText}.txt";
+                    locationOfText = $"{FileLocationHandler.messages_R}{locationOfText}.txt";
                 }
 
                 if(File.Exists(locationOfText) == true)
