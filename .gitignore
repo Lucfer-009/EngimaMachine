@@ -1,19 +1,20 @@
 #Excluded files or folders
 
-/Brad's Engima Machine/bin/Debug/net5.0/settings/enigma/log files/*
-!/Brad's Engima Machine/bin/Debug/net5.0/settings/enigma/log files/.gitkeep
+Brad's Engima Machine/bin/Debug/net5.0/settings/enigma/log files/*
+!Brad's Engima Machine/bin/Debug/net5.0/settings/enigma/log files/.gitkeep
 
-/Brad's Engima Machine/bin/Debug/net5.0/settings/enigma/readout/*
-!/Brad's Engima Machine/bin/Debug/net5.0/settings/enigma/readout/.gitkeep
+Brad's Engima Machine/bin/Debug/net5.0/settings/enigma/readout/*
+!Brad's Engima Machine/bin/Debug/net5.0/settings/enigma/readout/.gitkeep
 
-/Brad's Engima Machine/bin/Debug/net5.0/settings/enigma/messages/*
-!/Brad's Engima Machine/bin/Debug/net5.0/settings/enigma/messages/.gitkeep
+Brad's Engima Machine/bin/Debug/net5.0/settings/enigma/messages/*
+!Brad's Engima Machine/bin/Debug/net5.0/settings/enigma/messages/.gitkeep
 
-/Brad's Engima Machine/bin/Debug/net5.0/settings/machine specific files/*
-!/Brad's Engima Machine/bin/Debug/net5.0/settings/machine specific files/.gitkeep
+Brad's Engima Machine/bin/Debug/net5.0/settings/machine specific files/*
+!Brad's Engima Machine/bin/Debug/net5.0/settings/machine specific files/.gitkeep
 
-/Brad's Engima Machine/bin/Debug/net5.0/settings/enigma/switchboard/*
-!/Brad's Engima Machine/bin/Debug/net5.0/settings/enigma/switchboard/.gitkeep
+Brad's Engima Machine/bin/Debug/net5.0/settings/enigma/switchboard/*
+!Brad's Engima Machine/bin/Debug/net5.0/settings/enigma/switchboard/.gitkeep
+
 Brad's Engima Machine/.vs/Brad's Engima Machine/v16/.suo
 Brad's Engima Machine/.vs/Brad's Engima Machine/DesignTimeBuild/.dtbcache.v2
-Brad's Engima Machine/.vs/Brad's Engima Machine/v16/.suo
+
