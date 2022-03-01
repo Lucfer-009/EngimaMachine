@@ -34,12 +34,12 @@ namespace Brad_s_enigma_Machine
                 {
                     Machine enigma = new Machine(26); // Creates new instance of the machine
                     enigma.PowerOn(); // Starts the machine
-                    Console.WriteLine("\n\n\n\n\n\n\n\n----------------------------------------\n\n");
+                    Console.WriteLine("\n\n\n----------------------------------------\n");
                 }
                 else if(choice == '2')
                 {
                     LoadCypherBreaking();
-                    Console.WriteLine("\n\n\n\n\n\n\n\n----------------------------------------\n\n");
+                    Console.WriteLine("\n\n\n----------------------------------------\n");
                 }
                 else if ( choice == '3')
                 {
@@ -80,10 +80,10 @@ namespace Brad_s_enigma_Machine
                 else
                 {
                     GU.Print("ERROR | Please enter a valid choice, 1-2.");
-                    Console.WriteLine("\n");
+                    GU.Print("");
                 }
             }
-            Console.WriteLine("\n");
+            GU.Print("");
             valid = false;
             while(valid == false)
             {
@@ -100,7 +100,7 @@ namespace Brad_s_enigma_Machine
                 else
                 {
                     GU.Print("ERROR | Please enter a valid choice, 1-2.");
-                    Console.WriteLine("\n");
+                    GU.Print("");
                 }
             }
             string writtenText;

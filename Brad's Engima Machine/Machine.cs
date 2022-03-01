@@ -104,7 +104,8 @@ namespace Brad_s_enigma_Machine
                     break;
             }
 
-            GU.Print("----\n");
+            GU.Print("----");
+            GU.Print("");
             bool save = GU.GetBoolFromUser("Would you like to save this answer to a file?");
             if(save == true)
             {
@@ -142,10 +143,11 @@ namespace Brad_s_enigma_Machine
             }
             Logging.Write("", line);
 
-            Logging.Write("-- Start message --\n", $"{initialMessage}");
-            Logging.Write("-- End Message   --\n", $"{endMessage}");
+            Logging.Write("-- Start message --", $"{initialMessage}");
+            Logging.Write("", "");
+            Logging.Write("-- End Message   --", $"{endMessage}");
+            Logging.Write("", "");
             Logging.Write("-", "");
-
             Logging.Close();
             GU.Print("-- -- -- -- -- --");
         }
@@ -218,8 +220,21 @@ namespace Brad_s_enigma_Machine
             }
             else
             {
-                GU.PrintContentsOfDirectory(FileLocationHandler.switchboard_R, true);
-                int address = GU.GetIntWithinBound("Please enter the relevant 4-digit ID", 1000, 9999);
+                int address = 0;
+                bool validID = false;
+                while(validID == false)
+                {
+                    GU.PrintContentsOfDirectory(FileLocationHandler.switchboard_R, true);
+                    address = GU.GetIntWithinBound("Please enter the relevant 4-digit ID", 1000, 9999);
+                    if (File.Exists(FileLocationHandler.switchboard_R + $"{address}.txt") == true)
+                    {
+                        validID = true;
+                    }
+                    else
+                    {
+                        GU.Print("ERROR | Invalid file location, it doesn't exsist.");
+                    }
+                }
                 switchBoard = new SwitchArray(defaultArraySize, $"{address}.txt");
                 switchboardLog = FileSys.GetStringFromFile(FileLocationHandler.switchboard_R + $"{address}.txt");
             }
@@ -274,7 +289,8 @@ namespace Brad_s_enigma_Machine
 
                     if (input == '!')
                     {
-                        GU.Print("\n - END - \n");
+                        GU.Print(" - END - ");
+                        Console.WriteLine("");
                         check = false;
                     }
 
@@ -323,7 +339,9 @@ namespace Brad_s_enigma_Machine
 
                         message = message.Substring(0, message.Length-1);
                         startmessage = startmessage.Substring(0, startmessage.Length - 1);
-                        GU.Print($"\nCurrent Message : {message}\n");
+                        GU.Print("");
+                        GU.Print($"Current Message : {message}");
+                        GU.Print("");
                     }
 
                     else if (CheckIfTraditionalCompatible(input) == false)
@@ -335,7 +353,9 @@ namespace Brad_s_enigma_Machine
                     {
                         startmessage += input;
                         message += FullPassThrough(input);
-                        GU.Print($"\nCurrent Message : {message}\n");
+                        GU.Print("");
+                        GU.Print($"Current Message : {message}");
+                        GU.Print("");
                     }
                        
                 }
@@ -362,7 +382,8 @@ namespace Brad_s_enigma_Machine
                 }
                 else
                 {
-                    GU.Print("ERROR | Please enter a string that contains genuine enigma characters!\n");
+                    GU.Print("ERROR | Please enter a string that contains genuine enigma characters!");
+                    GU.Print("");
                 }
             }
             GU.Print("");
@@ -375,7 +396,7 @@ namespace Brad_s_enigma_Machine
                 ret += got;
                 count++;
             }
-            Console.WriteLine("\n");
+            GU.Print("");
             GU.Print($"{ret}");
             initialMessage = input;
             endMessage = ret;
@@ -416,7 +437,7 @@ namespace Brad_s_enigma_Machine
 
             writtenText = FileSys.GetStringFromFile(locationOfText);
 
-            GU.Print("\n");
+            GU.Print("");
 
             DateTime starttime = DateTime.Now;
             int count = 0;
@@ -444,7 +465,7 @@ namespace Brad_s_enigma_Machine
 
                 }
             }
-            Console.WriteLine("\n");
+            GU.Print("");
             GU.Print(writtenText);
             GU.Print(ret);
 
@@ -550,7 +571,8 @@ namespace Brad_s_enigma_Machine
                     B = GU.GetCharFromUser("Enter second character", true);
                     if (A == '#')
                     {
-                        GU.Print("UPDATE | This process has been restarted!\n\n");
+                        GU.Print("UPDATE | This process has been restarted!");
+                        GU.Print("");
                         bindsUsed = 0; //resests the binds used to 0
                         for (int i = 0; i < defaultArraySize; i++) // wipes the array to defualt
                         {

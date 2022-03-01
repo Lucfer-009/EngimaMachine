@@ -138,7 +138,8 @@ namespace Brad_s_enigma_Machine
             GU.Print($"QUADGRAM     = {GetNGramFreq(4)}");
             GU.Print($"QUINTGRAM    = {GetNGramFreq(5)}");
             GU.Print($"IOC          = {Math.Round(indexOfCoincidence, 4)}% difference");
-            GU.Print($"------\n\n");
+            GU.Print($"------");
+            GU.Print("");
         }
 
     }
