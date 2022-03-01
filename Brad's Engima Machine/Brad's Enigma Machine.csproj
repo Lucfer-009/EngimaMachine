@@ -29,13 +29,17 @@
     <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Fast\tri_128.txt" />
     <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\unigram frequencies.txt" />
     <Content Include="bin\Debug\net5.0\settings\enigma\messages\test.txt" />
+    <Content Include="bin\Debug\net5.0\settings\machine specific files\english_bigrams.txt" />
+    <Content Include="bin\Debug\net5.0\settings\machine specific files\english_quadgrams.txt" />
+    <Content Include="bin\Debug\net5.0\settings\machine specific files\english_quintgrams.txt" />
+    <Content Include="bin\Debug\net5.0\settings\machine specific files\english_trigrams.txt" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="bin\Debug\net5.0\settings\enigma\log files\" />
     <Folder Include="bin\Debug\net5.0\settings\enigma\readout\" />
-    <Folder Include="bin\Debug\net5.0\settings\enigma\ukws\" />
     <Folder Include="bin\Debug\net5.0\settings\enigma\switchboard\" />
+    <Folder Include="bin\Debug\net5.0\settings\enigma\ukws\" />
   </ItemGroup>
 
   <ItemGroup>
