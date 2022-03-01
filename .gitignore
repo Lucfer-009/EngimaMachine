@@ -11,3 +11,6 @@
 
 /Brad's Engima Machine/bin/Debug/net5.0/settings/machine specific files/*
 !/Brad's Engima Machine/bin/Debug/net5.0/settings/machine specific files/.gitkeep
+
+/Brad's Engima Machine/bin/Debug/net5.0/settings/enigma/switchboard/*
+!/Brad's Engima Machine/bin/Debug/net5.0/settings/enigma/switchboard/.gitkeep
