@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Brad_s_Engima_Machine
+namespace Brad_s_enigma_Machine
 {
     static class FileLocationHandler
     {
@@ -14,35 +14,34 @@ namespace Brad_s_Engima_Machine
         static private string settingsPath = @"\settings\";
         static private string masterConfigPath = mainDirectory + settingsPath;
 
-        static public readonly string logFileLocation_R     = masterConfigPath + @"enigma\log files\";
-        static public readonly string machineData_R         = masterConfigPath + @"enigma\machine data\";
-        static public readonly string cogs_R                = masterConfigPath + @"enigma\cogs\";
-        static public readonly string reversers_R           = masterConfigPath + @"enigma\ukws\";
-        static public readonly string messages_R            = masterConfigPath + @"enigma\messages\";
-        static public readonly string switchboard_R         = masterConfigPath + @"enigma\switchboard\";
-        static public readonly string readout_R             = masterConfigPath + @"enigma\readout\";
+        static private string enigma = @"enigma\";
+        static private string cracking = @"cracking\";
+        // --------------------
+        static public readonly string logFileLocation_R         = masterConfigPath + enigma     + @"log files\";
+        static public readonly string machineData_R             = masterConfigPath + enigma     + @"machine data\";
+        static public readonly string cogs_R                    = masterConfigPath + enigma     + @"cogs\";
+        static public readonly string reversers_R               = masterConfigPath + enigma     + @"ukws\";
+        static public readonly string messages_R                = masterConfigPath + enigma     + @"messages\";
+        static public readonly string switchboard_R             = masterConfigPath + enigma     + @"switchboard\";
+        static public readonly string readout_R                 = masterConfigPath + enigma     + @"readout\";
+        static public readonly string MSF_R                     = masterConfigPath + null       + @"machine specific files\"; // Quick Refrence for msf locations
 
         // ---------------------
+        static public readonly string cyphertextMessages_R      = masterConfigPath + cracking   + @"messages\";
 
-        static public readonly string unigramFrequencies_R  = masterConfigPath + @"cracking\ngram analysis\Old\unigram frequencies.txt";
-        static public readonly string bigramFrequencies_R   = masterConfigPath + @"cracking\ngram analysis\Old\bigram frequencies.txt";
-        static public readonly string trigramFrequencies_R  = masterConfigPath + @"cracking\ngram analysis\Old\trigram frequencies.txt";
-        static public readonly string quadgramFrequencies_R = masterConfigPath + @"cracking\ngram analysis\Old\quadgram frequencies.txt";
-        static public readonly string commonWords_R         = masterConfigPath + @"cracking\common words.txt";
+        static public readonly string unigramFrequencies_R      = masterConfigPath + cracking   + @"ngram analysis\unigram frequencies.txt"; 
 
-        static public readonly string knownEnglishWords_R       = masterConfigPath + @"cracking\testfiles\known english text.txt";
-        static public readonly string bible30chapters_R         = masterConfigPath + @"cracking\testfiles\bible30chapters.txt";
-        static public readonly string bible30chaptersEnigma_R   = masterConfigPath + @"cracking\testfiles\bible30chaptersEnigma.txt";
+        static public readonly string accurateBiGram_R          = masterConfigPath + cracking   + @"ngram analysis\Accurate\bi_500.txt";
+        static public readonly string accurateTriGram_R         = masterConfigPath + cracking   + @"ngram analysis\Accurate\tri_1000.txt";
+        static public readonly string accurateQuadGram_R        = masterConfigPath + cracking   + @"ngram analysis\Accurate\quad_2000.txt";
+        static public readonly string accurateQuintGram_R       = masterConfigPath + cracking   + @"ngram analysis\Accurate\quint_4000.txt";
 
-        static public readonly string knownEnglishBigrams_R     = masterConfigPath + @"machine specific files\english_bigrams.txt";
-        static public readonly string knownEnglishTrigrams_R    = masterConfigPath + @"machine specific files\english_trigrams.txt";
-        static public readonly string knownEnglishQuadgrams_R   = masterConfigPath + @"machine specific files\english_quadgrams.txt";
-        static public readonly string knownEnglishQuintgrams_R  = masterConfigPath + @"machine specific files\english_quintgrams.txt";
+        static public readonly string fastBiGram_R              = masterConfigPath + cracking   + @"ngram analysis\Fast\bi_64.txt";
+        static public readonly string fastTriGram_R             = masterConfigPath + cracking   + @"ngram analysis\Fast\tri_128.txt";
+        static public readonly string fastQuadGram_R            = masterConfigPath + cracking   + @"ngram analysis\Fast\quad_256.txt";
+        static public readonly string fastQuintGram_R           = masterConfigPath + cracking   + @"ngram analysis\Fast\quint_512.txt";
 
-        static public readonly string newBiGram_R = masterConfigPath + @"cracking\ngram analysis\Improved\newBiGram5000.txt";
-        static public readonly string newTriGram_R = masterConfigPath + @"cracking\ngram analysis\Improved\newTriGram5000.txt";
-        static public readonly string newQuadGram_R = masterConfigPath + @"cracking\ngram analysis\Improved\newQuadGram5000.txt";
-        static public readonly string newQuintGram_R = masterConfigPath + @"cracking\ngram analysis\Improved\newQuintGram5000.txt";
+
 
     }
 }

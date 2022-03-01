@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Brad_s_Engima_Machine
+namespace Brad_s_enigma_Machine
 {
     class Machine
     {
@@ -21,50 +21,65 @@ namespace Brad_s_Engima_Machine
         private SwitchArray switchBoard;
         private ReverserArray ukw;
 
-        public Machine(string name, int defaultArraySize)
+        private LogFile Logging = new LogFile();
+
+        public Machine(int defaultArraySize)
         {
             this.defaultArraySize = defaultArraySize;
-        }
+            
 
-        public string ForceUse(string message, CogArray[] forced_machineCogs, SwitchArray forced_switchBoard, ReverserArray forced_ukw) // Used to instantly return a string from a given engima setting.
+        }
+        public bool Loaded = false;
+        public void ForceLoad(CogArray[] forced_machineCogs, SwitchArray forced_switchBoard, ReverserArray forced_ukw, bool force = false) // Used to instantly return a string from a given enigma setting.
         {
-            for(int i = 0; i < forced_machineCogs.Length; i++)
+            if (Loaded == true && force == false)
+            {
+                throw new Exception($"Machine {base.ToString()} Already Loaded!");
+            }
+            Loaded = true;
+            Logging.Write("ForceLoad()", "Force loaded enigma settings into machine");
+
+            for (int i = 0; i < forced_machineCogs.Length; i++)
             {
                 machineCogs[i] = forced_machineCogs[i];
             }
             switchBoard = forced_switchBoard;
             ukw = forced_ukw;
-
+        }    
+        public string ForceUse(string message)
+        {
             string ret = "";
-            foreach(char y in message)
+            foreach (char y in message)
             {
-                if(CheckIfTraditionalCompatible(y) == false)
+                if (CheckIfTraditionalCompatible(y) == false)
                 {
-                    throw new Exception($"Issue with force loading through the engima machine, a not compatiable value | {y} | was attempted to be decoded.");
+                    throw new Exception($"Issue with force loading through the enigma machine, a not compatiable value | {y} | was attempted to be decoded.");
                 }
                 ret += FullPassThrough(y);
             }
+            Logging.Close();
             return ret;
+            
         }
 
 
         public void PowerOn()
         {
-            LogFile.Write("Machine.powerOn()", "First boot of engima machine");
+            Logging.Write("Machine.powerOn()", "First boot of enigma machine");
             
             InitialiseCogs();
             GU.Print("");
-            LogFile.Write("Machine.InitialseCogs()", "Got cog settings from user" );
+            Logging.Write("Machine.InitialseCogs()", "Got cog settings from user" );
 
             InitialiseSwitchboard();
             GU.Print("");
-            LogFile.Write("Machine.InitialseSwitchboard()", "Got switchboard settings from user");
+            Logging.Write("Machine.InitialseSwitchboard()", "Got switchboard settings from user");
 
             InitialiseUKW();
             GU.Print("");
-            LogFile.Write("Machine.InitialseUKW()", "Got reverser settings from user");
+            Logging.Write("Machine.InitialseUKW()", "Got reverser settings from user");
+            
             GU.Print("");
-
             GU.Print("-- -- -- -- --");
             GU.Print("1 . Live Entry");
             GU.Print("2 . KeyByKey Entry");
@@ -89,7 +104,8 @@ namespace Brad_s_Engima_Machine
                     break;
             }
 
-            GU.Print("----\n");
+            GU.Print("----");
+            GU.Print("");
             bool save = GU.GetBoolFromUser("Would you like to save this answer to a file?");
             if(save == true)
             {
@@ -99,19 +115,19 @@ namespace Brad_s_Engima_Machine
 
             // Logging of the process ---------------------------------------------------------
 
-            LogFile.Write("", "");
-            LogFile.Write("-- --", "");
+            Logging.Write("", "");
+            Logging.Write("-- --", "");
 
 
-            LogFile.Write("--", "COG SETTINGS --"); // Logs Cog Settings
+            Logging.Write("--", "COG SETTINGS --"); // Logs Cog Settings
             int count = 0;
             foreach (CogArray Y in machineCogs)
             {
-                LogFile.Write("", $"|Position: {count} |     |Cog: {Y.GetCogLocation()} |     |Intital Char: {Y.GetInitialChar()} |     |Initial RingPos: {Y.GetInitialRingPos()}|  ");
+                Logging.Write("", $"|Position: {count} |   |Cog: {Y.GetCogLocation()} |   |Initial Char: {Y.GetInitialChar()} |   |Initial RingPos: {Y.GetInitialRingPos()}|  ");
                 count++;
             }
 
-            LogFile.Write("--", "SWITCHBOARD SETTINGS --"); // Logs, quite complicatedly, the switchboard config
+            Logging.Write("--", "SWITCHBOARD SETTINGS --"); // Logs, quite complicatedly, the switchboard config
 
             string line = " ";
             count = 0;
@@ -125,12 +141,14 @@ namespace Brad_s_Engima_Machine
                 }             
                 count++;           
             }
-            LogFile.Write("", line);
+            Logging.Write("", line);
 
-            LogFile.Write("-- Start message --\n", $"{initialMessage}");
-            LogFile.Write("-- End Message   --\n", $"{endMessage}");
-
-            LogFile.Close();
+            Logging.Write("-- Start message --", $"{initialMessage}");
+            Logging.Write("", "");
+            Logging.Write("-- End Message   --", $"{endMessage}");
+            Logging.Write("", "");
+            Logging.Write("-", "");
+            Logging.Close();
             GU.Print("-- -- -- -- -- --");
         }
 
@@ -160,7 +178,7 @@ namespace Brad_s_Engima_Machine
                 }
 
                 int Position = GU.AlphaCharToIntIndex(S_,-64); // Start Position
-                int Ring = GU.GetIntWithinBound($"Enter ring position for cog {C}", 1, defaultArraySize+1); // Ring Position
+                int Ring = GU.GetIntWithinBound($"Enter ring position for cog {C}", 1, defaultArraySize); // Ring Position
                 GU.Print("--");
 
                 int shift;
@@ -202,7 +220,21 @@ namespace Brad_s_Engima_Machine
             }
             else
             {
-                int address = GU.GetIntWithinBound("Please enter 4-digit ID for switchboard saved preset", 1000, 9999);
+                int address = 0;
+                bool validID = false;
+                while(validID == false)
+                {
+                    GU.PrintContentsOfDirectory(FileLocationHandler.switchboard_R, true);
+                    address = GU.GetIntWithinBound("Please enter the relevant 4-digit ID", 1000, 9999);
+                    if (File.Exists(FileLocationHandler.switchboard_R + $"{address}.txt") == true)
+                    {
+                        validID = true;
+                    }
+                    else
+                    {
+                        GU.Print("ERROR | Invalid file location, it doesn't exsist.");
+                    }
+                }
                 switchBoard = new SwitchArray(defaultArraySize, $"{address}.txt");
                 switchboardLog = FileSys.GetStringFromFile(FileLocationHandler.switchboard_R + $"{address}.txt");
             }
@@ -238,19 +270,18 @@ namespace Brad_s_Engima_Machine
 
             string startmessage = "";
             bool check = true;
-            int menucount = 5;
+            int menucount = 0;
             string message = "";
             while (check == true)
             {
                 try
                 {
-                    if(menucount == 12)
+                    if(menucount % 10 == 0)
                     {
                         GU.Print("Enter ! to stop and end");
                         GU.Print("Enter # to restart");
                         GU.Print("[EXPERIMENTAL] Enter @ to restart it to it's origional cog positions entered");
                         GU.Print("[EXPERIMENTAL] Enter $ to go back one character entry, to back parse the machine");
-                        menucount = 0;
                     }
                     menucount++;
 
@@ -258,7 +289,8 @@ namespace Brad_s_Engima_Machine
 
                     if (input == '!')
                     {
-                        GU.Print("\n - END - \n");
+                        GU.Print(" - END - ");
+                        Console.WriteLine("");
                         check = false;
                     }
 
@@ -280,16 +312,36 @@ namespace Brad_s_Engima_Machine
                         message = "";
                         startmessage = "";
                         GU.Print("Message cleared! & Cogs reset to initial settings");
-                        LogFile.Write("KeyByKeyEntry()", "User cleared entry and reset cogs to initial settings");
+                        Logging.Write("KeyByKeyEntry()", "User cleared entry and reset cogs to initial settings");
 
                     }
 
                     else if (input == '$')
                     {
                         // need to put backparsing in here
+                        if (machineCogs[0].IsAtTurnover() == false && machineCogs[1].IsAtTurnover() == false)
+                        {
+                            machineCogs[0].DecrementCog();
+                        }
+                        else if (machineCogs[0].IsAtTurnover() == true && machineCogs[1].IsAtTurnover() == false)
+                        {
+                            machineCogs[0].DecrementCog();
+                            machineCogs[1].DecrementCog();
+                        }
+                        else if (machineCogs[0].IsAtTurnover() == false && machineCogs[1].IsAtTurnover() == true)
+                        {
+                            foreach (CogArray C in machineCogs) { C.DecrementCog(); } //turns all
+                        }
+                        else if (machineCogs[0].IsAtTurnover() == true && machineCogs[1].IsAtTurnover() == true)
+                        {
+                            foreach (CogArray C in machineCogs) { C.DecrementCog(); } //turns all
+                        }
+
                         message = message.Substring(0, message.Length-1);
                         startmessage = startmessage.Substring(0, startmessage.Length - 1);
-                        GU.Print($"\nCurrent Message : {message}\n");
+                        GU.Print("");
+                        GU.Print($"Current Message : {message}");
+                        GU.Print("");
                     }
 
                     else if (CheckIfTraditionalCompatible(input) == false)
@@ -301,7 +353,9 @@ namespace Brad_s_Engima_Machine
                     {
                         startmessage += input;
                         message += FullPassThrough(input);
-                        GU.Print($"\nCurrent Message : {message}\n");
+                        GU.Print("");
+                        GU.Print($"Current Message : {message}");
+                        GU.Print("");
                     }
                        
                 }
@@ -328,7 +382,8 @@ namespace Brad_s_Engima_Machine
                 }
                 else
                 {
-                    GU.Print("ERROR | Please enter a string that contains genuine engima characters!\n");
+                    GU.Print("ERROR | Please enter a string that contains genuine enigma characters!");
+                    GU.Print("");
                 }
             }
             GU.Print("");
@@ -341,7 +396,7 @@ namespace Brad_s_Engima_Machine
                 ret += got;
                 count++;
             }
-            Console.WriteLine("\n");
+            GU.Print("");
             GU.Print($"{ret}");
             initialMessage = input;
             endMessage = ret;
@@ -352,11 +407,11 @@ namespace Brad_s_Engima_Machine
             GU.Print("");
             GU.Print(": File Read :");
             string writtenText = "";
-            const string baseLocationOfText = @"F:\VS Projects\Project\Lucfer-009\EngimaMachine\Brad's Engima Machine\messages\";
             string locationOfText = "";
             bool acceptable = false;
             while (acceptable == false)
             {
+                GU.PrintContentsOfDirectory(FileLocationHandler.messages_R);
                 locationOfText = GU.GetStringFromUser("Please enter the file name of message (IF NOT IN \\messages enter \"!\")");
                 
                 if (locationOfText == "!")
@@ -366,7 +421,7 @@ namespace Brad_s_Engima_Machine
                 else
                 {
 
-                    locationOfText = $"{baseLocationOfText}{locationOfText}.txt";
+                    locationOfText = $"{FileLocationHandler.messages_R}{locationOfText}.txt";
                 }
 
                 if(File.Exists(locationOfText) == true)
@@ -382,7 +437,7 @@ namespace Brad_s_Engima_Machine
 
             writtenText = FileSys.GetStringFromFile(locationOfText);
 
-            GU.Print("\n");
+            GU.Print("");
 
             DateTime starttime = DateTime.Now;
             int count = 0;
@@ -410,7 +465,7 @@ namespace Brad_s_Engima_Machine
 
                 }
             }
-            Console.WriteLine("\n");
+            GU.Print("");
             GU.Print(writtenText);
             GU.Print(ret);
 
@@ -421,20 +476,20 @@ namespace Brad_s_Engima_Machine
 
         private char FullPassThrough(char inflow)
         {
-            LogFile.Write("------------------", "");
+            Logging.Write("------------------", "");
             int log = 0;
             char outflow = ' ';
 
             int current = GU.AlphaCharToIntIndex(inflow); //Starts by getting the index
             if(current == -33) 
             {
-                LogFile.Write("FullPassThrough()"," - [SPACE] <Character Skipped>");
+                Logging.Write("FullPassThrough()"," - [SPACE] <Character Skipped>");
                 return outflow; 
             }
 
 
 
-            // Brad's much improved engima stepping code (flawless :) )
+            // Brad's much improved enigma stepping code (flawless :) )
 
 
             if (machineCogs[0].IsAtTurnover() == false && machineCogs[1].IsAtTurnover() == false)
@@ -460,30 +515,30 @@ namespace Brad_s_Engima_Machine
             log = current;
 
             current = switchBoard.ForwardParse(current); //Goes through SwitchBoard
-            LogFile.Write("FullPassThrough()", $" - {log}({GU.IntIndexToAlphaChar(log)}) > [Switchboard-F] > {current}({GU.IntIndexToAlphaChar(current)})");
+            Logging.Write("FullPassThrough()", $" - {log}({GU.IntIndexToAlphaChar(log)}) > [Switchboard-F] > {current}({GU.IntIndexToAlphaChar(current)})");
 
             foreach (CogArray C in machineCogs)
             {
                 log = current;
                 current = C.ForwardParse(current);
-                LogFile.Write("FullPassThrough()", $" - {log}({GU.IntIndexToAlphaChar(log)}) > [COG {countA} -F] > {current}({GU.IntIndexToAlphaChar(current)})");
+                Logging.Write("FullPassThrough()", $" - {log}({GU.IntIndexToAlphaChar(log)}) > [COG {countA} -F] > {current}({GU.IntIndexToAlphaChar(current)})");
                 countA++;
             }
 
             log = current;
             current = ukw.ForwardParse(current);
-            LogFile.Write("FullPassThrough()", $" - {log}({GU.IntIndexToAlphaChar(log)}) > [UKW] > {current}({GU.IntIndexToAlphaChar(current)})");
+            Logging.Write("FullPassThrough()", $" - {log}({GU.IntIndexToAlphaChar(log)}) > [UKW] > {current}({GU.IntIndexToAlphaChar(current)})");
 
             for (int i = 2; i >= 0; i--)
             {
                 log = current;
                 current = machineCogs[i].ReverseParse(current);
-                LogFile.Write("FullPassThrough()", $" - {log}({GU.IntIndexToAlphaChar(log)}) > [COG {i} -R] > {current}({GU.IntIndexToAlphaChar(current)})");
+                Logging.Write("FullPassThrough()", $" - {log}({GU.IntIndexToAlphaChar(log)}) > [COG {i} -R] > {current}({GU.IntIndexToAlphaChar(current)})");
             }
 
             log = current;
             current = switchBoard.ReverseParse(current);
-            LogFile.Write("FullPassThrough()", $" - {log}({GU.IntIndexToAlphaChar(log)}) > [Switchboard-R] > {current}({GU.IntIndexToAlphaChar(current)})");
+            Logging.Write("FullPassThrough()", $" - {log}({GU.IntIndexToAlphaChar(log)}) > [Switchboard-R] > {current}({GU.IntIndexToAlphaChar(current)})");
 
             outflow = GU.IntIndexToAlphaChar(current);
 
@@ -516,7 +571,8 @@ namespace Brad_s_Engima_Machine
                     B = GU.GetCharFromUser("Enter second character", true);
                     if (A == '#')
                     {
-                        GU.Print("UPDATE | This process has been restarted!\n\n");
+                        GU.Print("UPDATE | This process has been restarted!");
+                        GU.Print("");
                         bindsUsed = 0; //resests the binds used to 0
                         for (int i = 0; i < defaultArraySize; i++) // wipes the array to defualt
                         {

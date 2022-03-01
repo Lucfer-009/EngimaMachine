@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Brad_s_Engima_Machine
+namespace Brad_s_enigma_Machine
 {
     static class GU // Short for General Usage
     {
@@ -28,7 +29,7 @@ namespace Brad_s_Engima_Machine
 
         public static void Print(string message)
         {
-            Console.WriteLine("|| {0, -80} ||", message);
+            Console.WriteLine("|| {0, -95} ||", message);
         }
 
         public static void Header(string message = "")
@@ -165,14 +166,23 @@ namespace Brad_s_Engima_Machine
                         Print("------ ------");
                     }
 
-                    if(yesValues.Contains(y) == true) { X = true; }
-                    else if (noValues.Contains(y) == true) { X = false; }
-                    else
+                    if(yesValues.Contains(y) == true) 
+                    { 
+                        X = true;
+                        check = false;
+                    }
+                    else if (noValues.Contains(y) == true) 
                     {
-                        throw new Exception("Invalid boolean response");
+                        X = false;
+                        check = false;
+                    }
+                    else 
+                    {
+                        Print("ERROR | Please ensure you enter an acceptable boolean response (i.e. Y/N)!");
+                        Print("      | entering \"-readout\" will proivde you with a list of releveant responses");
                     }
 
-                    check = false;
+                    
                 }
                 catch
                 {
@@ -195,14 +205,19 @@ namespace Brad_s_Engima_Machine
                     int y = GetIntFromUser(message);
                     if(!(y >= upperB & y <= lowerB))
                     {
-                        throw new Exception("Integer provided is out of desired bounds");
+                        Print("ERROR | Please ensure you enter an integer value within the specified bounds !");
+                        Print($"      | {upperB} >= y >= {lowerB}");
                     }
-                    X = y;
-                    check = false;
+                    else
+                    {
+                        X = y;
+                        check = false;
+                    }
+                   
                 }
                 catch
                 {
-                    Print("ERROR | Please ensure you enter an integer value within the specified bounds !");
+                    Print("ERROR | Please ensure you enter an INTEGER value within the specified bounds !");
                     Print($"      | {upperB} >= y >= {lowerB}");
                 }
             }
@@ -293,5 +308,29 @@ namespace Brad_s_Engima_Machine
             return ret;
         }
 
+        public static void PrintContentsOfDirectory(string directoryPath, bool preview = false)
+        {
+            GU.Print("-- Contents of directory --");
+            foreach (var path in Directory.GetFiles(directoryPath))
+            {
+                string fileName = Path.GetFileName(path);
+                if(fileName.Contains(".git") == false )
+                {
+                    string[] division = fileName.Split('.');
+                    if( preview == true)
+                    {
+                        string content = FileSys.GetStringFromFile(path);
+                        GU.Print($">  {division[0]} (.{division[1]}) | {content}");
+                    }
+                    else
+                    {
+                        GU.Print($">  {division[0]} (.{division[1]})");
+                    }
+                    
+                }
+
+            }
+            GU.Print("-- -- --");
+        }
     }
 }

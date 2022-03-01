@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Brad\\Documents\\GitHub\\EngimaMachine\\Brad's Engima Machine\\Brad's Engima Machine.csproj",
-      "projectName": "Brad's Engima Machine",
-      "projectPath": "C:\\Users\\Brad\\Documents\\GitHub\\EngimaMachine\\Brad's Engima Machine\\Brad's Engima Machine.csproj",
+      "projectUniqueName": "C:\\Users\\Brad\\Documents\\GitHub\\EngimaMachine\\Brad's Engima Machine\\Brad's Enigma Machine.csproj",
+      "projectName": "Brad's Enigma Machine",
+      "projectPath": "C:\\Users\\Brad\\Documents\\GitHub\\EngimaMachine\\Brad's Engima Machine\\Brad's Enigma Machine.csproj",
       "packagesPath": "C:\\Users\\Brad\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Brad\\Documents\\GitHub\\EngimaMachine\\Brad's Engima Machine\\obj\\",
       "projectStyle": "PackageReference",

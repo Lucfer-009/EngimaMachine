@@ -1,0 +1,61 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>Brad_s_enigma_Machine</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="settings files\**" />
+    <EmbeddedResource Remove="settings files\**" />
+    <None Remove="settings files\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="bin\Debug\net5.0\Brad%27s enigma Machine.deps.json" />
+    <Content Include="bin\Debug\net5.0\Brad%27s enigma Machine.runtimeconfig.dev.json" />
+    <Content Include="bin\Debug\net5.0\Brad%27s enigma Machine.runtimeconfig.json" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\messages\essay.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Accurate\bi_500.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Accurate\quad_2000.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Accurate\quint_4000.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Accurate\tri_1000.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\messages\English Bible 30c.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\messages\Scrambled Bible 30c.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Fast\bi_64.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Fast\quad_256.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Fast\quint_512.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Fast\tri_128.txt" />
+    <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\unigram frequencies.txt" />
+    <Content Include="bin\Debug\net5.0\settings\enigma\messages\test.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="bin\Debug\net5.0\settings\enigma\log files\" />
+    <Folder Include="bin\Debug\net5.0\settings\enigma\readout\" />
+    <Folder Include="bin\Debug\net5.0\settings\enigma\ukws\" />
+    <Folder Include="bin\Debug\net5.0\settings\enigma\switchboard\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\net5.0\Brad%27s enigma Machine.dll" />
+    <None Include="bin\Debug\net5.0\Brad%27s enigma Machine.exe" />
+    <None Include="bin\Debug\net5.0\Brad%27s enigma Machine.pdb" />
+    <None Include="bin\Debug\net5.0\ref\Brad%27s enigma Machine.dll" />
+    <None Include="bin\Debug\net5.0\settings\enigma\cogs\cog1.txt" />
+    <None Include="bin\Debug\net5.0\settings\enigma\cogs\cog2.txt" />
+    <None Include="bin\Debug\net5.0\settings\enigma\cogs\cog3.txt" />
+    <None Include="bin\Debug\net5.0\settings\enigma\cogs\cog4.txt" />
+    <None Include="bin\Debug\net5.0\settings\enigma\cogs\cog5.txt" />
+    <None Include="bin\Debug\net5.0\settings\enigma\ukws\reflectorA.txt" />
+    <None Include="bin\Debug\net5.0\settings\enigma\ukws\reflectorB.txt" />
+    <None Include="bin\Debug\net5.0\settings\enigma\ukws\reflectorC.txt" />
+    <None Include="bin\Debug\net5.0\settings\machine specific files\Refrence values.PNG" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Collections" Version="4.3.0" />
+  </ItemGroup>
+
+</Project>
