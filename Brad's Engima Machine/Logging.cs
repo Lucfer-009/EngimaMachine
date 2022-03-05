@@ -9,10 +9,10 @@ namespace Brad_s_enigma_Machine
 {
     public class LogFile
     {
-        static private string address;
-        static private string currentTime = DateTime.Now.ToString("HH:mm:ss");
-        static private StreamWriter mainFile;
+        private string address;
+        private StreamWriter mainFile;
         static private Random rand = new Random();
+        
 
         public LogFile()
         {

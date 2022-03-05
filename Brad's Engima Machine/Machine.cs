@@ -12,10 +12,11 @@ namespace Brad_s_enigma_Machine
         private string initialMessage;
         private string endMessage;
         private string switchboardLog;
+        private char ukwChosen;
 
         private int defaultArraySize;
 
-        private Random rand = new Random();
+        static private Random rand = new Random();
 
         private CogArray[] machineCogs = new CogArray[3];
         private SwitchArray switchBoard;
@@ -76,7 +77,9 @@ namespace Brad_s_enigma_Machine
             bool save = GU.GetBoolFromUser("Would you like to save this answer to a file?");
             if(save == true)
             {
-                FileSys.WriteStringToTxtFile(endMessage, FileLocationHandler.readout_R + $"{rand.Next(1000, 9999)}.txt");
+                int savingId = rand.Next(1000, 9999);
+                FileSys.WriteStringToTxtFile(endMessage, FileLocationHandler.readout_R + $"{savingId}.txt");
+                GU.Print($"{savingId} has been saved to memory!");
             }
 
 
@@ -94,11 +97,14 @@ namespace Brad_s_enigma_Machine
                 count++;
             }
 
+            Logging.Write("--", $"REFLECTOR (UKW) SELECTED : {ukwChosen}");
+            Logging.Write("--", "");
             Logging.Write("--", "SWITCHBOARD SETTINGS --"); // Logs, quite complicatedly, the switchboard config
 
             string line = " ";
             count = 0;
             List<char> usedSwitchPairs = new List<char>();
+
             foreach(char y in switchboardLog) // shows parings that aren't that of themselves, aka - not AA but will show AC
             {
                 if( (  Convert.ToString(GU.IntIndexToAlphaChar(count)) != Convert.ToString(y).ToUpper() ) && usedSwitchPairs.Contains(y) == false )
@@ -223,6 +229,7 @@ namespace Brad_s_enigma_Machine
                     check = false;
                 }
             }
+            ukwChosen = choice;
             ukw = new ReverserArray(defaultArraySize, $"reflector{choice}.txt");
 
         }
@@ -359,7 +366,7 @@ namespace Brad_s_enigma_Machine
             int count = 0; // for breakpoint reasons
             foreach(char y in input)
             {
-                char got = FullPassThrough(y);
+                char got = FullPassThrough(Convert.ToChar(Convert.ToString(y).ToUpper()));
                 ret += got;
                 count++;
             }
@@ -393,15 +400,7 @@ namespace Brad_s_enigma_Machine
 
                 if(File.Exists(locationOfText) == true)
                 {
-                    if(CheckIfTraditionalCompatible(FileSys.GetStringFromFile(locationOfText)) == true)
-                    {
-                        acceptable = true;
-                    }
-                    else
-                    {
-                        GU.Print("ERROR | File provided has non alphabetical characters! (A-Z & SPACE)");
-                    }
-
+                    acceptable = true;
                 }
                 else
                 {
@@ -424,7 +423,7 @@ namespace Brad_s_enigma_Machine
 
             foreach (char y in writtenText)
             {
-                char got = FullPassThrough(y);
+                char got = FullPassThrough(Convert.ToChar(Convert.ToString(y).ToUpper()));
                 ret += got;
 
             }
@@ -453,10 +452,15 @@ namespace Brad_s_enigma_Machine
             char outflow = ' ';
 
             int current = GU.AlphaCharToIntIndex(inflow); //Starts by getting the index
-            if(current == -33) 
+            if (current == -33)
             {
-                Logging.Write("FullPassThrough()"," - [SPACE] <Character Skipped>");
-                return outflow; 
+                Logging.Write("FullPassThrough()", " - [SPACE] <Character Skipped>");
+                return outflow;
+            }
+            else if (current < 0 || current > 25)
+            {
+                Logging.Write("FullPassThrough()", $"[{current}] <Non-Alphabetic Character Skipped>");
+                return outflow;
             }
 
 

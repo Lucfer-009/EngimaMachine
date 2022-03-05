@@ -291,7 +291,7 @@ namespace Brad_s_enigma_Machine
 
         public static string ConvertToScriptco(string message)
         {
-            string ret = "";
+            string X = "";
             foreach(char y in message)
             {
                 int asciiValue = Convert.ToInt32(y);
@@ -302,10 +302,10 @@ namespace Brad_s_enigma_Machine
 
                 if(asciiValue >= 65 && asciiValue <= 90)
                 {
-                    ret += Convert.ToChar(asciiValue);
+                    X += Convert.ToChar(asciiValue);
                 }
             }
-            return ret;
+            return X;
         }
 
         public static void PrintContentsOfDirectory(string directoryPath, bool preview = false)

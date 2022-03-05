@@ -1,3 +1,3 @@
 Reflector needs to be logged to logfile.
-value of randomised 4-digit text file needs to be presented to the user should they choose to save a result from the machine.
-incorrect/ static timestamping in logfile
+value of randomised 4-digit text file needs to be presented to the user should they choose to save a result from the machine. x
+incorrect/ static timestamping in logfile x
