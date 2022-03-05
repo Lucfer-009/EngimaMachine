@@ -9,39 +9,44 @@ namespace Brad_s_enigma_Machine
     {
         static void Main(string[] args)
         {
-            Start();
-            //For Testing and development use only.
-            //TurnFileIntoFreq(FileLocationHandler.MSF_R + "english_bigrams.txt", FileLocationHandler.MSF_R + "bi_64.txt", 2, 64, 4); // Under Development.
-            //TurnFileIntoFreq(FileLocationHandler.MSF_R + "english_trigrams.txt", FileLocationHandler.MSF_R + "tri_128.txt", 3, 128, 6);
-            //TurnFileIntoFreq(FileLocationHandler.MSF_R + "english_quadgrams.txt", FileLocationHandler.MSF_R + "quad_256.txt", 4, 256, 8);
-            //TurnFileIntoFreq(FileLocationHandler.MSF_R + "english_quintgrams.txt", FileLocationHandler.MSF_R + "quint_512.txt", 5, 512, 10);
-
-
-
+            Instance A = new Instance();
+            A.Start();
         }
-        static void Start()
+        
+    }
+    class Instance
+    {
+        private static int next_ID = 0;
+        public int ID;
+
+        public Instance()
         {
-            
+            ID = next_ID;
+            next_ID++;
+        }
+
+        public void Start()
+        {
             bool end = false;
-            while(end == false)
+            while (end == false)
             {
                 GU.Print("1. Enigma Machine");
                 GU.Print("2. Enigma Decryption Program");
                 GU.Print("3. End Program");
                 GU.Print("--");
                 char choice = GU.GetCharFromUser("Enter your choice", true);
-                if(choice == '1')
+                if (choice == '1')
                 {
                     Machine enigma = new Machine(26); // Creates new instance of the machine
                     enigma.PowerOn(); // Starts the machine
                     Console.WriteLine("\n\n\n----------------------------------------\n");
                 }
-                else if(choice == '2')
+                else if (choice == '2')
                 {
                     LoadCypherBreaking();
                     Console.WriteLine("\n\n\n----------------------------------------\n");
                 }
-                else if ( choice == '3')
+                else if (choice == '3')
                 {
                     end = true;
                 }
@@ -49,20 +54,16 @@ namespace Brad_s_enigma_Machine
                 {
                     GU.Print("ERROR | Enter a valid choice, 1-3");
                 }
-                
             }
-
-
         }
 
-        static void LoadCypherBreaking()
+        private void LoadCypherBreaking()
         {
-
             Fitness currentBreaker;
             int loadingChoice = -1;
             int speedChoice = -1;
             bool valid = false;
-            while(valid == false)
+            while (valid == false)
             {
                 GU.Print("-- -- ");
                 GU.Print("1. Load from file");
@@ -73,7 +74,7 @@ namespace Brad_s_enigma_Machine
                 GU.Print("-- -- ");
 
                 loadingChoice = GU.GetIntFromUser("Enter choice [1-2]");
-                if(loadingChoice == 1 || loadingChoice == 2)
+                if (loadingChoice == 1 || loadingChoice == 2)
                 {
                     valid = true;
                 }
@@ -85,10 +86,10 @@ namespace Brad_s_enigma_Machine
             }
             GU.Print("");
             valid = false;
-            while(valid == false)
+            while (valid == false)
             {
                 GU.Print("-- -- ");
-                GU.Print("1. Accuracy Focus"); 
+                GU.Print("1. Accuracy Focus");
                 GU.Print("2. Speed Focus");
                 GU.Print("");
                 GU.Print("-- -- ");
@@ -104,7 +105,7 @@ namespace Brad_s_enigma_Machine
                 }
             }
             string writtenText;
-            if(loadingChoice == 1)
+            if (loadingChoice == 1)
             {
                 writtenText = "";
                 string locationOfText = "";
@@ -120,7 +121,6 @@ namespace Brad_s_enigma_Machine
                     }
                     else
                     {
-
                         locationOfText = $"{FileLocationHandler.cyphertextMessages_R}{locationOfText}.txt";
                     }
 
@@ -134,7 +134,6 @@ namespace Brad_s_enigma_Machine
                     }
                 }
 
-
                 writtenText = FileSys.GetStringFromFile(locationOfText);
             }
             else
@@ -142,7 +141,8 @@ namespace Brad_s_enigma_Machine
                 writtenText = GU.GetStringFromUser("Enter the message");
             }
 
-            if(speedChoice == 1)
+
+            if (speedChoice == 1)
             {
                 currentBreaker = new Fitness(writtenText, false);
             }
@@ -153,16 +153,18 @@ namespace Brad_s_enigma_Machine
             currentBreaker.PrintAllValues();
         }
 
-        static void TurnFileIntoFreq(string file, string endFileLocation, double ngramSize, int noOfElements, int round)
+
+        // Development Procedures
+        public void TurnFileIntoFreq(string file, string endFileLocation, double ngramSize, int noOfElements, int round)
         { // This is purely for testing use, it's a needed program to create the load files.
             double noOfNgrams = GetNoOfNGramsFromGivenFile(file);
             string[] text = FileSys.GetStringArrayFromFile(file);
             string[] final = new string[noOfElements];
 
             int count = 0;
-            foreach(string line in text)
+            foreach (string line in text)
             {
-                if(count == noOfElements) { break; }
+                if (count == noOfElements) { break; }
 
                 string[] temp = line.Split(" ");
                 string ngram = temp[0];
@@ -175,18 +177,20 @@ namespace Brad_s_enigma_Machine
 
             FileSys.WriteArrayToTxtFile(final, endFileLocation);
         }
-        static double GetNoOfNGramsFromGivenFile(string file)
-        { // This is also a testing 
+        public double GetNoOfNGramsFromGivenFile(string file)
+        {
             double total = 0;
             string[] text = FileSys.GetStringArrayFromFile(file);
 
-            foreach(string line in text)
+            foreach (string line in text)
             {
                 string[] temp = line.Split(" ");
                 total += Convert.ToDouble(temp[1]);
             }
             return total;
         }
+
+
     }
     
 }

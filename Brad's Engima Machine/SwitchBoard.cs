@@ -9,8 +9,8 @@ namespace Brad_s_enigma_Machine
 
     class SwitchArray : LookupArray
     {
-        private static string ID;
-        private static Random rand = new Random();
+        private string ID;
+        private Random rand = new Random();
 
         public SwitchArray(int size, string fileLocation) : base(size, $"{FileLocationHandler.switchboard_R}{fileLocation}")
         {

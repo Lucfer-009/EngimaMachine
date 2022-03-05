@@ -28,6 +28,7 @@
     <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Fast\quint_512.txt" />
     <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Fast\tri_128.txt" />
     <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\unigram frequencies.txt" />
+    <Content Include="bin\Debug\net5.0\settings\enigma\messages\BadCharacters.txt" />
     <Content Include="bin\Debug\net5.0\settings\enigma\messages\test.txt" />
     <Content Include="bin\Debug\net5.0\settings\machine specific files\english_bigrams.txt" />
     <Content Include="bin\Debug\net5.0\settings\machine specific files\english_quadgrams.txt" />

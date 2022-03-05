@@ -15,7 +15,7 @@ namespace Brad_s_enigma_Machine
 
         private int defaultArraySize;
 
-        private static Random rand = new Random();
+        private Random rand = new Random();
 
         private CogArray[] machineCogs = new CogArray[3];
         private SwitchArray switchBoard;
@@ -29,39 +29,6 @@ namespace Brad_s_enigma_Machine
             
 
         }
-        public bool Loaded = false;
-        public void ForceLoad(CogArray[] forced_machineCogs, SwitchArray forced_switchBoard, ReverserArray forced_ukw, bool force = false) // Used to instantly return a string from a given enigma setting.
-        {
-            if (Loaded == true && force == false)
-            {
-                throw new Exception($"Machine {base.ToString()} Already Loaded!");
-            }
-            Loaded = true;
-            Logging.Write("ForceLoad()", "Force loaded enigma settings into machine");
-
-            for (int i = 0; i < forced_machineCogs.Length; i++)
-            {
-                machineCogs[i] = forced_machineCogs[i];
-            }
-            switchBoard = forced_switchBoard;
-            ukw = forced_ukw;
-        }    
-        public string ForceUse(string message)
-        {
-            string ret = "";
-            foreach (char y in message)
-            {
-                if (CheckIfTraditionalCompatible(y) == false)
-                {
-                    throw new Exception($"Issue with force loading through the enigma machine, a not compatiable value | {y} | was attempted to be decoded.");
-                }
-                ret += FullPassThrough(y);
-            }
-            Logging.Close();
-            return ret;
-            
-        }
-
 
         public void PowerOn()
         {
@@ -426,7 +393,15 @@ namespace Brad_s_enigma_Machine
 
                 if(File.Exists(locationOfText) == true)
                 {
-                    acceptable = true;
+                    if(CheckIfTraditionalCompatible(FileSys.GetStringFromFile(locationOfText)) == true)
+                    {
+                        acceptable = true;
+                    }
+                    else
+                    {
+                        GU.Print("ERROR | File provided has non alphabetical characters! (A-Z & SPACE)");
+                    }
+
                 }
                 else
                 {
@@ -438,36 +413,33 @@ namespace Brad_s_enigma_Machine
             writtenText = FileSys.GetStringFromFile(locationOfText);
 
             GU.Print("");
-
-            DateTime starttime = DateTime.Now;
-            int count = 0;
-            double totalSpeed = 0;
-            int count2 = 0;
-            const int updateSum = 2000; // this only needs to be run for every long encryptions
+            const double knownCharPerSecond = 11627.906976744185; // The speed of this operation.
+            const double updateSum = knownCharPerSecond * 5; // 5 seconds of time
             string ret = "";
+            TimeSpan estTime = TimeSpan.FromSeconds(1 / knownCharPerSecond).Multiply(writtenText.Length);
+            if(writtenText.Length > updateSum)
+            {
+                GU.Print($"Est Time : {estTime.TotalSeconds} seconds");
+            }
+
             foreach (char y in writtenText)
             {
                 char got = FullPassThrough(y);
                 ret += got;
-                count++;
-                if (count % updateSum == 0)
-                {
-                    count2++;
-                    TimeSpan period = DateTime.Now - starttime;
-                    double EncryptionsPerSecond = count / period.TotalSeconds;
-                    totalSpeed += EncryptionsPerSecond;
-                    double timeLeft = (writtenText.Length-count) / (totalSpeed/count2);
 
-                    if(count % (updateSum * 20) == 0)
-                    {
-                        GU.Print($"~{timeLeft:N} - Seconds left");
-                    }
-
-                }
             }
-            GU.Print("");
-            GU.Print(writtenText);
-            GU.Print(ret);
+
+            if (writtenText.Length > updateSum)
+            {
+                GU.Print($"Text determined too large to print to console! > {updateSum:N0} characters");
+            }
+            else
+            {
+                GU.Print(writtenText);
+                GU.Print("-- -- -- --");
+                GU.Print("");
+                GU.Print(ret);
+            }
 
             initialMessage = writtenText;
             endMessage = ret;
@@ -514,10 +486,10 @@ namespace Brad_s_enigma_Machine
             int countA = 0;
             log = current;
 
-            current = switchBoard.ForwardParse(current); //Goes through SwitchBoard
+            current = switchBoard.ForwardParse(current); // Goes through SwitchBoard first
             Logging.Write("FullPassThrough()", $" - {log}({GU.IntIndexToAlphaChar(log)}) > [Switchboard-F] > {current}({GU.IntIndexToAlphaChar(current)})");
 
-            foreach (CogArray C in machineCogs)
+            foreach (CogArray C in machineCogs) // Then cogs
             {
                 log = current;
                 current = C.ForwardParse(current);
@@ -526,21 +498,21 @@ namespace Brad_s_enigma_Machine
             }
 
             log = current;
-            current = ukw.ForwardParse(current);
+            current = ukw.ForwardParse(current); // Then the Reverser
             Logging.Write("FullPassThrough()", $" - {log}({GU.IntIndexToAlphaChar(log)}) > [UKW] > {current}({GU.IntIndexToAlphaChar(current)})");
 
-            for (int i = 2; i >= 0; i--)
+            for (int i = 2; i >= 0; i--) // Back through the cogs
             {
                 log = current;
-                current = machineCogs[i].ReverseParse(current);
+                current = machineCogs[i].ReverseParse(current); 
                 Logging.Write("FullPassThrough()", $" - {log}({GU.IntIndexToAlphaChar(log)}) > [COG {i} -R] > {current}({GU.IntIndexToAlphaChar(current)})");
             }
 
             log = current;
-            current = switchBoard.ReverseParse(current);
+            current = switchBoard.ReverseParse(current); // Back through the switchboard
             Logging.Write("FullPassThrough()", $" - {log}({GU.IntIndexToAlphaChar(log)}) > [Switchboard-R] > {current}({GU.IntIndexToAlphaChar(current)})");
 
-            outflow = GU.IntIndexToAlphaChar(current);
+            outflow = GU.IntIndexToAlphaChar(current); // Prints (this would be the lampboard on a physical machine)
 
             return outflow;
         }

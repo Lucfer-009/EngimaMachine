@@ -30,7 +30,7 @@ namespace Brad_s_enigma_Machine
 
         public void Write(string commandAction, string note)
         {
-            mainFile.WriteLine($"{currentTime}  > {commandAction, -35} | {note}");
+            mainFile.WriteLine($"{DateTime.Now.ToString("HH:mm:ss")}  > {commandAction, -35} | {note}");
         }
     }
 }
