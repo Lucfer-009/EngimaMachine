@@ -20,7 +20,7 @@ namespace Brad_s_enigma_Machine
             ID = $"{rand.Next(1000, 9999)}"; // ID system. Assigns each instance of Machine a number.
         }
         public SwitchArray(int size, string manualSettings, bool x) : base(size)
-        {
+        { // The parameter x is irrelevant it simply is used to switch to this constructor.
             __pointerArray = LoadShifts(manualSettings);
             __RpointerArray = LoadShifts(InvertKey(manualSettings));
             ID = $"{rand.Next(1000, 9999)}"; // ID system. Assigns each instance of Machine a number.

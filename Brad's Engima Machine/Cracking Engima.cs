@@ -103,6 +103,7 @@ namespace Brad_s_enigma_Machine
 
                 // Time keeping ------------------------------------------------------------------------
                 // *please note this isn't particularly nessecary just that it's very useful when operating testing to know an approximation.
+
                 TimeSpan period = DateTime.UtcNow - start; // one operation completed in this period
                 avgPeriod += period; // the avg period it takes to complete one operation
                 TimeSpan timeRemaining = (frequenciesLength - j) * (avgPeriod.Divide(j+1));

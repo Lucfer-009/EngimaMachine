@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Brad_s_enigma_Machine
 {
     static class FileSys
-    {
+    { // These functions do as described.
         public static void WriteArrayToTxtFile(string[] array, string location)
         {
             StreamWriter sw = new StreamWriter(location);

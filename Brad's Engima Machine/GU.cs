@@ -18,7 +18,7 @@ namespace Brad_s_enigma_Machine
         public static readonly double version = 1.1;
 
         public static void DisplayErrorState(Exception e, string error, string section, string note = "N/A")
-        {
+        { // This is often only reserved for critical logic error states.
             Console.WriteLine("|| {0, -80} {1, 3}", $"A CRITICAL ERROR HAS OCCURED : {error}", "||");
             Console.WriteLine("|| {0, -80} {1, 3}", $"PROCEDURE OF ERROR : {section}", "||");
             Console.WriteLine("|| {0, -80} {1, 3}", $"NOTE WITHIN CODE : {note}", "||");

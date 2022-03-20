@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Brad_s_enigma_Machine
 {
     static class FileLocationHandler
-    {
+    { // Used to control file access across the program and ensure their relative mainDirectory.
         static private string mainDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
         static private string settingsPath = @"\settings\";
         static private string masterConfigPath = mainDirectory + settingsPath;

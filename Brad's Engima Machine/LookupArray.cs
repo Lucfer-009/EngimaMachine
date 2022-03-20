@@ -25,23 +25,23 @@ namespace Brad_s_enigma_Machine
 
         public int ForwardParse(int letterIndex)
         {
-            if (letterIndex < 0)
+            if (letterIndex < 0) //Takes the index of the character i.e A = 0,
             {
-                letterIndex = __size - (Math.Abs(letterIndex) % 26);
+                letterIndex = __size - (Math.Abs(letterIndex) % __size); //Enesures the index is within 0 - __size.
             }
             int x = 0;
-            int cCeaserShift = __pointerArray[(letterIndex + __shift) % __size];
-            x = __size + cCeaserShift;
+            int cCeaserShift = __pointerArray[(letterIndex + __shift) % __size]; // Takes the Ceasershift found at the pointer array of the index + the shift
+            x = __size + cCeaserShift; // Applies this Ceasershift to the circular array.
 
 
-            return (letterIndex + x) % __size;
+            return (letterIndex + x) % __size; // returns the value found at the postiion of the shift.
         }
 
         public int ReverseParse(int letterIndex)
-        {
+        { // Identical to ForwardParse but it calls a reversed dictionary
             if (letterIndex < 0)
             {
-                letterIndex = __size - (Math.Abs(letterIndex) % 26);
+                letterIndex = __size - (Math.Abs(letterIndex) % __size);
             }
             int x = 0;
             int cCeaserShift = __RpointerArray[(letterIndex + __shift) % __size];
@@ -87,9 +87,9 @@ namespace Brad_s_enigma_Machine
         {
             int[] current = new int[__size];
             int count = 0;
-            foreach (char y in manual)
+            foreach (char y in manual) //Tkaes a string i.e XVFEBGI and turns them into an array of shitfs
             {
-                current[count] = Convert.ToInt32(y) - 65 - count;
+                current[count] = Convert.ToInt32(y) - 65 - count; // A = 0, Z = 25
                 count++;
             }
 

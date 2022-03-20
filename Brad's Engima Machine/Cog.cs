@@ -17,7 +17,7 @@ namespace Brad_s_enigma_Machine
 
         public CogArray(int shift, int size, string cogFileLocation, char initialChar, int initialRingPos) : base(size, $"{FileLocationHandler.cogs_R}{cogFileLocation}")
         {
-            __shift = shift;
+            __shift = shift; // Cog is the only child of LookupArray to utilise the shift feature as other sections do not rotate physically.
             this.cogFileLocation = cogFileLocation;
             this.initialChar = initialChar;
             this.initialRingPos = initialRingPos;
@@ -47,7 +47,7 @@ namespace Brad_s_enigma_Machine
         }
 
         public void DecrementCog() // Experimental
-        {
+        { // The effects of this are unkown if a backparse was to occur when going through a double step.
             __shift--;
             if (__shift % __size == 0)  
             {                               
