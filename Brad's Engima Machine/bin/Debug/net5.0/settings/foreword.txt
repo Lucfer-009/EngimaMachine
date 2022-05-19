@@ -1,0 +1,17 @@
+﻿!!Please note!!
+
+This project is still only in early development. It is very much the minimum viable product.
+There may be bugs or unpredictable behaviour, but I hope it'll be minimal.
+
+There is no GUI here and there is no prior explanation as to how the Engima machine works.
+This is very much targeted toward a user who has some knowledge of the machine.
+
+There was meant to be an additional segment of the program that would attempt to preform
+crytographic attacks upon engima cyphertext without a plaintext refrence. However, due to
+time restraints a more minimalistic program was created; of which scores text upon how much
+like english it is. It uses many time accurate techniques that those at Bletchley Park used
+to crack Engima, and are still used today in cryptographic analysis. Such as n-gram frequency
+and index of coincidence.
+
+I hope you enjoy the project.
+Bradley Whitefield.
