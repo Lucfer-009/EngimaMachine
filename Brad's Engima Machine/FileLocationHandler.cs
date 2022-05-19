@@ -41,7 +41,7 @@ namespace Brad_s_enigma_Machine
         static public readonly string fastQuadGram_R            = masterConfigPath + cracking   + @"ngram analysis\Fast\quad_256.txt";
         static public readonly string fastQuintGram_R           = masterConfigPath + cracking   + @"ngram analysis\Fast\quint_512.txt";
 
-
+        static public readonly string foreword                  = masterConfigPath + @"foreword.txt";
 
     }
 }

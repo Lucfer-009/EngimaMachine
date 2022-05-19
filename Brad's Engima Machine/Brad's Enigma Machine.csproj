@@ -16,7 +16,6 @@
     <Content Include="bin\Debug\net5.0\Brad%27s enigma Machine.deps.json" />
     <Content Include="bin\Debug\net5.0\Brad%27s enigma Machine.runtimeconfig.dev.json" />
     <Content Include="bin\Debug\net5.0\Brad%27s enigma Machine.runtimeconfig.json" />
-    <Content Include="bin\Debug\net5.0\settings\cracking\messages\essay.txt" />
     <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Accurate\bi_500.txt" />
     <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Accurate\quad_2000.txt" />
     <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\Accurate\quint_4000.txt" />
@@ -30,6 +29,7 @@
     <Content Include="bin\Debug\net5.0\settings\cracking\ngram analysis\unigram frequencies.txt" />
     <Content Include="bin\Debug\net5.0\settings\enigma\messages\BadCharacters.txt" />
     <Content Include="bin\Debug\net5.0\settings\enigma\messages\test.txt" />
+    <Content Include="bin\Debug\net5.0\settings\foreword.txt" />
     <Content Include="bin\Debug\net5.0\settings\machine specific files\english_bigrams.txt" />
     <Content Include="bin\Debug\net5.0\settings\machine specific files\english_quadgrams.txt" />
     <Content Include="bin\Debug\net5.0\settings\machine specific files\english_quintgrams.txt" />

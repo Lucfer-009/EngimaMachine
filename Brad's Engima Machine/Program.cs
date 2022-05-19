@@ -9,6 +9,8 @@ namespace Brad_s_enigma_Machine
     {
         static void Main(string[] args)
         {
+            GU.PrintStrArrayToConsole(FileSys.GetStringArrayFromFile(FileLocationHandler.foreword)); // Foreword
+            Console.Read();
             Instance A = new Instance();
             A.Start();
         }
